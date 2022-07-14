@@ -1,0 +1,37 @@
+\selectlanguage *{english}
+\contentsline {part}{I\hspace {1em}Introduction}{3}{part.1}%
+\contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Objective/Goal}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Outline}{5}{section.1.2}%
+\contentsline {part}{II\hspace {1em}Method}{7}{part.2}%
+\contentsline {chapter}{\numberline {2}Overview}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}VMM}{9}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Inverse dynamics}{9}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Regression}{9}{section.2.3}%
+\contentsline {section}{\numberline {2.4}EKF}{9}{section.2.4}%
+\contentsline {section}{\numberline {2.5}RTS}{10}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Step 1)}{11}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Step 2)}{11}{section.2.7}%
+\contentsline {chapter}{\numberline {3}Vessel Manoeuvring Models}{13}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Inverse dynamics}{17}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Regression}{19}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Extended Kalman Filter}{21}{chapter.6}%
+\contentsline {section}{\numberline {6.1}RTS smoother}{22}{section.6.1}%
+\contentsline {part}{III\hspace {1em}Test case}{25}{part.3}%
+\contentsline {chapter}{\numberline {7}Test cases}{27}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Initial guessed parameters}{27}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Motion regression}{28}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Iterations}{29}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Simulations}{29}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Multicollinearity}{29}{section.7.5}%
+\contentsline {part}{IV\hspace {1em}Conclusions}{37}{part.4}%
+\contentsline {chapter}{\numberline {8}Conclusions}{39}{chapter.8}%
+\contentsline {part}{V\hspace {1em}bibligraphy}{41}{part.5}%
+\contentsline {chapter}{\numberline {9}Bibliography}{43}{chapter.9}%
+\contentsline {part}{VI\hspace {1em}appendix}{45}{part.6}%
+\contentsline {chapter}{\numberline {10}Vessel Manoeuvring Models}{47}{chapter.10}%
+\contentsline {section}{\numberline {10.1}vmm\_abkowitz}{47}{section.10.1}%
+\contentsline {section}{\numberline {10.2}vmm\_linear}{47}{section.10.2}%
+\contentsline {section}{\numberline {10.3}vmm\_martins\_simple}{47}{section.10.3}%
+\contentsline {chapter}{Bibliography}{49}{chapter*.4}%
+\contentsline {chapter}{Proof Index}{51}{section*.5}%

@@ -1,0 +1,4 @@
+PWD E:\dev\wPCC_pipeline\docs\paper\_build\latex
+INPUT C:\Users\maa\AppData\Local\MiKTeX\miktex\data\le\xetex\xelatex.fmt
+INPUT frontmatter.tex
+OUTPUT frontmatter.log
