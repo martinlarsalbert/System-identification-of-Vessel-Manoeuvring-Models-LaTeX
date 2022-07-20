@@ -63,7 +63,7 @@
         
 
 \title{System identification of Vessel Manoeuvring Models}
-\date{Jul 14, 2022}
+\date{Jul 20, 2022}
 \release{}
 \author{Martin Alexandersson}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -85,31 +85,31 @@
 \section{Introduction}
 \label{\detokenize{00.02_introduction:introduction}}\label{\detokenize{00.02_introduction::doc}}
 \sphinxAtStartPar
-Prediction of a ship’s manoeuvring performance is required in a wide range of applications such as the manoeuvrability requirement for ship design/construction, design of advanced ship autopilot systems or master mariners’ training simulators. Ship manoeuvring performance can be assessed in many ways, with varying accuracy, effort, and cost. Full scale manoeuvring test is the most reliable method and is used to demonstrate the compliance with the IMO manoeuvring criteria {[}\hyperlink{cite.bibligraphy:id16}{IMO02}{]} during sea trials, which all ships longer than 100 must fulfil. Before ships have been build prediction methods are needed, where free model test is the most accurate prediction method {[}\hyperlink{cite.bibligraphy:id75}{ITT08}{]}. The disadvantage with this method is that only results for one specific manoeuvre is obtained at the time, alterative manoeuvres requires new tests to be conducted. Some complex manoeuvres such as port manoeuvres are also very difficult to conduct in a free model test.
-System based manoeuvring simulation is instead used for this purpose. Captive model tests can conducted as input to the mathematical vessel manoeuvring model (VMM). These tests are more costly and the increased flexibility of the developed mathematical model gives lower accuracy {[}\hyperlink{cite.bibligraphy:id75}{ITT08}{]}. System identification methods can be applied to the free model tests, as an alternative way to develop the mathematical models.
+Prediction of a ship’s manoeuvring performance is required in a wide range of applications such as the manoeuvrability requirement for ship design/construction, design of advanced ship autopilot systems or master mariners’ training simulators. Ship manoeuvring performance can be assessed in many ways, with varying accuracy, effort, and cost. Full scale manoeuvring test is the most reliable method and is used to demonstrate the compliance with the IMO manoeuvring criteria {[}\hyperlink{cite.bibligraphy:id16}{IMO02}{]} during sea trials, which all ships longer than 100 must fulfil. Before ships have been build prediction methods are needed, where free model test is the most accurate prediction method {[}\hyperlink{cite.bibligraphy:id75}{ITT08}{]}. The disadvantage with this method is that only results for one specific manoeuvre is obtained at the time, alterative manoeuvres requires new tests to be conducted. Some complex manoeuvres such as harbour manoeuvres are also very difficult to conduct in a free model test.
+System based manoeuvring simulation is instead used for this purpose. Captive model tests can be conducted as input to the mathematical vessel manoeuvring model (VMM). These tests are more costly and the increased flexibility of the developed mathematical model gives lower accuracy {[}\hyperlink{cite.bibligraphy:id75}{ITT08}{]}. System identification methods can be applied to the free model tests, as an alternative more cost efficients way to develop the mathematical models.
 
 \sphinxAtStartPar
-Black box approaches for system identification have been investigated for instance using Artificial Neural Networks (ANN) {[}\hyperlink{cite.bibligraphy:id82}{HWZL22}{]}. Most of today’s system identification methods for developing ship manoeuvring models does however assume a pre\sphinxhyphen{}defined mathematical model, so that the problem reduces into the parameter identification (PIT) or rather parameter estimation. Most methods include a regression method to fit parameters in a mathematical model and sometimes also a filter to handle measurement noise.
-Kalman Filter (KF), Extended Kalman Filter (EKF) or machine learning methods such as Support Vector Regression (SVR) are common choices to regress the parameters. The KF/EKF are either used as a pre\sphinxhyphen{}processing filter or as the parameter estimator. The KF combined with Maximum Likelihood Estimation was proposed already in 1976 {[}\hyperlink{cite.bibligraphy:id30}{AK76}{]} to develop a linear manoeuvring model based on data that was manually recorded in 1969 onboard the Atlantic Song freighter. The EKF can also estimate parameters if the parameters are represented as states of the state space model. This technique was used on simulated data with a nonlinear Nomoto model {[}\hyperlink{cite.bibligraphy:id33}{POGS15}{]}. The same technique was also used with a 3 degree of freedom model (3DOF) on simulated data {[}\hyperlink{cite.bibligraphy:id54}{SZPS09}{]}.
+Nonparametric Black box approaches for system identification have been investigated for instance using Artificial Neural Networks (ANN) {[}\hyperlink{cite.bibligraphy:id82}{HWZL22}{]}. Most of today’s system identification methods for developing ship manoeuvring models does however assume a pre\sphinxhyphen{}defined mathematical model, so that the problem reduces into the parameter identification (PIT) or rather parameter estimation. Most methods include a regression method to fit parameters in a mathematical model and sometimes also a filter to handle measurement noise.
+Kalman Filter (KF), Extended Kalman Filter (EKF) or machine learning methods such as Support Vector Regression (SVR) are common choices to regress the parameters. The KF/EKF are either used as a pre\sphinxhyphen{}processing filter or as the parameter estimator. The KF combined with Maximum Likelihood Estimation was proposed already in 1976 {[}\hyperlink{cite.bibligraphy:id30}{AK76}{]} to develop a linear manoeuvring model based on data that was manually recorded in 1969 onboard the Atlantic Song freighter. The EKF can also estimate parameters if the parameters are represented as states of the state space model. This technique has been used on simulated data with a nonlinear Nomoto model {[}\hyperlink{cite.bibligraphy:id33}{POGS15}{]}. The same technique has also been used with a 3 degree of freedom model (3DOF) on simulated data {[}\hyperlink{cite.bibligraphy:id54}{SZPS09}{]}.
 A lot of investigations using machine learning methods have been conducted lately, with the rapid development of new methods within the field. SVR has become very popular, where the penalty factor can be tuned to handle measurement noise. This has been investigated using simulated data in {[}\hyperlink{cite.bibligraphy:id38}{ZHWB17}{]} and {[}\hyperlink{cite.bibligraphy:id47}{WLW+21}{]} and using measured data from free model tests in {[}\hyperlink{cite.bibligraphy:id56}{Luo16}{]}.
 The drift effect of the hydrodynamic coefficients is inevitable in modelling of ship manoeuvring motions by using the System Identification (SI) techniques. The drifts of hydrodynamic coefficients result from the so\sphinxhyphen{}called multicollinearity. It means if the input variables of a regression model are strongly linearly dependent on each other, the regression results of their coefficients may be incorrect {[}\hyperlink{cite.bibligraphy:id56}{Luo16}{]}. The identified coefficients within the mathematical model do not have to be physically correct, but mathematically correct {[}\hyperlink{cite.bibligraphy:id75}{ITT08}{]}. In fact, many nonlinear hydrodynamic coefficients in the mathematical model of ship manoeuvring motions have no clear physical meaning {[}\hyperlink{cite.bibligraphy:id56}{Luo16}{]}. Multicollinearity can be reduced by reducing the number of parameters in the model, either by simplification or adding more deterministic parts by including hydrodynamic relations for instance by adding slender body theory {[}\hyperlink{cite.bibligraphy:id80}{Hwa82}{]}. Simplification can be based on hydrodynamic reasoning where the number of parameters in the well\sphinxhyphen{}known Abkowitz yaw equation {[}\hyperlink{cite.bibligraphy:id25}{Abk64}{]} can be reduced from 22 to 14 {[}\hyperlink{cite.bibligraphy:id56}{Luo16}{]}.
 
 \sphinxAtStartPar
-System identification methods must handle imperfections in the data from measurement noise as well as imperfection in the VMM which will always be present since the model can never capture the real physics perfectly. For a real use case developing a VMM with model test data for manoeuvring prediction, preprocessing of data and a way to chose an appropriate VMM is needed.
+System identification methods must handle imperfections in the data from measurement noise as well as imperfection in the VMM which will always be present since the model can never capture the real physics perfectly. When developing a VMM with model test data for manoeuvring prediction, preprocessing of data and a method to chose an appropriate VMM is needed.
 
 \sphinxAtStartPar
-A way to develop VMM:s for manoeuvring prediction based on model test data is proposed in this paper. The System Identification is carried out by using a Parameter Identification Technique (PIT) proposed in this paper, on several candidate VMM:s and then applying a proposed method to select the most appropriate. The problem with multicollinearity is addressed by identifying a ship manoeuvring system with proper parameters in the VMM.
-The PIT uses model test data recorded as ship trajectories (position and heading) and propeller thrust from manoeuvring model tests with a ship model free in all degrees of freedoms. The method is verified by identifying a proposed VMM and predicting turning circle manoeuvres for two different test vessels.
+A way to develop VMM:s for manoeuvring prediction based on model test data is proposed in this paper. The System Identification is carried out by using a Parameter Identification Technique (PIT) proposed in this paper, on several candidate VMM:s and then applying a method, proposed in this paper, to select the most appropriate VMM. The problem with multicollinearity is addressed by identifying a ship manoeuvring system with proper parameters in the VMM.
+The PIT uses model test data with a ship model free in all degrees of freedoms recorded as ship trajectories (position and heading) and propeller thrust. The method is verified by identifying a selected VMM and predicting turning circle manoeuvres for two different test vessels.
 
 \sphinxAtStartPar
-The left part of this paper is organized as follows. First, different VMMs are briefly introduced in \hyperref[\detokenize{02.01_VMMs:vmm}]{Section \ref{\detokenize{02.01_VMMs:vmm}}}. Then the proposed PIT algorithm to identify the parameters in the VMMs is presented in \hyperref[\detokenize{01.01_method:method}]{Section \ref{\detokenize{01.01_method:method}}}, where each subcomponent is also described in details within those subsections. The PIT is applied to two case study ships which are introduced in \hyperref[\detokenize{05.01_case_studies:case-studies}]{Section \ref{\detokenize{05.01_case_studies:case-studies}}} and corresponding results are presented in the \hyperref[\detokenize{06.01_results:results}]{Section \ref{\detokenize{06.01_results:results}}}, followed by conclusions.
+The left part of this paper is organized as follows. First, different VMMs and propeller models are briefly introduced in \hyperref[\detokenize{02.01_VMMs:vmm}]{Section \ref{\detokenize{02.01_VMMs:vmm}}}. Then the proposed PIT algorithm to identify the parameters in the VMMs is presented in \hyperref[\detokenize{01.01_method:method}]{Section \ref{\detokenize{01.01_method:method}}}, where each subcomponent is also described. The PIT is applied to two case study ships which are introduced in \hyperref[\detokenize{05.01_case_studies:case-studies}]{Section \ref{\detokenize{05.01_case_studies:case-studies}}} and corresponding results are presented in the \hyperref[\detokenize{06.01_results:results}]{Section \ref{\detokenize{06.01_results:results}}}, followed by conclusions.
 
 
 \section{Models}
 \label{\detokenize{02.01_VMMs:models}}\label{\detokenize{02.01_VMMs:vmm}}\label{\detokenize{02.01_VMMs::doc}}
 \sphinxAtStartPar
-Three Vessel Manoeuvring Models (VMM) are used in this paper: Linear (LVMM), {[}\hyperlink{cite.bibligraphy:id40}{Mat17}{]}Abkowitz model (AVMM){[}\hyperlink{cite.bibligraphy:id25}{Abk64}{]} and a Modified Abkowitz model (MAVMM), propsed by the authors. These VMM:s and almost all other VMM:s that exist have a very similar structure that is explained in this section.\\
-Ship manoeuvring is a simplified case of sekeeping. The encountering waves have been removed, assuming calm water conditions. This simplification allows for the ship dynamics to be expressed with only three degrees of fredome: surge, sway and yaw. These motions have very low frequency during manoeuvres, so that added masses as well as other hydrodynamic derivatives can be assumed as constants {[}{]}.
+Three Vessel Manoeuvring Models (VMM) are used in this paper: Linear (LVMM), {[}\hyperlink{cite.bibligraphy:id40}{Mat17}{]}, Abkowitz model (AVMM){[}\hyperlink{cite.bibligraphy:id25}{Abk64}{]} and a Modified Abkowitz model (MAVMM) which is  propsed by the authors. These VMM:s and almost all other VMM:s that exist have a very similar structure.\\
+Ship manoeuvring is a simplified case of sekeeping. The encountering waves have been removed, assuming calm water conditions. This simplification allows for the ship dynamics to be expressed with only four degrees of fredome: surge, sway, roll and yaw, where roll is often excluded. Surge, sway and yaw have very low frequency during manoeuvres, so that added masses as well as other hydrodynamic derivatives can be assumed as constants {[}\hyperlink{cite.bibligraphy:id87}{Fos21}{]}.
 
 \sphinxAtStartPar
 \hyperref[\detokenize{02.01_VMMs:coordinate-system}]{Fig.\@ \ref{\detokenize{02.01_VMMs:coordinate-system}}} shows the coordinate systems used in the VMM:s where \(x_0\) and \(y_0\) and heading \(\Psi\) are the global position and orientation of a ship fix coordinate system \(O(x,y,z)\),  with origo at midship. \(u\), \(v\), \(r\), \(X\), \(Y\) and \(N\) are velocities and forces in the ship fix coordinate system.
@@ -122,11 +122,10 @@ Ship manoeuvring is a simplified case of sekeeping. The encountering waves have 
 \caption{Coordinate system}\label{\detokenize{02.01_VMMs:coordinate-system}}\end{figure}
 
 \sphinxAtStartPar
-The system equation for the ship is written {[}{]}:
-
-\sphinxAtStartPar
-This equation can be rewritten to get the acceleration on the left hand side:
-\begin{equation}\label{equation:02.01_VMMs:eqacc}
+The system equation (\autoref{equation:02.01_VMMs:eqqsystem}) {[}\hyperlink{cite.bibligraphy:id87}{Fos21}{]} can be rewritten to get the acceleration on the left hand side (\autoref{equation:02.01_VMMs:eqacc}).
+\begin{equation}\label{equation:02.01_VMMs:eqqsystem}
+\begin{split}\displaystyle \left[\begin{matrix}- X_{\dot{u}} + m & 0 & 0\\0 & - Y_{\dot{v}} + m & - Y_{\dot{r}} + m x_{G}\\0 & - N_{\dot{v}} + m x_{G} & I_{z} - N_{\dot{r}}\end{matrix}\right] \left[\begin{matrix}\dot{u}\\\dot{v}\\\dot{r}\end{matrix}\right] = \left[\begin{matrix}m r^{2} x_{G} + m r v + \operatorname{X_{D}}{\left(u,v,r,\delta,thrust \right)}\\- m r u + \operatorname{Y_{D}}{\left(u,v,r,\delta,thrust \right)}\\- m r u x_{G} + \operatorname{N_{D}}{\left(u,v,r,\delta,thrust \right)}\end{matrix}\right]\end{split}
+\end{equation}\begin{equation}\label{equation:02.01_VMMs:eqacc}
 \begin{split}\displaystyle \dot{\nu} = \left[\begin{matrix}\dot{u}\\\dot{v}\\\dot{r}\end{matrix}\right] = \left[\begin{matrix}\frac{1}{- X_{\dot{u}} + m} & 0 & 0\\0 & - \frac{- I_{z} + N_{\dot{r}}}{S} & - \frac{- Y_{\dot{r}} + m x_{G}}{S}\\0 & - \frac{- N_{\dot{v}} + m x_{G}}{S} & - \frac{Y_{\dot{v}} - m}{S}\end{matrix}\right] \left[\begin{matrix}m r^{2} x_{G} + m r v + \operatorname{X_{D}}{\left(u,v,r,\delta,thrust \right)}\\- m r u + \operatorname{Y_{D}}{\left(u,v,r,\delta,thrust \right)}\\- m r u x_{G} + \operatorname{N_{D}}{\left(u,v,r,\delta,thrust \right)}\end{matrix}\right]\end{split}
 \end{equation}
 \sphinxAtStartPar
@@ -141,7 +140,7 @@ A state space model for manoeuvring can now be defined with six states:
 \end{equation}
 \sphinxAtStartPar
 The time derivative of this state \(\dot{\mathbf{x}}\) can be defined using geometrical relations how global coordinates \(x_0\), \(y_0\) and \(\Psi\) depend on \(u\), \(v\), and \(r\).
-The last three derivatives: \(\dot{u}\), \(\dot{v}\), \(\dot{r}\) are calculated with \autoref{equation:02.01_VMMs:eqf}.
+The last three derivatives: \(\dot{u}\), \(\dot{v}\), \(\dot{r}\) are calculated with \autoref{equation:02.01_VMMs:eqacc}.
 \begin{equation}\label{equation:02.01_VMMs:eqf}
 \begin{split}\displaystyle \dot{\mathbf{x}} = \left[\begin{matrix}u \cos{\left(\Psi \right)} - v \sin{\left(\Psi \right)}\\u \sin{\left(\Psi \right)} + v \cos{\left(\Psi \right)}\\r\\\dot{u}\\\dot{v}\\\dot{r}\end{matrix}\right]\end{split}
 \end{equation}
@@ -420,7 +419,7 @@ The hydrodynamic derivatives in these polynomials can be identified with force r
 When the ship is free in all degrees of freedom, only motions can be observed, as in the present model tests. Hence, forces and moments causing ship motions need to be estimated by solving the inverse dynamics problem and doing a motion regression.
 
 \sphinxAtStartPar
-The inverse dynamics is solved by restructuring the system equation \DUrole{xref,myst}{eq} to get the hydrodynamics functions on the left hand side \autoref{equation:03.01_inverse_dynamics:eqxd}, \autoref{equation:03.01_inverse_dynamics:eqyd}, \autoref{equation:03.01_inverse_dynamics:eqnd}. If the mass and inertia of the ship, added masses: \(\dot{u}\), \(\dot{v}\), \(\dot{r}\) are known, the forces can be calculated using these equations.
+The inverse dynamics is solved by restructuring the system equation \autoref{equation:02.01_VMMs:eqqsystem} to get the hydrodynamics functions on the left hand side \autoref{equation:03.01_inverse_dynamics:eqxd}, \autoref{equation:03.01_inverse_dynamics:eqyd}, \autoref{equation:03.01_inverse_dynamics:eqnd}. If the mass and inertia of the ship, added masses: \(\dot{u}\), \(\dot{v}\), \(\dot{r}\) are known, the forces can be calculated using these equations.
 \begin{equation}\label{equation:03.01_inverse_dynamics:eqxd}
 \begin{split}\displaystyle \operatorname{X_{D}}{\left(u,v,r,\delta,thrust \right)} = - X_{\dot{u}} \dot{u} + \dot{u} m - m r^{2} x_{G} - m r v\end{split}
 \end{equation}\begin{equation}\label{equation:03.01_inverse_dynamics:eqyd}
@@ -480,7 +479,7 @@ The \(X_T\) coefficient is excluded from the regression by moving it to the left
 \begin{split}y-X_T \cdot T = X \beta + \epsilon\end{split}
 \end{equation}
 \sphinxAtStartPar
-Rudder coefficients (\(Y_R\)) from \(Y_D\) equation \DUrole{xref,myst}{eq} such as \(Y_{\delta}\), \(Y_{\delta T}\) etc. have been exluded in the same way by assuming a connection with their \(N_D\) equation counter part through the rudder lever arm \(x_r\):
+Rudder coefficients (\(Y_R\)) from \(Y_D\) equation \autoref{equation:02.01_VMMs:eqyabkowitz} such as \(Y_{\delta}\), \(Y_{\delta T}\) etc. have been exluded in the same way by assuming a connection with their \(N_D\) equation counter part through the rudder lever arm \(x_r\):
 \begin{equation}\label{equation:03.01_inverse_dynamics:eqyr}
 \begin{split}\displaystyle Y_{R} = \frac{N_{R}}{x_{r}}\end{split}
 \end{equation}
@@ -1036,7 +1035,7 @@ The absolute correlation coefficient between the features in the WPCC yaw moment
 \caption{Absolute correlation between the features in the WPCC yaw moment regression of Abkowitz model}\label{\detokenize{06.10_results_wpcc:fig-ncorr}}\end{figure}
 
 \sphinxAtStartPar
-The authors have proposed a MAVMM \DUrole{xref,myst}{eq},\DUrole{xref,myst}{eq}, \DUrole{xref,myst}{eq} where only the most essential parameters are kept.
+The authors have proposed a MAVMM \autoref{equation:02.01_VMMs:eqxmartins-simple},\autoref{equation:02.01_VMMs:eqymartins-simple}, \autoref{equation:02.01_VMMs:eqnmartins-simple} where only the most essential parameters are kept.
 
 \sphinxAtStartPar
 Forces and moment predicted with the VMM:s fitted on the training set are show in \hyperref[\detokenize{06.10_results_wpcc:fig-validation-forces}]{Fig.\@ \ref{\detokenize{06.10_results_wpcc:fig-validation-forces}}}. It can be seen that the full Abkowitz model overpredicts the forces by far due to the anticipated extrapolation error. Simulations of the validation cases where therfore only possible with the MAVMM as shown for one of the ZigZag20/20 validation cases in \hyperref[\detokenize{06.10_results_wpcc:fig-validation-sim}]{Fig.\@ \ref{\detokenize{06.10_results_wpcc:fig-validation-sim}}}.
@@ -1291,7 +1290,7 @@ The regressed derivatives in the MAVMM for wPCC are shown in \hyperref[\detokeni
 The coefficients of \(K_T\) \autoref{equation:02.10_propeller_model:eqkt} where regressed from the propeller KVLCC2 characteristics from SIMMAN2008 HSVA model tests {[}\hyperlink{cite.bibligraphy:id79}{SAK+11}{]} (\(k_0\):\DUrole{output,text_plain}{0.32419}, \(k_1\):\DUrole{output,text_plain}{\sphinxhyphen{}0.22091}, \(k_2\):\DUrole{output,text_plain}{\sphinxhyphen{}0.14905}).
 
 \sphinxAtStartPar
-The Polynomial propeller model (\sphinxcode{\sphinxupquote{propeller}}) was developed with polynomial regression and cross validation on the training and validation datasets, to make the best feature selection.
+The Polynomial propeller model was developed with polynomial regression and cross validation on the training and validation datasets, to make the best feature selection.
 
 \sphinxAtStartPar
 A cross validation study on the three candidate propeller models: MMG propeller model, Simple propeller model and the Polynomial propeller model where carried out. The training set as well as the validation set was made up by entire model test time series from the HSVA model tests.
@@ -1681,6 +1680,9 @@ Martin Alexandersson. wPCC manoeuvring model tests. \sphinxstyleemphasis{Mendele
 \bibitem[Bri93]{bibligraphy:id45}
 \sphinxAtStartPar
 Jochim E. Brix. \sphinxstyleemphasis{Manoeuvring Technical Manual}. Seehafen\sphinxhyphen{}Verlag, 1993. ISBN 978\sphinxhyphen{}3\sphinxhyphen{}87743\sphinxhyphen{}902\sphinxhyphen{}9. Google\sphinxhyphen{}Books\sphinxhyphen{}ID: CMJ1NAAACAAJ.
+\bibitem[Fos21]{bibligraphy:id87}
+\sphinxAtStartPar
+Thor I. Fossen. \sphinxstyleemphasis{Handbook of Marine Craft Hydrodynamics and Motion Control}. Wiley, Hoboken, NJ, 2nd edition edition, April 2021. ISBN 978\sphinxhyphen{}1\sphinxhyphen{}119\sphinxhyphen{}57505\sphinxhyphen{}4.
 \bibitem[HWZL22]{bibligraphy:id82}
 \sphinxAtStartPar
 Hong\sphinxhyphen{}Wei He, Zi\sphinxhyphen{}Hao Wang, Zao\sphinxhyphen{}Jian Zou, and Yi Liu. Nonparametric modeling of ship maneuvering motion based on self\sphinxhyphen{}designed fully connected neural network. \sphinxstyleemphasis{Ocean Engineering}, 251:111113, May 2022. URL: \sphinxurl{https://linkinghub.elsevier.com/retrieve/pii/S002980182200525X} (visited on 2022\sphinxhyphen{}07\sphinxhyphen{}06), \sphinxhref{https://doi.org/10.1016/j.oceaneng.2022.111113}{doi:10.1016/j.oceaneng.2022.111113}.
