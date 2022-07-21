@@ -1325,17 +1325,14 @@ Prediction
 \subsubsection{KVLCC2 propeller model}
 \label{\detokenize{06.20_results_kvlcc2:kvlcc2-propeller-model}}
 \sphinxAtStartPar
-The coefficients of \(K_T\) \autoref{equation:02.10_propeller_model:eqkt} where regressed from the KVLCC2 propeller characteristics from SIMMAN2008 HSVA model tests {[}\hyperlink{cite.bibligraphy:id79}{SAK+11}{]} (\(k_0\):\DUrole{output,text_plain}{0.32419}, \(k_1\):\DUrole{output,text_plain}{\sphinxhyphen{}0.22091}, \(k_2\):\DUrole{output,text_plain}{\sphinxhyphen{}0.14905}).
+The coefficients of \(K_T\) (\autoref{equation:02.10_propeller_model:eqkt}) where regressed from the KVLCC2 propeller characteristics from SIMMAN2008 HSVA model tests {[}\hyperlink{cite.bibligraphy:id79}{SAK+11}{]} (\(k_0\):\DUrole{output,text_plain}{0.32419}, \(k_1\):\DUrole{output,text_plain}{\sphinxhyphen{}0.22091}, \(k_2\):\DUrole{output,text_plain}{\sphinxhyphen{}0.14905}).
 
 \sphinxAtStartPar
 The Polynomial propeller model was developed with polynomial regression and cross validation on the training and validation datasets, to make the best feature selection.
 
 \sphinxAtStartPar
 A cross validation study on the three candidate propeller models: MMG propeller model, Simple propeller model and the Polynomial propeller model where carried out. The training set as well as the validation set was made up by entire model test time series from the HSVA model tests.
-The model tests were divided into the test and validation set randomly. The random train and validation was repeated 100 times. The Polynomial was selected, having the highest accuracy. Taylor wake \(w_{p0}\) = \DUrole{output,text_plain}{0.4} was used in all three models, the MMG model used \(C_1\)=\DUrole{output,text_plain}{2.0}, \(C_2\)=\DUrole{output,text_plain}{1.6} when \(\beta_p>0\) and \(C_2\)=\DUrole{output,text_plain}{1.1} when \(\beta_p<=0\) {[}\hyperlink{cite.bibligraphy:id22}{YY15}{]}.
-
-\sphinxAtStartPar
-\hyperref[\detokenize{06.20_results_kvlcc2:fig-propeller-validation}]{Fig.\@ \ref{\detokenize{06.20_results_kvlcc2:fig-propeller-validation}}} shows a small part of the cross validation.
+The model tests were divided into the test and validation set randomly. The random train and validation was repeated 100 times. The Polynomial model was selected, having the highest accuracy. Taylor wake \(w_{p0}\) = \DUrole{output,text_plain}{0.4} was used in all three models, the MMG model used \(C_1\)=\DUrole{output,text_plain}{2.0}, \(C_2\)=\DUrole{output,text_plain}{1.6} when \(\beta_p>0\) and \(C_2\)=\DUrole{output,text_plain}{1.1} when \(\beta_p<=0\) {[}\hyperlink{cite.bibligraphy:id22}{YY15}{]}. \hyperref[\detokenize{06.20_results_kvlcc2:fig-propeller-validation}]{Fig.\@ \ref{\detokenize{06.20_results_kvlcc2:fig-propeller-validation}}} shows a small part of the cross validation.
 
 \begin{figure}[H]
 \centering
@@ -1744,8 +1741,8 @@ Using inverse dynamics in the proposed PIT can find the parameters in a VMM exac
 The proposed PIT requires that the model test data is preprocessed to remove measurement noise. High accuracy can be obtained using a low\sphinxhyphen{}pass filter as the preprocessor if an optimal cut off frequency is selected. The accuracy decreases however quickly at lower or higher frequencies. With higher cut off frequencies too much of the measurement error remains in the data (having no filter at all is the extreme case), with poor performance of the OLS regression. Too low cut off frequency on the other hand, removes too much, also removing parts of the true signal. The proposed PIT therefore uses an Iterative EKF and RTS smoother as the preprocessor which gives higher accuracy and also avoids the trouble of finding the optimal cut off frequency of a low\sphinxhyphen{}pass filter.
 
 \sphinxAtStartPar
-The proposed PIT applied on the AVMM can reproduce the model test results for the two test cases (wPCC and KVLCC2) with high accuracy. Multicollinearity is however a large problem with AVMM for both the wPCC and KVLCC2 data. As a consequence, some of the regressed hydrodynamic derivatives in the AVMM have unphysically large values and also very large uncertainty. The model is still mathematically correct however, where the regressed polynomials fit the training data well.
-The regressed polynomial is the sum of very large counter acting coefficients. The model works, as long as the states are similar to the training data. But when extrapolating, it is easy to imagine that the balance between these huge derivatives is disturbed, giving large extrapolation errors very quickly. This behavior was seen when predicting forces and moments with the AVMM on unseen validation data.
+The proposed PIT applied on the AVMM can reproduce the model test results for the two test cases (wPCC and KVLCC2) with high accuracy. Multicollinearity is however a large problem with AVMM for both the wPCC and KVLCC2 data. As a consequence, some of the regressed hydrodynamic derivatives in the AVMM have unphysically large values and also very large uncertainty. The model is still mathematically correct, where the regressed polynomials fit the training data well.
+The regressed polynomial is the sum of very large counteracting coefficients. The model works, as long as the states are similar to the training data. But when extrapolating, it is easy to imagine that the balance between these huge derivatives is disturbed, giving large extrapolation errors very quickly. This behavior was seen when predicting forces and moments with the AVMM on unseen validation data.
 
 \sphinxAtStartPar
 The MAVMM has fewer hydrodynamic derivatives with lower multicollinearity and smaller extrapolation errors. Including propeller thrust in the VMM made it possible to obtain high accuracy with fewer hydrodynamic derivatives.
