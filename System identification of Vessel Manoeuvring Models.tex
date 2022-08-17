@@ -1012,21 +1012,15 @@ where \(d_n\) is the euclidean distance for each time step between the model tes
 \caption{Average simulation error with MAVMM fitted on wPCC model test data using low\sphinxhyphen{}pass filters with various cutt off frequency or EKF.}\label{\detokenize{06.31_results_noise:fig-lowpass-accuracy}}\end{figure}
 
 \sphinxAtStartPar
-Even though high accuracy can be obtained using a low\sphinxhyphen{}pass filter as the pre-processor if an optimal cut off frequency is selected, its accuracy decreases quickly at lower or higher frequencies. With higher cut-off frequencies too much of the measurement error remains in the data (having no filter at all is the extreme case), with poor performance of the OLS regression. Too low cut off frequency on the other hand, removes too much, also removing parts of the true signal. The low\sphinxhyphen{}pass filter with 7 Hz cut off frequency has the lowest error between the low\sphinxhyphen{}pass filters, but EKF + RTS in the PIT has even lower error.
+Even though high accuracy can be obtained using a low\sphinxhyphen{}pass filter as the pre-processor if an optimal cut off frequency is selected, its accuracy decreases quickly at lower or higher frequencies. With higher cut-off frequencies too much of the measurement error remains in the data (having no filter at all is the extreme case), with poor performance of the OLS regression. Too low cut off frequency on the other hand, removes too much, also removing parts of the true signal. The results show that the low\sphinxhyphen{}pass filter with 7 Hz cut off frequency has the lowest error between the low\sphinxhyphen{}pass filters, but EKF + RTS in the PIT has even lower error, which is why this is used as the preprocessor in the proposed PIT.
 
 
 \subsection{wPCC tests}
 \label{\detokenize{06.10_results_wpcc:wpcc-tests}}\label{\detokenize{06.10_results_wpcc::doc}}
 \sphinxAtStartPar
-Large problems with multicolliearity was encountered when applying the PIT method to get the AVMM based on the wPCC data. The absolute correlation coefficient between the features in the wPCC yaw moment regression are shown in \hyperref[\detokenize{06.10_results_wpcc:fig-ncorr}]{Fig.\@ \ref{\detokenize{06.10_results_wpcc:fig-ncorr}}}. It can be seen that most of the coefficients have very high absolute correlation (indicated in black). Some of the regressed hydrodynamic derivatives in the AVMM also have very large values and large uncertainty. Therefore, the modified model, i.e., the MAVMM, is proposed to further improve the model and the method.
-
-\begin{figure}[H]
-\centering
-\capstart
-
-\noindent\sphinxincludegraphics{{eb7b600e63201b670217b2c3bcc100a157dc84dc216720bb54e8e528415b80ca}.pdf}
-\caption{Absolute correlation between the features in the wPCC yaw moment regression of AVMM}\label{\detokenize{06.10_results_wpcc:fig-ncorr}}\end{figure}
-Forces and moment predicted with the VMMs fitted on the training set are show in \hyperref[\detokenize{06.10_results_wpcc:fig-validation-forces}]{Fig.\@ \ref{\detokenize{06.10_results_wpcc:fig-validation-forces}}}. It can be seen that the fitted AVMM overpredicts the forces by far due to the anticipated extrapolation error. Simulations of the validation cases are therefore only possible by the MAVMM. The simulations are shown for one of the ZigZag20/20 validation cases in \hyperref[\detokenize{06.10_results_wpcc:fig-validation-sim}]{Fig.\@ \ref{\detokenize{06.10_results_wpcc:fig-validation-sim}}}.
+The LVMM was ruled out as being too simple, so that the AVMM and MAVMM where considered as possible VMMs in the cross validation.
+Forces and moment predicted for the validation dataset with the VMMs fitted with proposed PIT on the training set are show in \hyperref[\detokenize{06.10_results_wpcc:fig-validation-forces}]{Fig.\@ \ref{\detokenize{06.10_results_wpcc:fig-validation-forces}}}. It can be seen that the fitted AVMM overpredicts the forces by far. Simulations of the validation cases are therefore only possible by the MAVMM, which is therefore selected as the suitable VMM for the wPCC. 
+The simulations are shown for one of the ZigZag20/20 validation cases in \hyperref[\detokenize{06.10_results_wpcc:fig-validation-sim}]{Fig.\@ \ref{\detokenize{06.10_results_wpcc:fig-validation-sim}}}.
 
 \begin{figure}[H]
 \centering
@@ -1042,9 +1036,19 @@ Forces and moment predicted with the VMMs fitted on the training set are show in
 \noindent\sphinxincludegraphics{{4a724e93ef4a4403ee83f5140250a26ee3880aa3f5eb85957a0f904239bcecb2}.pdf}
 \caption{Validation with simulations for wPCC ZigZag20/20.}\label{\detokenize{06.10_results_wpcc:fig-validation-sim}}\end{figure}
 
+The over prediction of forces with the AVMM can be explained by the large problems with multicollinearity that was encountered when applying the PIT method on the wPCC data. The absolute correlation coefficient between the features in the wPCC yaw moment regression are shown in \hyperref[\detokenize{06.10_results_wpcc:fig-ncorr}]{Fig.\@ \ref{\detokenize{06.10_results_wpcc:fig-ncorr}}}. It can be seen that most of the coefficients have very high absolute correlation (indicated in black). Some of the regressed hydrodynamic derivatives in the AVMM also have very large values and large uncertainty. 
+
+\begin{figure}[H]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{eb7b600e63201b670217b2c3bcc100a157dc84dc216720bb54e8e528415b80ca}.pdf}
+\caption{Absolute correlation between the features in the wPCC yaw moment regression of AVMM}\label{\detokenize{06.10_results_wpcc:fig-ncorr}}\end{figure}
+
 \sphinxAtStartPar
-For the wPCC the prediction was conducted using simulation of the turning circle by the trained MAVMM, and the prediction results are presented in \hyperref[\detokenize{06.10_results_wpcc:fig-track-plot-testing-sim}]{Fig.\@ \ref{\detokenize{06.10_results_wpcc:fig-track-plot-testing-sim}}}, \hyperref[\detokenize{06.10_results_wpcc:fig-testing-sim}]{Fig.\@ \ref{\detokenize{06.10_results_wpcc:fig-testing-sim}}}. Monte Carlo simulations with alternative realizations of the regression are also shown in these figures. The alternative realizations considering the uncertainty in the regressed parameters have similar simulation results to the model with mean values of the regression (black line). 
-Advance and tactical diameter {[}\hyperlink{cite.bibligraphy:id16}{IMO02}{]} differs 4\% and 1\% between simulation with the VMM and corresponding results from the model tests \hyperref[\detokenize{06.10_results_wpcc:tab-wpcc-advance}]{Table \ref{\detokenize{06.10_results_wpcc:tab-wpcc-advance}}}.
+For the wPCC the prediction was conducted using simulation of the turning circle by the trained MAVMM, and the prediction results are presented in \hyperref[\detokenize{06.10_results_wpcc:fig-track-plot-testing-sim}]{Fig.\@ \ref{\detokenize{06.10_results_wpcc:fig-track-plot-testing-sim}}}, \hyperref[\detokenize{06.10_results_wpcc:fig-testing-sim}]{Fig.\@ \ref{\detokenize{06.10_results_wpcc:fig-testing-sim}}}. Monte Carlo simulations with alternative realizations of the regression, considering the uncertainty in the regressed parameters, are also shown in these figures. The alternative realizations have similar simulation results to the model with mean values of the regression (black line). 
+Advance and tactical diameter {[}\hyperlink{cite.bibligraphy:id16}{IMO02}{]} differs 4\% and 1\% between prediction simulation and corresponding results from the model tests (\hyperref[\detokenize{06.10_results_wpcc:tab-wpcc-advance}]{Table \ref{\detokenize{06.10_results_wpcc:tab-wpcc-advance}}})
+which are acceptable deviations for the wPCC considering the large margin to the limits of the IMO standard {[}\hyperlink{cite.bibligraphy:id16}{IMO02}{]} which is also shown in the table.
 
 \begin{figure}[H]
 \centering
@@ -1120,13 +1124,13 @@ Prediction
 \sphinxattableend\end{savenotes}
 
 \sphinxAtStartPar
-The mean values and standard error (se) of the hydrodynamic derivatives expressed with prime units for the wPCC obtained with PIT of MAVMM (\autoref{equation:02.01_VMMs:eqxmartinssimple},\autoref{equation:02.01_VMMs:eqymartinssimple}, \autoref{equation:02.01_VMMs:eqnmartinssimple}) applied on all the wPCC data (also including the turning circle)  are shown in \hyperref[\detokenize{06.10_results_wpcc:wpcc-derivatives}]{Table \ref{\detokenize{06.10_results_wpcc:wpcc-derivatives}}}. 
+The mean values and standard error (se) of the hydrodynamic derivatives expressed with prime units for the wPCC obtained with PIT of MAVMM (\autoref{equation:02.01_VMMs:eqxmartinssimple},\autoref{equation:02.01_VMMs:eqymartinssimple}, \autoref{equation:02.01_VMMs:eqnmartinssimple}) applied on all the wPCC data (including the turning circle)  are shown in \hyperref[\detokenize{06.10_results_wpcc:wpcc-derivatives}]{Table \ref{\detokenize{06.10_results_wpcc:wpcc-derivatives}}}. 
 
 \begin{savenotes}\sphinxattablestart
 \centering
 \sphinxcapstartof{table}
 \sphinxthecaptionisattop
-\sphinxcaption{wPCC MAVMM derivatives (times 1000)}\label{\detokenize{06.10_results_wpcc:wpcc-derivatives}}
+\sphinxcaption{wPCC MAVMM derivatives (prime units times 1000)}\label{\detokenize{06.10_results_wpcc:wpcc-derivatives}}
 \sphinxaftertopcaption
 \begin{tabulary}{\linewidth}[t]{|T|T|T|T|T|T|T|T|T|}
 \hline
@@ -1398,8 +1402,9 @@ The model tests were divided into the test and validation set randomly. The rand
 \subsubsection{KVLCC2 VMM}
 \label{\detokenize{06.20_results_kvlcc2:kvlcc2-vmm}}
 \sphinxAtStartPar
-Forces and moment applied on the hull, rudder and propeller predicted with the VMMs fitted on the training set are show in \hyperref[\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-forces}]{Fig.\@ \ref{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-forces}}}.
-Simulations of the validation cases where only possible with the MAVMM as shown for one of the ZigZag20/20 validation cases in \hyperref[\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-sim}]{Fig.\@ \ref{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-sim}}}. The predicted thrust is also shown in this figure.
+The LVMM was ruled out as being too simple, so that the AVMM and MAVMM where considered as possible VMMs in the cross validation.
+Forces and moment applied on the hull, rudder and propeller predicted with the AVMM and MAVMM fitted with the proposed PIT on the training set are show in \hyperref[\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-forces}]{Fig.\@ \ref{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-forces}}}.
+The forces are well predicted with both VMMs. The AVMM is not giving the large over predictions that was seen for wPCC (see Section \ref{\detokenize{06.10_results_wpcc::doc}}). The MAVMM is however a still a little bit better and is therefore selected as the suitable VMM for the KVLCC2.
 
 \begin{figure}[H]
 \centering
@@ -1407,6 +1412,8 @@ Simulations of the validation cases where only possible with the MAVMM as shown 
 
 \noindent\sphinxincludegraphics{{aba5c69c270f073de8763b8db7f108900cc8a7c58b7b4fa51ed79451393e9919}.pdf}
 \caption{Validation of force models for KVLCC2.}\label{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-forces}}\end{figure}
+
+Simulations of the validation cases with the MAVMM is shown for one of the ZigZag20/20 validation cases in \hyperref[\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-sim}]{Fig.\@ \ref{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-sim}}} where the predicted thrust is also shown.
 
 \begin{figure}[H]
 \centering
@@ -1426,7 +1433,7 @@ Results from the final prediction of the turning circle test are shown in \hyper
 \caption{Comparison between predicted Turning circle test with MAVMM trained on HSVA data and MARIN model test results for KVLCC2.}\label{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-testing-sim}}\end{figure}
 
 \sphinxAtStartPar
-For KVLCC2 comparisons of turning circle advance and tactical diameters compared to the model test result is shown in \hyperref[\detokenize{06.20_results_kvlcc2:tab-kvlcc2-advance}]{Table \ref{\detokenize{06.20_results_kvlcc2:tab-kvlcc2-advance}}}. Predicted advance and tactical diameter differes 2\% and 5\%.
+For KVLCC2 comparisons of turning circle advance and tactical diameters compared to the model test result is shown in \hyperref[\detokenize{06.20_results_kvlcc2:tab-kvlcc2-advance}]{Table \ref{\detokenize{06.20_results_kvlcc2:tab-kvlcc2-advance}}}. Predicted advance and tactical diameter differs 2\% and 5\% which can be considered as acceptable, considering the margin to the IMO standard limits, which are also shown in this table. The results are also closer to the model tests compared to a similar study that was conducted for the KVLCC2 {[}\hyperlink{cite.bibligraphy:id82}{HWZL22}{]}.
 
 
 \begin{savenotes}\sphinxattablestart
@@ -1514,7 +1521,7 @@ The mean values and standard error (se) of the hydrodynamic derivatives expresse
 \centering
 \sphinxcapstartof{table}
 \sphinxthecaptionisattop
-\sphinxcaption{KVLCC2 MAVMM derivatives (times 1000)}\label{\detokenize{06.20_results_kvlcc2:kvlcc2-derivatives}}
+\sphinxcaption{KVLCC2 MAVMM derivatives (prime units times 1000)}\label{\detokenize{06.20_results_kvlcc2:kvlcc2-derivatives}}
 \sphinxaftertopcaption
 \begin{tabulary}{\linewidth}[t]{|T|T|T|T|T|T|T|T|T|}
 \hline
@@ -1721,27 +1728,38 @@ se
 \par
 \sphinxattableend\end{savenotes}
 
-\section{Conclusions}
-\label{\detokenize{10.01_conclusions:conclusions}}\label{\detokenize{10.01_conclusions:id1}}\label{\detokenize{10.01_conclusions::doc}}
-\sphinxAtStartPar
-Using inverse dynamics in the proposed PIT can find the parameters in a VMM exactly if there is no measurement noise and if the selected VMM is a perfect model. This can be seen when identifying parameters in a VMM on data from simulations with the same VMM. In order to succeed in system identification on real model test data, measurement noise needs to be handled and a VMM close as possible to the real ship dynamics needs to be found.
 
-\sphinxAtStartPar
-The proposed PIT method requires that the model test data is preprocessed to remove measurement noises. The proposed Iterative EKF and RTS smoother as the preprocessor gives higher accuracy and also avoids the trouble of finding the optimal cut off frequency for using a low\sphinxhyphen{}pass filter.
+
+\subsection{Discussion}
+Using inverse dynamics in the proposed PIT can find the parameters in a VMM exactly if there is no measurement noise and if the selected VMM is a perfect model. This can be seen when identifying parameters in a VMM on data from simulations with the same VMM. In order to succeed in system identification on real model test data, measurement noise needs to be handled and a VMM close as possible to the real ship dynamics needs to be found. The proposed PIT method requires that the model test data is preprocessed to remove measurement noises. The proposed Iterative EKF and RTS smoother as the preprocessor gives higher accuracy and also avoids the trouble of finding the optimal cut off frequency for using a low\sphinxhyphen{}pass filter.
 
 \sphinxAtStartPar
 The proposed PIT applied on the AVMM can reproduce the model test results for the two test cases (wPCC and KVLCC2) with high accuracy. Multicollinearity is however a large problem with AVMM for both the wPCC and KVLCC2 data. As a consequence, some of the regressed hydrodynamic derivatives in the AVMM have unphysically large values and also very large uncertainties. The model is still mathematically correct, where the regressed polynomials fit the training data well.
 The regressed polynomial is the sum of very large counteracting coefficients. The model works, as long as the states are similar to the training data. But when extrapolating, it is easy to imagine that the balance between these huge derivatives is disturbed, giving large extrapolation errors very quickly. This behavior was seen when predicting forces and moments with the AVMM on unseen validation data.
-
-\sphinxAtStartPar
 The MAVMM has fewer hydrodynamic derivatives with lower multicollinearity and smaller extrapolation errors. Including propeller thrust in the VMM made it possible to obtain high accuracy with fewer hydrodynamic derivatives.
 
 \sphinxAtStartPar
-A methodology for cross validation of the PIT was proposed, where available model test data should be split into a training and validation set. The validation set should have larger: drift angles, rudder angles and yaw rates than the training set. Investigating how well a model can make predictions outside its training data was found to be crucial.
+A methodology for cross validation of the PIT was proposed, where available model test data should be split into a training and validation set. The validation set should have larger: drift angles, rudder angles and yaw rates than the training set to investigating how well a model can make predictions outside its training data.
 
 \sphinxAtStartPar
 The MAVMM was selected for both test vessels based on the cross validation. It was found possible to predict turning circles with less than 5 \% error in advance and tactical diameter, which is well within the margin to the corresponding limits in the IMO standard for both test cases. In the KVLCC2 case the VMM was trained on zigzag model test data from the towing tank at HSVA. This model was able to reproduce turning circle model test data from MARIN with good accuracy. The PIT can thereby be used to develop VMMs from model tests with a free model which has a lot of useful applications. Predicting turning circles from experiments in a narrow towing tank is just one example. A similar PIT could perhaps also be applied on full scale data, which is another interesting application for the future.
 
+\section{Conclusions}
+\label{\detokenize{10.01_conclusions:conclusions}}\label{\detokenize{10.01_conclusions:id1}}\label{\detokenize{10.01_conclusions::doc}}
+
+This paper presented a new method for system identification of ship manoeuvring dynamics using a new Parameter Identification Technique (PIT) applied on Vessel Manoeuvring Models (VMMs). The proposed method includes:
+\begin{itemize}
+    \item A methodology to select a suitable VMM based on cross validation, where the validation set should have larger yaw rates, drift angles and rudder angles compared to the training set.
+    
+    \item A new PIT method
+    \begin{itemize}
+        \item Preprocess measurement data with EKF + RTS run in iteration with initial guess from semi-empirical formulas.
+        \item Inverse dynamics regression
+    \end{itemize}
+    
+    
+    
+\end{itemize}
 
 \section{Acknowledgements}
 \label{\detokenize{acknowledgements:acknowledgements}}\label{\detokenize{acknowledgements::doc}}
