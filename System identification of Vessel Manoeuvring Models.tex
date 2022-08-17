@@ -1734,15 +1734,9 @@ se
 Using inverse dynamics in the proposed PIT can find the parameters in a VMM exactly if there is no measurement noise and if the selected VMM is a perfect model. This can be seen when identifying parameters in a VMM on data from simulations with the same VMM. In order to succeed in system identification on real model test data, measurement noise needs to be handled and a VMM close as possible to the real ship dynamics needs to be found. The proposed PIT method requires that the model test data is preprocessed to remove measurement noises. The proposed Iterative EKF and RTS smoother as the preprocessor gives higher accuracy and also avoids the trouble of finding the optimal cut off frequency for using a low\sphinxhyphen{}pass filter.
 
 \sphinxAtStartPar
-The proposed PIT applied on the AVMM can reproduce the model test results for the two test cases (wPCC and KVLCC2) with high accuracy. Multicollinearity is however a large problem with AVMM for both the wPCC and KVLCC2 data. As a consequence, some of the regressed hydrodynamic derivatives in the AVMM have unphysically large values and also very large uncertainties. The model is still mathematically correct, where the regressed polynomials fit the training data well.
+Multicollinearity is a large problem with AVMM for both the wPCC and KVLCC2 data. As a consequence, some of the regressed hydrodynamic derivatives in the AVMM have unphysically large values and also very large uncertainties. The model is still mathematically correct, where the regressed polynomials fit the training data well.
 The regressed polynomial is the sum of very large counteracting coefficients. The model works, as long as the states are similar to the training data. But when extrapolating, it is easy to imagine that the balance between these huge derivatives is disturbed, giving large extrapolation errors very quickly. This behavior was seen when predicting forces and moments with the AVMM on unseen validation data.
 The MAVMM has fewer hydrodynamic derivatives with lower multicollinearity and smaller extrapolation errors. Including propeller thrust in the VMM made it possible to obtain high accuracy with fewer hydrodynamic derivatives.
-
-\sphinxAtStartPar
-A methodology for cross validation of the PIT was proposed, where available model test data should be split into a training and validation set. The validation set should have larger: drift angles, rudder angles and yaw rates than the training set to investigating how well a model can make predictions outside its training data.
-
-\sphinxAtStartPar
-The MAVMM was selected for both test vessels based on the cross validation. It was found possible to predict turning circles with less than 5 \% error in advance and tactical diameter, which is well within the margin to the corresponding limits in the IMO standard for both test cases. In the KVLCC2 case the VMM was trained on zigzag model test data from the towing tank at HSVA. This model was able to reproduce turning circle model test data from MARIN with good accuracy. The PIT can thereby be used to develop VMMs from model tests with a free model which has a lot of useful applications. Predicting turning circles from experiments in a narrow towing tank is just one example. A similar PIT could perhaps also be applied on full scale data, which is another interesting application for the future.
 
 \section{Conclusions}
 \label{\detokenize{10.01_conclusions:conclusions}}\label{\detokenize{10.01_conclusions:id1}}\label{\detokenize{10.01_conclusions::doc}}
@@ -1751,15 +1745,25 @@ This paper presented a new method for system identification of ship manoeuvring 
 \begin{itemize}
     \item A methodology to select a suitable VMM based on cross validation, where the validation set should have larger yaw rates, drift angles and rudder angles compared to the training set.
     
-    \item A new PIT method
+    \item A new PIT method which includes:
     \begin{itemize}
         \item Preprocess measurement data with EKF + RTS run in iteration with initial guess from semi-empirical formulas.
         \item Inverse dynamics regression
     \end{itemize}
     
+\end{itemize}
+
+ It was shown that:
+\begin{itemize}
+    \item The new method can predict Turning circles with less than 5 \% error in advance and tactical diameter for the wPCC and KVLCC2 test cases, which should be considered as sufficient considering the margin to the corresponding limits in the IMO standard for both ships. 
+
+    \item For the KVLCC2 case with the VMM trained on zigzag model test data from the towing tank at HSVA, it was possible to reproduce turning circle model test data from MARIN with good accuracy. This is one interesting application where the new method can be used to extend model test from a narrow towing tank to also predict turning circles.
     
+    \item The inverse dynamics regression has higher accuracy when the proposed preprocessor was used instead of low-pass filters.  
     
 \end{itemize}
+
+Finally, it is concluded that the proposed method has the potential to improve the system identification of ship manoeuvring dynamics. The KVLCC2 test case results with the new method are for instance closer to the model tests compared to a similar study {[}\hyperlink{cite.bibligraphy:id82}{HWZL22}{]}. Adding the prior knowledge from semi-empirical formulas as the initial guess into the EKF iteration, adding the thrust model and adopting the complexity of the VMM by reducing the number of hydrodynamic derivatives are all contributing to the improved performance.
 
 \section{Acknowledgements}
 \label{\detokenize{acknowledgements:acknowledgements}}\label{\detokenize{acknowledgements::doc}}
