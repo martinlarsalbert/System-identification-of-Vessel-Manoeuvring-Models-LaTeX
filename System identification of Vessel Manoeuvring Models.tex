@@ -209,10 +209,13 @@ The hydrodynamic functions above are expressed using nondimensional units with t
 \begin{split}\displaystyle u'=\frac{u}{V}\end{split}
 \end{equation}
 \sphinxAtStartPar
-Equations can either be written in Prime system or the regular SI system. The hydrodynamic derivatives are however always expressing forces in Prime system as function of state variables in Prime system as seen in \autoref{equation:02.01_VMMs:eqderivativeprime}.
+Equations can either be written in Prime system or the regular SI system. The hydrodynamic derivatives are always expressing forces in Prime system as function of state variables in Prime system. The (‘) sign is therefore implicit and not written out as seen in \autoref{equation:02.01_VMMs:eqderivativeprime}.
 \begin{equation}\label{equation:02.01_VMMs:eqderivativeprime}
-\begin{split}\displaystyle Y_{\delta}=\frac{\partial Y_D'}{\partial \delta'}\end{split}
+\begin{split}\displaystyle Y_{\delta'}'=\frac{\partial Y_D'}{\partial \delta'} := Y_{\delta} \end{split}
 \end{equation}
+\sphinxAtStartPar
+The exceptions are the added masses (\(X_{\dot{u}}\), \(Y_{\dot{v}}\), \(Y_{\dot{r}}\), \(N_{\dot{v}}\) and \(N_{\dot{r}}\)) which are expressed in both Prime system or the regular SI system where the (‘) sign is therefore explicitly stated.
+
 \sphinxAtStartPar
 There is however a great benefit in expressing the hydrodynamic forces in the Prime system, where the forces are often nonlinear due to a quadratic relation to the flow velocity, for instance as seen in \autoref{equation:02.01_VMMs:eqquadraticsi}.
 \begin{equation}\label{equation:02.01_VMMs:eqquadraticsi}
@@ -437,13 +440,13 @@ In the following, the methods of inverse dynamics, regression and EKF used in th
 Each manoeuvring model has some hydrodynamic functions \(X_D(u,v,r,\delta,thrust)\), \(Y_D(u,v,r,\delta,thrust)\), \(N_D(u,v,r,\delta,thrust)\) that are defined as polynomials. The hydrodynamic derivatives in these polynomials can be identified with force regression of measured forces and moments. The measured forces and moments are usually taken from Captive Model Tests (CMT), Planar Motion Mechanism (PMM) tests or Virtual Captive Tests (VCT) which is being the virtual version of CMT/PMM tests calculated with Computational Fluid Dynamics (CFD). When the ship is free in all degrees of freedom, only motions can be observed, as in the present model tests. Hence, forces and moments causing ship motions need to be estimated by solving the inverse dynamics problem.
 
 \sphinxAtStartPar
-The inverse dynamics is solved by restructuring the system equation (\autoref{equation:02.01_VMMs:eqqsystem}) to get the hydrodynamics functions on the left hand side. If the mass and inertia of the ship including added masses: \(\dot{u}\), \(\dot{v}\), \(\dot{r}\) are known, the forces can be calculated using \autoref{equation:03.01_inverse_dynamics:eqxd}, \autoref{equation:03.01_inverse_dynamics:eqyd} and \autoref{equation:03.01_inverse_dynamics:eqnd}.
+The inverse dynamics is solved by restructuring the system equation (\autoref{equation:02.01_VMMs:eqqsystem}) to get the hydrodynamics functions on the left hand side. If the mass and inertia of the ship including added masses: \(X_{\dot{u}}\), \(Y_{\dot{v}}\), \(Y_{\dot{r}}\), \(N_{\dot{v}}\) and \(N_{\dot{r}}\), are known, the forces in Prime system can be calculated using \autoref{equation:03.01_inverse_dynamics:eqxd}, \autoref{equation:03.01_inverse_dynamics:eqyd} and \autoref{equation:03.01_inverse_dynamics:eqnd}.
 \begin{equation}\label{equation:03.01_inverse_dynamics:eqxd}
-\begin{split}\displaystyle \operatorname{X_{D}}{\left(u,v,r,\delta,thrust \right)} = - X_{\dot{u}} \dot{u} + \dot{u} m - m r^{2} x_{G} - m r v\end{split}
+\begin{split}\displaystyle \operatorname{X_{D}'}{\left(u',v',r',\delta,thrust' \right)} = - X_{\dot{u}}' \dot{u}' + \dot{u}' m' - m' r'^{2} x_{G}' - m' r' v'\end{split}
 \end{equation}\begin{equation}\label{equation:03.01_inverse_dynamics:eqyd}
-\begin{split}\displaystyle \operatorname{Y_{D}}{\left(u,v,r,\delta,thrust \right)} = - Y_{\dot{r}} \dot{r} - Y_{\dot{v}} \dot{v} + \dot{r} m x_{G} + \dot{v} m + m r u\end{split}
+\begin{split}\displaystyle \operatorname{Y_{D}'}{\left(u',v',r',\delta,thrust' \right)} = - Y_{\dot{r}}' \dot{r}' - Y_{\dot{v}}' \dot{v}' + \dot{r}' m' x_{G}' + \dot{v}' m' + m' r' u'\end{split}
 \end{equation}\begin{equation}\label{equation:03.01_inverse_dynamics:eqnd}
-\begin{split}\displaystyle \operatorname{N_{D}}{\left(u,v,r,\delta,thrust \right)} = I_{z} \dot{r} - N_{\dot{r}} \dot{r} - N_{\dot{v}} \dot{v} + \dot{v} m x_{G} + m r u x_{G}\end{split}
+\begin{split}\displaystyle \operatorname{N_{D}'}{\left(u',v',r',\delta,thrust' \right)} = I_{z}' \dot{r}' - N_{\dot{r}}' \dot{r}' - N_{\dot{v}}' \dot{v}' + \dot{v}' m' x_{G}' + m' r' u' x_{G}'\end{split}
 \end{equation}
 \sphinxAtStartPar
 An example of forces calculated with inverse dynamics from motions in a turning circle test can be seen in \hyperref[\detokenize{03.01_inverse_dynamics:fig-inverse}]{Fig.\@ \ref{\detokenize{03.01_inverse_dynamics:fig-inverse}}}.
@@ -933,21 +936,21 @@ The PIT method requires an initial guessed linear VMM. For these initial models 
 \begin{equation}\label{equation:05.01_case_studies:eqnr}
 \begin{split}\displaystyle N_{r} = - \frac{\pi T^{2} \left(\frac{0.039 B}{T} - \frac{0.56 B}{L} + 0.25\right)}{L^{2}}\end{split}
 \end{equation}\begin{equation}\label{equation:05.01_case_studies:eqnrdot}
-\begin{split}\displaystyle N_{\dot{r}} = - \frac{\pi T^{2} \left(\frac{0.017 B CB}{T} - \frac{0.33 B}{L} + 0.0833333333333333\right)}{L^{2}}\end{split}
+\begin{split}\displaystyle N_{\dot{r}}' = - \frac{\pi T^{2} \left(\frac{0.017 B CB}{T} - \frac{0.33 B}{L} + 0.0833333333333333\right)}{L^{2}}\end{split}
 \end{equation}\begin{equation}\label{equation:05.01_case_studies:eqnv}
 \begin{split}\displaystyle N_{v} = - \frac{\pi T^{2} \left(0.5 + \frac{2.4 T}{L}\right)}{L^{2}}\end{split}
 \end{equation}\begin{equation}\label{equation:05.01_case_studies:eqnvdot}
-\begin{split}\displaystyle N_{\dot{v}} = - \frac{\pi T^{2} \left(- \frac{0.04 B}{T} + \frac{1.1 B}{L}\right)}{L^{2}}\end{split}
+\begin{split}\displaystyle N_{\dot{v}}' = - \frac{\pi T^{2} \left(- \frac{0.04 B}{T} + \frac{1.1 B}{L}\right)}{L^{2}}\end{split}
 \end{equation}\begin{equation}\label{equation:05.01_case_studies:eqxudot}
-\begin{split}\displaystyle X_{\dot{u}} = \frac{2.0 m}{L^{3} \rho \left(\pi \sqrt{\frac{L^{3}}{volume}} - 14\right)}\end{split}
+\begin{split}\displaystyle X_{\dot{u}}' = \frac{2.0 m}{L^{3} \rho \left(\pi \sqrt{\frac{L^{3}}{volume}} - 14\right)}\end{split}
 \end{equation}\begin{equation}\label{equation:05.01_case_studies:eqyr}
 \begin{split}\displaystyle Y_{r} = - \frac{\pi T^{2} \left(- \frac{0.08 B}{T} + \frac{2.2 B}{L} - 0.5\right)}{L^{2}}\end{split}
 \end{equation}\begin{equation}\label{equation:05.01_case_studies:eqyrdot}
-\begin{split}\displaystyle Y_{\dot{r}} = - \frac{\pi T^{2} \left(- \frac{0.0033 B^{2}}{T^{2}} + \frac{0.67 B}{L}\right)}{L^{2}}\end{split}
+\begin{split}\displaystyle Y_{\dot{r}}' = - \frac{\pi T^{2} \left(- \frac{0.0033 B^{2}}{T^{2}} + \frac{0.67 B}{L}\right)}{L^{2}}\end{split}
 \end{equation}\begin{equation}\label{equation:05.01_case_studies:eqyv}
 \begin{split}\displaystyle Y_{v} = - \frac{\pi T^{2} \left(\frac{0.4 B CB}{T} + 1\right)}{L^{2}}\end{split}
 \end{equation}\begin{equation}\label{equation:05.01_case_studies:eqyvdot}
-\begin{split}\displaystyle Y_{\dot{v}} = - \frac{\pi T^{2} \left(- \frac{5.1 B^{2}}{L^{2}} + \frac{0.16 B CB}{T} + 1\right)}{L^{2}}\end{split}
+\begin{split}\displaystyle Y_{\dot{v}}' = - \frac{\pi T^{2} \left(- \frac{5.1 B^{2}}{L^{2}} + \frac{0.16 B CB}{T} + 1\right)}{L^{2}}\end{split}
 \end{equation}
 
 \begin{savenotes}\sphinxattablestart
@@ -966,16 +969,16 @@ The PIT method requires an initial guessed linear VMM. For these initial models 
 \( N_{r} \)
 &\sphinxstyletheadfamily 
 \sphinxAtStartPar
-\( N_{\dot{r}} \)
+\( N_{\dot{r}}' \)
 &\sphinxstyletheadfamily 
 \sphinxAtStartPar
 \( N_{v} \)
 &\sphinxstyletheadfamily 
 \sphinxAtStartPar
-\( N_{\dot{v}} \)
+\( N_{\dot{v}}' \)
 &\sphinxstyletheadfamily 
 \sphinxAtStartPar
-\( X_{\dot{u}} \)
+\( X_{\dot{u}}' \)
 &\sphinxstyletheadfamily 
 \sphinxAtStartPar
 \( Y_{\delta} \)
@@ -984,13 +987,13 @@ The PIT method requires an initial guessed linear VMM. For these initial models 
 \( Y_{r} \)
 &\sphinxstyletheadfamily 
 \sphinxAtStartPar
-\( Y_{\dot{r}} \)
+\( Y_{\dot{r}}' \)
 &\sphinxstyletheadfamily 
 \sphinxAtStartPar
 \( Y_{v} \)
 &\sphinxstyletheadfamily 
 \sphinxAtStartPar
-\( Y_{\dot{v}} \)
+\( Y_{\dot{v}}' \)
 \\
 \hline
 \sphinxAtStartPar
