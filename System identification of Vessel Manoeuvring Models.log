@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.3) (preloaded format=xelatex 2021.8.25)  23 AUG 2022 12:56
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.3) (preloaded format=xelatex 2021.8.25)  23 AUG 2022 16:44
 entering extended mode
 **"./System identification of Vessel Manoeuvring Models.tex"
 (System identification of Vessel Manoeuvring Models.tex
@@ -1220,26 +1220,21 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [1
 
 
-]
-
-Package natbib Warning: Citation `alexandersson_comparison_2022' on page 2 unde
-fined on input line 103.
-
-[2]
+] [2]
 File: coordinate_system.PNG Graphic file (type bmp)
 <coordinate_system.PNG>
  [3] [4]
-Overfull \hbox (22.43968pt too wide) detected at line 178
+Overfull \hbox (22.43968pt too wide) detected at line 174
 []
  []
 
 
-Overfull \hbox (37.08774pt too wide) detected at line 184
+Overfull \hbox (37.08774pt too wide) detected at line 180
 []
  []
 
 
-Overfull \hbox (54.84775pt too wide) detected at line 190
+Overfull \hbox (54.84775pt too wide) detected at line 186
 []
  []
 
@@ -1262,187 +1257,187 @@ hic file (type pdf)
 File: wpcc_mdl.png Graphic file (type bmp)
 <wpcc_mdl.png>
  [16]
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
 []$[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
 []$[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
 []$[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
 []$[][]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
 []$[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
 []$[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
 []$[]$
  []
 
 
-Overfull \hbox (0.766pt too wide) in paragraph at lines 818--818
+Overfull \hbox (0.766pt too wide) in paragraph at lines 803--803
 []$[][]$| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
 []$[][]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
 []$[][]$
  []
 
 
-Overfull \hbox (2.78pt too wide) in paragraph at lines 818--818
+Overfull \hbox (2.78pt too wide) in paragraph at lines 803--803
 []\TU/lmr/m/n/10 41.2| 
  []
 
 
-Overfull \hbox (2.78pt too wide) in paragraph at lines 818--818
+Overfull \hbox (2.78pt too wide) in paragraph at lines 803--803
 []\TU/lmr/m/n/10 0.25| 
  []
 
 
-Overfull \hbox (2.78pt too wide) in paragraph at lines 818--818
+Overfull \hbox (2.78pt too wide) in paragraph at lines 803--803
 []\TU/lmr/m/n/10 0.15| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
 []\TU/lmr/m/n/10 KVLCC2
  []
 
 
-Overfull \hbox (2.78pt too wide) in paragraph at lines 818--818
+Overfull \hbox (2.78pt too wide) in paragraph at lines 803--803
 []\TU/lmr/m/n/10 45.7| 
  []
 
 
-Overfull \hbox (2.78pt too wide) in paragraph at lines 818--818
+Overfull \hbox (2.78pt too wide) in paragraph at lines 803--803
 []\TU/lmr/m/n/10 0.25| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
 []\TU/lmr/m/n/10 -
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1073
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1073
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1073
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1073
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1073
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 -
  []
 
 
-Overfull \hbox (1.79082pt too wide) in paragraph at lines 1073--1073
+Overfull \hbox (1.79082pt too wide) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 0.179| 
  []
 
 
-Overfull \hbox (1.79082pt too wide) in paragraph at lines 1073--1073
+Overfull \hbox (1.79082pt too wide) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 2.402| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1073
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1073
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 KVLCC2
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1073
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1073
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1073
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1073
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1073
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 -
  []
 
 
-Overfull \hbox (1.79082pt too wide) in paragraph at lines 1073--1073
+Overfull \hbox (1.79082pt too wide) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 4.305| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1073
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1073
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1073
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1058
 []\TU/lmr/m/n/10 -
  []
 
@@ -1499,22 +1494,22 @@ File: 6084725f6412878ba1bee2488cec01b279c77655d0530fc7a30997b58073aafb.pdf Grap
 hic file (type pdf)
 <use 6084725f6412878ba1bee2488cec01b279c77655d0530fc7a30997b58073aafb.pdf>
  [29]
-Overfull \hbox (2.5414pt too wide) in paragraph at lines 1665--1665
+Overfull \hbox (2.5414pt too wide) in paragraph at lines 1650--1650
 []\TU/lmss/m/n/10 delta| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1665--1665
+Underfull \hbox (badness 10000) in paragraph at lines 1650--1650
 []\TU/lmss/m/n/10 A (IMO)
  []
 
 
-Underfull \hbox (badness 6641) in paragraph at lines 1665--1665
+Underfull \hbox (badness 6641) in paragraph at lines 1650--1650
 []\TU/lmss/m/n/10 TD (IMO)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1665--1665
+Underfull \hbox (badness 10000) in paragraph at lines 1650--1650
 []\TU/lmr/m/n/10 -
  []
 
@@ -1533,23 +1528,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 65--73
  []
 
 [33]
-Overfull \hbox (60.25386pt too wide) in paragraph at lines 132--141
+Overfull \hbox (60.25386pt too wide) in paragraph at lines 141--150
 \TU/lmr/m/n/10 URL [][]$[][][][][] [] [] [] [][][][][][][][] [] [][][] [] [][][
 ] [] [][][][][][][] [] [][] [] [][] [] [][][] [] [][][][][][] [] [][][][][][][]
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][]$[][] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 143--145
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 152--154
 []\TU/lmr/m/n/10 J. E. Brix, Manoeuvring Technical Manual, Seehafen-Verlag, 199
 3, google-Books-ID:
  []
 
-[34])
-
-Package natbib Warning: There were undefined citations.
-
+)
 The property list \polyglossia@langsetup contains the pairs (without outer
 braces):
 >  {latex/script}  =>  {latin}
@@ -1584,7 +1576,7 @@ braces):
 >  {english/babelname}  =>  {american}
 >  {english/localnumeral}  =>  {polyglossia@C@localnumeral}
 >  {english/Localnumeral}  =>  {polyglossia@C@localnumeral}.
-[35] (System identification of Vessel Manoeuvring Models.aux
+ [35] (System identification of Vessel Manoeuvring Models.aux
 LaTeX Info: Redefining \rmfamily on input line 22.
 LaTeX Info: Redefining \sffamily on input line 22.
 LaTeX Info: Redefining \ttfamily on input line 22.
@@ -1594,13 +1586,13 @@ Package rerunfilecheck Info: File `"System identification of Vessel Manoeuvring
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 21874 strings out of 411568
- 386736 string characters out of 2834605
+ 21877 strings out of 411568
+ 386847 string characters out of 2834605
  962964 words of memory out of 3000000
- 41639 multiletter control sequences out of 15000+600000
+ 41642 multiletter control sequences out of 15000+600000
  407912 words of font info for 79 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
- 70i,23n,115p,1928b,2192s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,23n,115p,1497b,2192s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on System identification of Vessel Manoeuvring Models.pdf (35 pa
 ges).
