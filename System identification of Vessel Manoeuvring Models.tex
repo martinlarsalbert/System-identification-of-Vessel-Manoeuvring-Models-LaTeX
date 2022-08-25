@@ -63,7 +63,7 @@
         
 
 \title{System identification of Vessel Manoeuvring Models}
-\date{Aug 23, 2022}
+\date{Aug 25, 2022}
 \release{}
 
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -100,7 +100,8 @@ Support Vector Regression (SVR) has been investigated using simulated data in \c
 The drift effect of the hydrodynamic coefficients is inevitable in modeling of ship manoeuvring motions by using the System Identification (SI) techniques. The drifts of hydrodynamic coefficients result from the so called multicollinearity. It means if the input variables of a regression model are strongly linearly dependent on each other and the regression results of their coefficients may be incorrect \cite{luo_parameter_2016}. The identified coefficients within the mathematical model do not have to be physically correct, but mathematically correct \cite{ittc_maneuvering_2008}. In fact, many nonlinear hydrodynamic coefficients in the mathematical model of ship manoeuvring motions have no clear physical meaning \cite{luo_parameter_2016}. Multicollinearity can be reduced by reducing the number of parameters in the model, either by simplification or adding more deterministic parts by including hydrodynamic relations for instance by adding slender body theory \cite{hwang_cancellation_1982}. Simplification can be based on hydrodynamic reasoning where the number of parameters can be reduced \cite{luo_parameter_2016}.
 
 \sphinxAtStartPar
-However, system identification methods must handle imperfections in the data from measurement noise as well as model uncertainty of the VMM which will always be present since the model can never capture the real physics perfectly. When developing a VMM with model test data for manoeuvring prediction, preprocessing of data and a method to chose an appropriate VMM is needed \cite{alexandersson_comparison_2022}. In this paper, an innovative approach is proposed to address those issues for ship manoeuvring system identification based on actual noise test data. A Parameter Identification Technique (PIT) is first proposed to study the capability of several candidate VMMs. The PIT uses model test data with a ship model free in all degrees of freedoms recorded as ship trajectories (position and heading) and propeller thrust. And the most appropriate VMM is selected by proposing an iterative approach. Especially, the multicollinearity problem is addressed by identifying a ship manoeuvring system with proper parameters in the VMM.  The method is verified by identifying a selected VMM and predicting turning circle manoeuvres for two different test vessels.
+However, system identification methods must handle imperfections in the data from measurement noise as well as model uncertainty of the VMM which will always be present since the model can never capture the real physics perfectly. When developing a VMM with model test data for manoeuvring prediction, preprocessing of data and a method to chose an appropriate VMM is needed \cite{alexandersson_comparison_2022}.
+In this paper, an innovative approach is proposed to address those issues for ship manoeuvring system identification based on actual noise test data. First, a Parameter Identification Technique (PIT) is proposed to study the capability of several candidate VMMs. Model test data in all degrees of freedoms recorded as ship trajectories (position and heading) is used in the method, where a model for propeller thrust is also proposed and further developed. In this method, the inverse dynamics regression and Extended Kalman Filter (EKF) with a Rauch Tung Striebel (RTS) smoother \cite{rauch_maximum_1965} are proposed for necessary data cleaning before feeding into the VMMs. An iterative approach is adopted to determine the most appropriate VMM. Especially, the multicollinearity problem is addressed by identifying a ship manoeuvring system with proper parameters in the VMM. The proposed approach is verified by identifying a selected VMM and predicting turning circle manoeuvres for two different test vessels.
 
 \sphinxAtStartPar
 For the completeness of this paper, different VMMs and propeller models are briefly introduced in \hyperref[\detokenize{02.01_VMMs:vmm}]{Section \ref{\detokenize{02.01_VMMs:vmm}}}. Then the proposed PIT algorithm to identify the parameters in the VMMs is presented in \hyperref[\detokenize{01.01_method:method}]{Section \ref{\detokenize{01.01_method:method}}}, where each subcomponent is also described. The PIT is applied to two case study ships which are introduced in \hyperref[\detokenize{05.01_case_studies:case-studies}]{Section \ref{\detokenize{05.01_case_studies:case-studies}}} and corresponding results are presented in the \hyperref[\detokenize{06.01_results:results}]{Section \ref{\detokenize{06.01_results:results}}}, followed by conclusions.
@@ -110,7 +111,7 @@ For the completeness of this paper, different VMMs and propeller models are brie
 \label{\detokenize{02.01_VMMs:vessel-manoeuvring-model-models}}\label{\detokenize{02.01_VMMs:vmm}}\label{\detokenize{02.01_VMMs::doc}}
 \sphinxAtStartPar
 Ship manoeuvring is a simplified case of seakeeping. The encountering waves have been removed, assuming calm water conditions. This simplification allows for the ship dynamics to be expressed with only four degrees of freedom: surge, sway, roll and yaw, where roll is often excluded. Surge, sway and yaw have very low frequencies during manoeuvres, so that added masses as well as other hydrodynamic derivatives can be assumed as constants \cite{fossen_handbook_2021}. Three Vessel Manoeuvring Models (VMMs) are used in this paper: Linear (LVMM) \cite{matusiak_dynamics_2017}, Abkowitz model (AVMM) \cite{abkowitz_ship_1964} and a Modified Abkowitz model (MAVMM) proposed in this study.
-\hyperref[\detokenize{02.01_VMMs:coordinate-system}]{Fig.\@ \ref{\detokenize{02.01_VMMs:coordinate-system}}} shows the coordinate systems used in the VMMs where \(x_0\) and \(y_0\) and heading \(\Psi\) are the global position and orientation of a ship fix coordinate system \(O(x,y,z)\),  with origin at midship. \(u\), \(v\), \(r\), \(X\), \(Y\) and \(N\) are velocities and forces in the ship fix coordinate system.
+\hyperref[\detokenize{02.01_VMMs:coordinate-system}]{Fig.\@ \ref{\detokenize{02.01_VMMs:coordinate-system}}} shows the reference frames used in the VMMs where \(x_0\) and \(y_0\) and heading \(\Psi\) are the global position and orientation of a ship fix reference frame \(O(x,y,z)\) (or rather \(O(x,y)\) when heave is exluded) with origin at midship. \(u\), \(v\), \(r\), \(X\), \(Y\) and \(N\) are velocities and forces in the ship fix reference frame.
 
 \begin{figure}[H]
 \centering
@@ -140,7 +141,9 @@ A state space model for manoeuvring can now be defined with six states:
 The time derivative of this state \(\dot{\mathbf{x}}\) can be defined by a state transition \(f(\mathbf{x},\mathbf{c})\) using geometrical relations
 how global coordinates \(x_0\), \(y_0\) and \(\Psi\) depend on \(u\), \(v\), and \(r\) viz.,
 \begin{equation}\label{equation:02.01_VMMs:eqf}
-\begin{split}\displaystyle \dot{\mathbf{x}} = f(\mathbf{x},\mathbf{c}) + \mathbf{w} = \left[\begin{matrix}u \cos{\left(\Psi \right)} - v \sin{\left(\Psi \right)}\\u \sin{\left(\Psi \right)} + v \cos{\left(\Psi \right)}\\r\\\dot{u}\\\dot{v}\\\dot{r}\end{matrix}\right] + \mathbf{w}\end{split}
+\begin{split}\displaystyle \dot{\mathbf{x}} = f(\mathbf{x},\mathbf{c}) + \mathbf{w}
+                                          = \left[\begin{matrix}\dot{x_0}\\ \dot{y_0} \\ \dot{\Psi} \\\dot{u}\\\dot{v}\\\dot{r}\end{matrix}\right] + \mathbf{w}
+                                          = \left[\begin{matrix}u \cos{\left(\Psi \right)} - v \sin{\left(\Psi \right)}\\u \sin{\left(\Psi \right)} + v \cos{\left(\Psi \right)}\\r\\\dot{u}\\\dot{v}\\\dot{r}\end{matrix}\right] + \mathbf{w}\end{split}
 \end{equation}
 \sphinxAtStartPar
 where \(\mathbf{c}\) is control inputs (rudder angle \(\delta\) and thrust \(T\)); the last three derivatives: \(\dot{u}\), \(\dot{v}\), \(\dot{r}\) are calculated with \autoref{equation:02.01_VMMs:eqacc}.
@@ -517,7 +520,7 @@ The state of the system is observed (measured) with a linear observation model (
 \begin{split}\mathbf{y} = \mathbf{H} x + \eta\end{split}
 \end{equation}
 \sphinxAtStartPar
-The used EKF recursive algorithm used is summarized in pseudocode below.
+The used EKF recursive algorithm used is summarized in pseudocode below \cite{brown_introduction_1997}.
 \label{04.01_EK:ek-algorithm}
 \begin{sphinxadmonition}{note}{Algorithm 3.1 (Discrete\sphinxhyphen{}time extended Kalman filter)}
 
