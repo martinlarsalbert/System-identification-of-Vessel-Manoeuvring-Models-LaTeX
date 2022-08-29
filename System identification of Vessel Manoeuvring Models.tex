@@ -91,16 +91,16 @@ This method only gives results for one specific maneuver, whereas alternative ma
 Instead, the system-based manoeuvring simulation is used where captive model tests can be conducted as inputs to a Vessel Manoeuvring Model (VMM). These tests are costly, and the increased flexibility of the mathematical model gives lower accuracy \cite{ittc_maneuvering_2008}.
 System identification methods applied to the free model tests offer a more cost-efficient way to develop VMMs.
 
-Both statistical regression and Non\sphinxhyphen{}parametric black box approaches have been used for the system identification \cite{he_nonparametric_2022}.  However, most of today's system identification methods for developing ship manoeuvring models assume a predefined mathematical model, reducing the problem to a parameter identification technique (PIT) or parameter estimation.
+Both statistical regression and Non\sphinxhyphen{}parametric black box approaches have been used for the system identification \cite{he_nonparametric_2022}.  However, most of today's system identification methods for developing ship manoeuvring models assume a predefined mathematical model, reducing the problem to a parameter identification.
 The Kalman Filter (KF) combined with Maximum Likelihood Estimation was proposed already in 1976 \cite{astrom_identification_1976} to develop a linear manoeuvring model based on manually recorded data in 1969 onboard the Atlantic Song freighter. The Extended Kalman Filter (EKF) can also estimate parameters if the parameters are represented as states of the state space model. This technique was used on a nonlinear Nomoto model \cite{perera_system_2015} and a 3 degree of freedom model (3DOF) \cite{shi_identification_2009} based on simulated data.
 Support Vector Regression (SVR) has been investigated using simulated data in \cite{zhu_parameter_2017} and \cite{wang_parameter_2021} and using measured data from free model tests in \cite{luo_parameter_2016}.
 
 % 
-The drift effect of the hydrodynamic coefficients is inevitable in modeling of ship manoeuvring motions by using the System Identification (SI) techniques. The drifts of hydrodynamic coefficients result from the so-called multicollinearity, meaning that if the input variables of a regression model are firmly linearly dependent on each other, the regression results of their coefficients may be incorrect \cite{luo_parameter_2016}. The identified coefficients within the mathematical model do not have to be physically correct but mathematically correct \cite{ittc_maneuvering_2008}. Many nonlinear hydrodynamic coefficients in the mathematical model of ship manoeuvring motions have no apparent physical meaning \cite{luo_parameter_2016}. Multicollinearity can be reduced by reducing the number of parameters in the model, either by simplification or adding more deterministic parts by including hydrodynamic relations. For instance, slender body theory can be added\cite{hwang_cancellation_1982}. Simplification can be based on hydrodynamic reasoning where the number of parameters can be reduced \cite{luo_parameter_2016}.
+The drift effect of the hydrodynamic coefficients is inevitable in modeling of ship manoeuvring motions by using the System Identification (SI) techniques. The drifts of hydrodynamic coefficients result from the so-called multicollinearity, meaning that if the input variables of a regression model are firmly linearly dependent on each other, the regression results of their coefficients may be incorrect \cite{luo_parameter_2016}. The identified coefficients within the mathematical model do not have to be physically correct but mathematically correct \cite{ittc_maneuvering_2008}. Many nonlinear hydrodynamic coefficients in the mathematical model of ship manoeuvring motions have no apparent physical meaning \cite{luo_parameter_2016}. Multicollinearity can be reduced by reducing the number of parameters in the model, either by simplification or adding more deterministic parts by including hydrodynamic relations. For instance, slender body theory can be added \cite{hwang_cancellation_1982}. Simplification can be based on hydrodynamic reasoning where the number of parameters can be reduced \cite{luo_parameter_2016}.
 
  
 However, system identification methods must handle imperfections in the data from measurement noise and model uncertainty of the VMM, which will always be present since the model can never perfectly capture all fundamental physics. When developing a VMM with model test data for manoeuvring prediction, preprocessing of data and a method to choose an appropriate VMM are needed \cite{alexandersson_comparison_2022}.
-This paper proposes an innovative approach to address those issues for ship manoeuvring system identification based on actual noise test data. First, a PIT is proposed to study the capability of several candidate VMMs. Model test data in all degrees of freedom is recorded as ship trajectories, including position and heading, are used in the method, where a model for propeller thrust is also proposed and further developed. In this method, the inverse dynamics regression and Extended Kalman Filter (EKF) with a Rauch Tung Striebel (RTS) smoother \cite{rauch_maximum_1965} are proposed for necessary data cleaning before feeding into the VMMs. An iterative approach is adopted to determine the most appropriate VMM. The multicollinearity problem is addressed by identifying a ship manoeuvring system with proper parameters in the VMM. The proposed approach is verified by identifying a selected VMM and predicting turning circle manoeuvres for two different test vessels.
+This paper proposes an innovative approach to address those issues for ship manoeuvring system identification based on actual noise test data. First, a Parameter Identification Technique (PIT) is proposed to study the capability of several candidate VMMs. Model test data in all degrees of freedom is recorded as ship trajectories, including position and heading and thrust, where a model for propeller thrust is also proposed and further developed. In this method, the inverse dynamics regression and Extended Kalman Filter (EKF) with a Rauch Tung Striebel (RTS) smoother \cite{rauch_maximum_1965} are proposed for necessary data cleaning before feeding into the VMMs. An iterative approach is adopted to determine the most appropriate VMM. The multicollinearity problem is addressed by identifying a ship manoeuvring system with proper parameters in the VMM. The proposed approach is verified by identifying a selected VMM and predicting turning circle manoeuvres for two different test vessels.
 
 % 
 For the completeness of this paper, different VMMs and propeller models are briefly introduced in \hyperref[\detokenize{02.01_VMMs:vmm}]{Section \ref{\detokenize{02.01_VMMs:vmm}}}. Then the proposed PIT algorithm to identify the parameters in the VMMs is presented in \hyperref[\detokenize{01.01_method:method}]{Section \ref{\detokenize{01.01_method:method}}}, where each subcomponent is also described. The PIT is applied to two case study ships which are introduced in \hyperref[\detokenize{05.01_case_studies:case-studies}]{Section \ref{\detokenize{05.01_case_studies:case-studies}}} and corresponding results are presented in the \hyperref[\detokenize{06.01_results:results}]{Section \ref{\detokenize{06.01_results:results}}}, followed by conclusions.
@@ -146,7 +146,7 @@ how global coordinates \(x_0\), \(y_0\) and \(\Psi\) depend on \(u\), \(v\), and
                                           = \left[\begin{matrix}u \cos{\left(\Psi \right)} - v \sin{\left(\Psi \right)}\\u \sin{\left(\Psi \right)} + v \cos{\left(\Psi \right)}\\r\\\dot{u}\\\dot{v}\\\dot{r}\end{matrix}\right] + \mathbf{w}\end{split}
 \end{equation}
  
-where \(\mathbf{c}\) is control inputs (rudder angle \(\delta\) and thrust \(T\)); the last three derivatives: \(\dot{u}\), \(\dot{v}\), \(\dot{r}\) are calculated with \autoref{equation:02.01_VMMs:eqacc}.
+where \(\mathbf{c}\) is control inputs (rudder angle \(\delta\) and thrust); the last three derivatives: \(\dot{u}\), \(\dot{v}\), \(\dot{r}\) are calculated with \autoref{equation:02.01_VMMs:eqacc}.
 \(\mathbf{w}\) is the process noise, i.e., the difference between the predicted state by the VMM and the true
 state of the system. \(\mathbf{w}\) is unknown when the VMM is used for manoeuvre predictions and therefore normally
 assumed to be zero, but it is an important factor when the VMM is used in the EKF, see Section \(\ref{\detokenize{04.01_EK::doc}}\).
@@ -356,7 +356,7 @@ which becomes linear when expressed in the prime system, as seen in \autoref{equ
 \subsection{The propeller model}
 \label{\detokenize{02.10_propeller_model:propeller-model}}\label{\detokenize{02.10_propeller_model::doc}}
   
-The propeller model is developed based on MMG model \cite{yasukawa_introduction_2015-1} where the thrust is expressed as:
+The propeller model is developed based on Manoeuvring Modeling Group (MMG) model \cite{yasukawa_introduction_2015-1} where the thrust is expressed as:
 \begin{equation}\label{equation:02.10_propeller_model:eqT}
 \begin{split}\displaystyle thrust = D^{4} K_{T} n^{2} \rho\end{split}
 \end{equation}
@@ -378,7 +378,7 @@ where \(D\) is propeller diameter, \(n\) is propeller speed, and \(w_p\) is the 
   
 \(w_p\) is modeled as a function of rudder angle, \(\delta\), to include wake influence from the rudder and ship speed, \(u\), to include a speed dependency. The influence from drift angle \(\beta\) and yaw rate \(r\) is expressed by \(\beta_p\) in \autoref{equation:02.10_propeller_model:eqbetap}.
 \begin{equation}\label{equation:02.10_propeller_model:eqbetap}
-\begin{split}\beta_p=\beta - \frac{r}{U} \cdot x_p \end{split}
+\begin{split}\beta_p=\beta - \frac{r}{V} \cdot x_p \end{split}
 \end{equation}
   
 Where \(x_p\) is the propeller longitudinal position and \(w_{p0}\) is the regular Taylor wake fraction, applicable to straight ahead steaming with no rudder angle. Similar to the MMG propeller model, two sets of parameters \(C_1\)\sphinxhyphen{}\(C_4\) should be used in the propeller model depending on the sign of \(\beta_p\).
@@ -402,8 +402,7 @@ In this procedure, a VMM is used to solve the reversed manoeuvring problem, such
 \label{\detokenize{01.01_method:overview-of-the-proposed-procedure}}
   
 After choosing a proper VMM model to describe a ship’s manoeuvring performance, the coefficients in the VMM can be estimated by the proposed PIT method in \hyperref[\detokenize{01.01_method:overview}]{Fig.\@ \ref{\detokenize{01.01_method:overview}}}.
-
-The measurement noise needs to be removed if the regression of hydrodynamic derivatives in the VMM should work well. However, filtering with the EKF also needs an accurate VMM as the system model. Therefore, the accurate VMM is both the input and output of the PIT. The system model VMM in the EKF is guessed to solve this dilemma. A linear VMM with hydrodynamic derivatives estimated with semi\sphinxhyphen{}empirical formulas is used as the initial guess. Once the regressed VMM has been obtained, the PIT can be rerun using the regressed VMM as the system model VMM in the EKF to obtain an even better VMM. This procedure can be repeated several times for improved accuracy. Using semi\sphinxhyphen{}empirical formulas for the initially guessed VMM adds prior knowledge about the ship dynamics to the regression. When used with the recursive EKF, this method is an innovation compared to other PIT methods.
+The measurement noise needs to be removed if the regression of hydrodynamic derivatives in the VMM should work well. However, filtering with the EKF also needs an accurate VMM as the system model. Therefore, the accurate VMM is both the input and output of the PIT. The system model VMM in the EKF is guessed to solve this dilemma. A linear VMM with hydrodynamic derivatives estimated with semi\sphinxhyphen{}empirical formulas is used as the initial guess. Once the regressed VMM has been obtained, the PIT can be rerun using the regressed VMM as the system model in the EKF to obtain an even better VMM. This procedure can be repeated several times for improved accuracy. Using semi\sphinxhyphen{}empirical formulas for the initially guessed VMM adds prior knowledge about the ship dynamics to the regression. When used with the recursive EKF, this method is an innovation compared to other PIT methods.
 
   
 The iterative process is composed of two basic steps:
@@ -436,9 +435,8 @@ In the following section, the methods of inverse dynamics, regression, and EKF u
 \subsection{Inverse dynamics and regression}
 \label{\detokenize{03.01_inverse_dynamics:inverse-dynamics-and-regression}}\label{\detokenize{03.01_inverse_dynamics::doc}}
   
-Each manoeuvring model has some hydrodynamic functions \(X_D(u,v,r,\delta,thrust)\), \(Y_D(u,v,r,\delta,thrust)\), \(N_D(u,v,r,\delta,thrust)\) that are defined as polynomials. The hydrodynamic derivatives in these polynomials can be identified with force regression of measured forces and moments. The measured forces and moments are usually taken from Captive Model Tests (CMT), Planar Motion Mechanism (PMM) tests, or Virtual Captive Tests (VCT), which is the virtual version of CMT/PMM tests calculated with Computational Fluid Dynamics (CFD). Motions can only be observed when the ship is free in all degrees of freedom, as in the present model tests. Hence, forces and moments causing ship motions need to be estimated by solving the inverse dynamics problem.
-
-  
+Each manoeuvring model has some hydrodynamic functions \(X_D(u,v,r,\delta,thrust)\), \(Y_D(u,v,r,\delta,thrust)\), \(N_D(u,v,r,\delta,thrust)\) that are defined as polynomials. The hydrodynamic derivatives in these polynomials can be identified with force regression of measured forces and moments. The measured forces and moments are usually taken from Captive Model Tests (CMT), Planar Motion Mechanism (PMM) tests, or Virtual Captive Tests (VCT).
+When the ship is free in all degrees of freedom, as in the present model tests, only motions are recorded however. Hence, forces and moments causing ship motions need to be estimated by solving the inverse dynamics problem.
 The inverse dynamics is solved by restructuring the system equation (\autoref{equation:02.01_VMMs:eqqsystem}) to get the hydrodynamics functions on the left-hand side. If the mass and inertia of the ship including added masses: \(X_{\dot{u}}\), \(Y_{\dot{v}}\), \(Y_{\dot{r}}\), \(N_{\dot{v}}\) and \(N_{\dot{r}}\), are known, the forces in Prime system can be calculated using \autoref{equation:03.01_inverse_dynamics:eqxd}, \autoref{equation:03.01_inverse_dynamics:eqyd} and \autoref{equation:03.01_inverse_dynamics:eqnd}.
 \begin{equation}\label{equation:03.01_inverse_dynamics:eqxd}
 \begin{split}\displaystyle \operatorname{X_{D}'}{\left(u',v',r',\delta,thrust' \right)} = - X_{\dot{u}}' \dot{u}' + \dot{u}' m' - m' r'^{2} x_{G}' - m' r' v'\end{split}
@@ -448,7 +446,7 @@ The inverse dynamics is solved by restructuring the system equation (\autoref{eq
 \begin{split}\displaystyle \operatorname{N_{D}'}{\left(u',v',r',\delta,thrust' \right)} = I_{z}' \dot{r}' - N_{\dot{r}}' \dot{r}' - N_{\dot{v}}' \dot{v}' + \dot{v}' m' x_{G}' + m' r' u' x_{G}'\end{split}
 \end{equation}
   
-An example of forces calculated with inverse dynamics from motions in a turning circle test can be seen in \hyperref[\detokenize{03.01_inverse_dynamics:fig-inverse}]{Fig.\@ \ref{\detokenize{03.01_inverse_dynamics:fig-inverse}}}.
+An example of forces calculated with inverse dynamics from motions in a turning circle test can be seen in \hyperref[\detokenize{03.01_inverse_dynamics:fig-inverse}]{Fig.\@ \ref{\detokenize{03.01_inverse_dynamics:fig-inverse}}}. The forces have been converted to SI units.
 
  \begin{sphinxuseclass}{cell}
  \begin{sphinxuseclass}{tag_remove_input}
@@ -487,7 +485,7 @@ The hydrodynamic derivatives in the VMM are considered Gaussian random variables
 
   
 Strong multicollinearity is a known problem for the the VMM:s \cite{luo_parameter_2016}, \cite{wang_quantifying_2018}.
-The thrust coefficient \(X_T\) in the hydrodynamic function \(X_D\) in \autoref{equation:02.01_VMMs:eqxabkowitz} introduces multicollinearity to the regression. This coefficient is calculated from the thrust deduction factor \(t_{df}\):
+The thrust coefficient \(X_T\) in the hydrodynamic function \(X_D\) in \autoref{equation:02.01_VMMs:eqxabkowitz} introduces multicollinearity to the regression. This coefficient can instead be calculated from the thrust deduction factor \(t_{df}\):
 \begin{equation}\label{equation:03.01_inverse_dynamics:eqXthrust}
 \begin{split}\displaystyle X_{T} = 1 - t_{df}\end{split}
 \end{equation}
@@ -505,7 +503,7 @@ Rudder coefficients (\(Y_R\)) from \(Y_D\) equation \autoref{equation:02.01_VMMs
 \subsection{Extended Kalman Filter (EKF)}
 \label{\detokenize{04.01_EK:extended-kalman-filter-ekf}}\label{\detokenize{04.01_EK::doc}}
   
-It is possible to do an exact parameter identification on perfect (simulated) data with no noise (see Section \(\ref{\detokenize{03.01_inverse_dynamics::doc}}\)). However, such data from physical experiments does not exist in reality. The measured data will always contain process noise and measurement noise. In order to mitigate this, the data is preprocessed using an Extended Kalman filter (EKF) and Rauch Tung Striebel (RTS) smoother, which are both presented below.
+It is possible to do an exact parameter identification on perfect (simulated) data with no noise (see Section \(\ref{\detokenize{06.40_results_inverse_dynamics::doc}}\)). However, such data from physical experiments does not exist in reality. The measured data will always contain process noise and measurement noise. In order to mitigate this, the data is preprocessed using an Extended Kalman filter (EKF) and Rauch Tung Striebel (RTS) smoother, which are both presented below.
 
 
 \subsubsection{The EKF recursive algorithm}
@@ -1451,6 +1449,8 @@ The mean values and standard error (se) of the hydrodynamic derivatives expresse
 \subsection{The KVLCC2 tests}
 \label{\detokenize{06.20_results_kvlcc2:kvlcc2-tests}}\label{\detokenize{06.20_results_kvlcc2::doc}}
 
+The propeller is part of the VMM for thr KVLCC2 test case. A propeller prediction model needs to be regressed, based on thrust measurements from the model tests.
+
 \subsubsection{KVLCC2 propeller model}
 \label{\detokenize{06.20_results_kvlcc2:kvlcc2-propeller-model}}\label{\detokenize{06.20_results_kvlcc2:results-propeller-model}}
   
@@ -1534,7 +1534,7 @@ The model tests were divided into the test and validation sets randomly. The ran
 \subsubsection{KVLCC2 VMM}
 \label{\detokenize{06.20_results_kvlcc2:kvlcc2-vmm}}
   
-The LVMM was ruled too simple, so only the AVMM and MAVMM were considered possible VMMs in the cross-validation.
+The LVMM was ruled too simple, for KVLCC2 as well, so only the AVMM and MAVMM were considered possible VMMs in the cross-validation.
 The forces and moments applied on the hull, rudder, and propeller predicted with the AVMM and MAVMM fitted with the proposed PIT on the training set are shown in \hyperref[\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-forces}]{Fig.\@ \ref{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-forces}}}.
 The forces are well predicted with both VMMs. The AVMM is not giving the large over predictions that were seen for wPCC (see Section \(\ref{\detokenize{06.10_results_wpcc::doc}}\)). However, the MAVMM is still slightly better and is therefore selected as the suitable VMM for the KVLCC2.
 
