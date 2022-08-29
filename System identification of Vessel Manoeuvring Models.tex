@@ -86,7 +86,7 @@
 \section{Introduction}
 \label{\detokenize{00.02_introduction:introduction}}\label{\detokenize{00.02_introduction::doc}}
 % 
-Prediction of a ship's maneuvering performance is required in many applications, such as the maneuverability requirement for ship design and construction, the design of advanced ship autopilot systems, or master mariners' training simulators. Ship maneuvering performance can be assessed with varying accuracy, effort, and cost. The full-scale maneuvering test during sea trials is the most common method used to demonstrate compliance with the International Maritime Organization (IMO) maneuvering criteria \cite{imo_standards_2002}, which all ships over 100 meters must fulfill. However, maneuvering prediction methods are needed before ships are built. The free model test is often recognized as the most accurate prediction method \cite{ittc_maneuvering_2008}.
+Prediction of a ship's manoeuvring performance is required in many applications, such as the maneuverability requirement for ship design and construction, the design of advanced ship autopilot systems, or master mariners' training simulators. Ship manoeuvring performance can be assessed with varying accuracy, effort, and cost. The full-scale manoeuvring test during sea trials is the most common method used to demonstrate compliance with the International Maritime Organization (IMO) manoeuvring criteria \cite{imo_standards_2002}, which all ships over 100 meters must fulfill. However, manoeuvring prediction methods are needed before ships are built. The free model test is often recognized as the most accurate prediction method \cite{ittc_maneuvering_2008}.
 This method only gives results for one specific maneuver, whereas alternative maneuvers require conducting new tests and significant efforts. Some complex maneuvers, such as harbor maneuvers, are also complicated to conduct in a free model test.
 Instead, the system-based manoeuvring simulation is used where captive model tests can be conducted as inputs to a Vessel Manoeuvring Model (VMM). These tests are costly, and the increased flexibility of the mathematical model gives lower accuracy \cite{ittc_maneuvering_2008}.
 System identification methods applied to the free model tests offer a more cost-efficient way to develop VMMs.
@@ -168,7 +168,7 @@ LVMM (Linear Vessel Manoeuvring Model) \cite{matusiak_dynamics_2017}:
 \end{split}\end{split}
 \end{equation}
  
-AVMM (Abkowitz Vessel maneuvering Model) \cite{abkowitz_ship_1964}:
+AVMM (Abkowitz Vessel manoeuvring Model) \cite{abkowitz_ship_1964}:
 \begin{equation}\label{equation:02.01_VMMs:eqxabkowitz}
 \begin{split}\begin{split}
 \operatorname{X_{D}'}{\left(u',v',r',\delta,thrust' \right)} = & X_{\delta\delta} \delta^{2} + X_{r\delta} \delta r' + X_{rr} r'^{2} + X_{T} thrust' + X_{u\delta\delta} \delta^{2} u' + X_{ur\delta} \delta r' u' + X_{urr} r'^{2} u' + X_{uuu} u'^{3} \\
@@ -188,7 +188,7 @@ AVMM (Abkowitz Vessel maneuvering Model) \cite{abkowitz_ship_1964}:
 \end{split}\end{split}
 \end{equation}
  
-MAVMM (Modified Abkowitz Vessel maneuvering Model where only the most relevant coefficients in AVMM are included.
+MAVMM (Modified Abkowitz Vessel manoeuvring Model where only the most relevant coefficients in AVMM are included.
 \begin{equation}\label{equation:02.01_VMMs:eqxmartinssimple}
 \begin{split}\begin{split}
 \operatorname{X_{D}'}{\left(u',v',r',\delta,thrust' \right)} = & X_{\delta\delta} \delta^{2} + X_{rr} r'^{2} + X_{T} thrust' + X_{uu} u'^{2} + X_{u} u' + X_{vr} r' v' 
@@ -387,8 +387,8 @@ Where \(x_p\) is the propeller longitudinal position and \(w_{p0}\) is the regul
 \section{Method}
 \label{\detokenize{01.01_method:method}}\label{\detokenize{01.01_method:id1}}\label{\detokenize{01.01_method::doc}}
   
-The system identification can be simplified into parameter identification if a Mathematical Vessel Maneuvering Model (VMM) is assumed to describe the ship maneuvering system. An accurate and reliable approach to building the VMM for a ship’s maneuvers is proposed here and presented in \hyperref[\detokenize{01.01_method:overview}]{Fig.\@ \ref{\detokenize{01.01_method:overview}}}.
-In this procedure, a VMM is used to solve the reversed maneuvering problem, such as predicting unknown forces from known ship maneuverability. The hydrodynamic derivatives in the VMM can be identified with regression of the force polynomials on forces predicted with inverse dynamics. The Ordinary Least Square (OLS) method regresses the hydrodynamic derivatives. The OLS is known to be extremely sensitive to noise and outliers inevitably associated with both experimental and full\sphinxhyphen{}scale test data. Thereby, the focus in the present Parameter Identification Technique (PIT) is on pre\sphinxhyphen{}processing data with filtering rather than the regression method itself, which is different from other PIT methods. Both the Extended Kalman Filter (EKF) and Rauch Tung Striebel (RTS) smoother are used to perform the data\sphinxhyphen{}processing for building a proper VMM.
+The system identification can be simplified into parameter identification if a Mathematical Vessel Manoeuvring Model (VMM) is assumed to describe the ship manoeuvring system. An accurate and reliable approach to building the VMM for a ship’s maneuvers is proposed here and presented in \hyperref[\detokenize{01.01_method:overview}]{Fig.\@ \ref{\detokenize{01.01_method:overview}}}.
+In this procedure, a VMM is used to solve the reversed manoeuvring problem, such as predicting unknown forces from known ship maneuverability. The hydrodynamic derivatives in the VMM can be identified with regression of the force polynomials on forces predicted with inverse dynamics. The Ordinary Least Square (OLS) method regresses the hydrodynamic derivatives. The OLS is known to be extremely sensitive to noise and outliers inevitably associated with both experimental and full\sphinxhyphen{}scale test data. Thereby, the focus in the present Parameter Identification Technique (PIT) is on pre\sphinxhyphen{}processing data with filtering rather than the regression method itself, which is different from other PIT methods. Both the Extended Kalman Filter (EKF) and Rauch Tung Striebel (RTS) smoother are used to perform the data\sphinxhyphen{}processing for building a proper VMM.
 
 \begin{figure}[H]
 \centering
@@ -401,7 +401,7 @@ In this procedure, a VMM is used to solve the reversed maneuvering problem, such
 \subsection{Overview of the proposed procedure}
 \label{\detokenize{01.01_method:overview-of-the-proposed-procedure}}
   
-After choosing a proper VMM model to describe a ship’s maneuvering performance, the coefficients in the VMM can be estimated by the proposed PIT method in \hyperref[\detokenize{01.01_method:overview}]{Fig.\@ \ref{\detokenize{01.01_method:overview}}}.
+After choosing a proper VMM model to describe a ship’s manoeuvring performance, the coefficients in the VMM can be estimated by the proposed PIT method in \hyperref[\detokenize{01.01_method:overview}]{Fig.\@ \ref{\detokenize{01.01_method:overview}}}.
 
 The measurement noise needs to be removed if the regression of hydrodynamic derivatives in the VMM should work well. However, filtering with the EKF also needs an accurate VMM as the system model. Therefore, the accurate VMM is both the input and output of the PIT. The system model VMM in the EKF is guessed to solve this dilemma. A linear VMM with hydrodynamic derivatives estimated with semi\sphinxhyphen{}empirical formulas is used as the initial guess. Once the regressed VMM has been obtained, the PIT can be rerun using the regressed VMM as the system model VMM in the EKF to obtain an even better VMM. This procedure can be repeated several times for improved accuracy. Using semi\sphinxhyphen{}empirical formulas for the initially guessed VMM adds prior knowledge about the ship dynamics to the regression. When used with the recursive EKF, this method is an innovation compared to other PIT methods.
 
@@ -436,7 +436,7 @@ In the following section, the methods of inverse dynamics, regression, and EKF u
 \subsection{Inverse dynamics and regression}
 \label{\detokenize{03.01_inverse_dynamics:inverse-dynamics-and-regression}}\label{\detokenize{03.01_inverse_dynamics::doc}}
   
-Each maneuvering model has some hydrodynamic functions \(X_D(u,v,r,\delta,thrust)\), \(Y_D(u,v,r,\delta,thrust)\), \(N_D(u,v,r,\delta,thrust)\) that are defined as polynomials. The hydrodynamic derivatives in these polynomials can be identified with force regression of measured forces and moments. The measured forces and moments are usually taken from Captive Model Tests (CMT), Planar Motion Mechanism (PMM) tests, or Virtual Captive Tests (VCT), which is the virtual version of CMT/PMM tests calculated with Computational Fluid Dynamics (CFD). Motions can only be observed when the ship is free in all degrees of freedom, as in the present model tests. Hence, forces and moments causing ship motions need to be estimated by solving the inverse dynamics problem.
+Each manoeuvring model has some hydrodynamic functions \(X_D(u,v,r,\delta,thrust)\), \(Y_D(u,v,r,\delta,thrust)\), \(N_D(u,v,r,\delta,thrust)\) that are defined as polynomials. The hydrodynamic derivatives in these polynomials can be identified with force regression of measured forces and moments. The measured forces and moments are usually taken from Captive Model Tests (CMT), Planar Motion Mechanism (PMM) tests, or Virtual Captive Tests (VCT), which is the virtual version of CMT/PMM tests calculated with Computational Fluid Dynamics (CFD). Motions can only be observed when the ship is free in all degrees of freedom, as in the present model tests. Hence, forces and moments causing ship motions need to be estimated by solving the inverse dynamics problem.
 
   
 The inverse dynamics is solved by restructuring the system equation (\autoref{equation:02.01_VMMs:eqqsystem}) to get the hydrodynamics functions on the left-hand side. If the mass and inertia of the ship including added masses: \(X_{\dot{u}}\), \(Y_{\dot{v}}\), \(Y_{\dot{r}}\), \(N_{\dot{v}}\) and \(N_{\dot{r}}\), are known, the forces in Prime system can be calculated using \autoref{equation:03.01_inverse_dynamics:eqxd}, \autoref{equation:03.01_inverse_dynamics:eqyd} and \autoref{equation:03.01_inverse_dynamics:eqnd}.
@@ -659,7 +659,7 @@ The EKF and RTS have been run on simulated data with Gaussian noise added to see
 \label{\detokenize{05.01_case_studies:presentation-of-case-studies}}\label{\detokenize{05.01_case_studies:case-studies}}\label{\detokenize{05.01_case_studies::doc}}
   
 The two case study model test results from the wPCC as in \hyperref[\detokenize{05.01_case_studies:wpcc-mdl}]{Fig.\@ \ref{\detokenize{05.01_case_studies:wpcc-mdl}}} and the well-known KVLCC2 are used to validate the proposed PIT method to obtain the hydrodynamic derivatives of the VMMs to describe a ship’s maneuverability. The general aim of developing a VMM with PIT is to be able to make predictions for unseen data outside the known data from model tests or full-scale operations. Therefore, both test cases aim to predict turning circle maneuvers with VMMs trained on model test data where turning circle maneuvers are excluded. The training data contains drift angles and yaw rates much smaller than typically encountered during a turning circle maneuver.
-The main dimensions of the two case study ship models are listed in \hyperref[\detokenize{05.01_case_studies:main-dimensions-of-test-case-ship-models}]{Table \ref{\detokenize{05.01_case_studies:main-dimensions-of-test-case-ship-models}}}, with explanations in \hyperref[\detokenize{05.01_case_studies:list-of-main-dimensions-symbols}]{Table \ref{\detokenize{05.01_case_studies:list-of-main-dimensions-symbols}}}. The wPCC is a wind-powered car carrier tested at SSPA \cite{alexandersson_wpcc_2022}. This twin screw ship with large rudders has good course stability and symmetric hydrodynamic maneuvering forces. The KVLCC2 model test data from the Hamburg ship model basin (HSVA) and Maritime Research Institute Netherlands (MARIN) was made available by SIMMAN2008 conference \cite{stern_experience_2011}. This single screw ship is more course unstable than the wPCC test case, and maneuvering forces are unsymmetrical due to the single propeller. This instability makes it good as the second test case with PIT on an unsymmetrical model.
+The main dimensions of the two case study ship models are listed in \hyperref[\detokenize{05.01_case_studies:main-dimensions-of-test-case-ship-models}]{Table \ref{\detokenize{05.01_case_studies:main-dimensions-of-test-case-ship-models}}}, with explanations in \hyperref[\detokenize{05.01_case_studies:list-of-main-dimensions-symbols}]{Table \ref{\detokenize{05.01_case_studies:list-of-main-dimensions-symbols}}}. The wPCC is a wind-powered car carrier tested at SSPA \cite{alexandersson_wpcc_2022}. This twin screw ship with large rudders has good course stability and symmetric hydrodynamic manoeuvring forces. The KVLCC2 model test data from the Hamburg ship model basin (HSVA) and Maritime Research Institute Netherlands (MARIN) was made available by SIMMAN2008 conference \cite{stern_experience_2011}. This single screw ship is more course unstable than the wPCC test case, and manoeuvring forces are unsymmetrical due to the single propeller. This instability makes it good as the second test case with PIT on an unsymmetrical model.
 
  \begin{figure}[H]
  \centering
@@ -1885,7 +1885,7 @@ The MAVMM has fewer hydrodynamic derivatives with lower multicollinearity and mi
 \section{Conclusions}
 \label{\detokenize{10.01_conclusions:conclusions}}\label{\detokenize{10.01_conclusions:id1}}\label{\detokenize{10.01_conclusions::doc}}
   
-This paper presented a new method for system identification of ship maneuvering dynamics using a new Parameter Identification Technique (PIT) applied to Vessel Maneuvering Models (VMMs). The proposed method includes:
+This paper presented a new method for system identification of ship manoeuvring dynamics using a new Parameter Identification Technique (PIT) applied to Vessel Manoeuvring Models (VMMs). The proposed method includes:
 \begin{itemize}
 \item {} 
   
@@ -1925,7 +1925,7 @@ The inverse dynamics regression had higher accuracy when the proposed preprocess
 \end{itemize}
 
   
-Finally, it is concluded that the proposed method can potentially improve the system identification of ship maneuvering dynamics. The KVLCC2 test case results with the new method are closer to the model tests compared to a similar study \cite{he_nonparametric_2022}. Adding the prior knowledge from semi\sphinxhyphen{}empirical formulas as the initial guess into the EKF iteration, adding the thrust model, and adopting the complexity of the VMM by reducing the number of hydrodynamic derivatives are all contributing to the improved performance.
+Finally, it is concluded that the proposed method can potentially improve the system identification of ship manoeuvring dynamics. The KVLCC2 test case results with the new method are closer to the model tests compared to a similar study \cite{he_nonparametric_2022}. Adding the prior knowledge from semi\sphinxhyphen{}empirical formulas as the initial guess into the EKF iteration, adding the thrust model, and adopting the complexity of the VMM by reducing the number of hydrodynamic derivatives are all contributing to the improved performance.
 
 
 \section{Acknowledgements}
