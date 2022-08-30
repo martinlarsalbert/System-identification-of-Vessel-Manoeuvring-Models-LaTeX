@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.3) (preloaded format=xelatex 2021.8.25)  29 AUG 2022 14:47
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.3) (preloaded format=xelatex 2021.8.25)  30 AUG 2022 08:24
 entering extended mode
 **"./System identification of Vessel Manoeuvring Models.tex"
 (System identification of Vessel Manoeuvring Models.tex
@@ -817,9 +817,9 @@ File: psdextra.def 2021-02-27 v7.00k Hyperref: Additions to PDF string support
 
 Writing index file "System identification of Vessel Manoeuvring Models".idx
 (System identification of Vessel Manoeuvring Models.aux
-LaTeX Info: Redefining \rmfamily on input line 22.
-LaTeX Info: Redefining \sffamily on input line 22.
-LaTeX Info: Redefining \ttfamily on input line 22.
+LaTeX Info: Redefining \rmfamily on input line 25.
+LaTeX Info: Redefining \sffamily on input line 25.
+LaTeX Info: Redefining \ttfamily on input line 25.
 )
 \openout1 = `"System identification of Vessel Manoeuvring Models.aux"'.
 
@@ -1143,79 +1143,78 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 6.99925pt on input line 59.
 )
-Overfull \hbox (2.22pt too wide) has occurred while \output is active
-[] 
- []
-
-
 (C:\Users\maa\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-ascii-prin
 t.def
 File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
 
 )
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 86.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\cnotenum' on input line 86.
+Overfull \hbox (2.22pt too wide) has occurred while \output is active
+[] 
+ []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 86.
+(hyperref)                removing `\<def>-command' on input line 93.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@corref' on input line 86.
+(hyperref)                removing `\cnotenum' on input line 93.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 86.
+(hyperref)                removing `\<def>-command' on input line 93.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\comma' on input line 86.
+(hyperref)                removing `\@corref' on input line 93.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 86.
+(hyperref)                removing `\<let>-command' on input line 93.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@fnmark' on input line 86.
+(hyperref)                removing `\comma' on input line 93.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 86.
+(hyperref)                removing `\<def>-command' on input line 93.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\comma' on input line 86.
+(hyperref)                removing `\@fnmark' on input line 93.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 86.
+(hyperref)                removing `\<let>-command' on input line 93.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@fnmark' on input line 86.
+(hyperref)                removing `\comma' on input line 93.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 86.
+(hyperref)                removing `\<def>-command' on input line 93.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\comma' on input line 86.
+(hyperref)                removing `\@fnmark' on input line 93.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 86.
+(hyperref)                removing `\<let>-command' on input line 93.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@fnmark' on input line 86.
+(hyperref)                removing `\comma' on input line 93.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 93.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@fnmark' on input line 93.
 
 [1
 
@@ -1242,17 +1241,14 @@ Overfull \hbox (54.84775pt too wide) detected at line 189
 File: method.png Graphic file (type bmp)
 <method.png>
  [8] [9]
-File: 2018955274d69cb3f163b5924a5395c1adb965e27360d0473d17e20243a0c76c.pdf Grap
-hic file (type pdf)
-<use 2018955274d69cb3f163b5924a5395c1adb965e27360d0473d17e20243a0c76c.pdf>
+File: 0.pdf Graphic file (type pdf)
+<use 0.pdf>
  [10]
-File: efb6fe54f279d2c757b09258f1def367a48537e77e5772572c0caf28c2cd23d6.pdf Grap
-hic file (type pdf)
-<use efb6fe54f279d2c757b09258f1def367a48537e77e5772572c0caf28c2cd23d6.pdf>
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf>
  [11] [12] [13] [14]
-File: d8c65cd8babe257a32c7f77a44a59be2315ee1102e37abc0883fb7309652e255.pdf Grap
-hic file (type pdf)
-<use d8c65cd8babe257a32c7f77a44a59be2315ee1102e37abc0883fb7309652e255.pdf>
+File: 2.pdf Graphic file (type pdf)
+<use 2.pdf>
  [15]
 File: wpcc_mdl.png Graphic file (type bmp)
 <wpcc_mdl.png>
@@ -1442,57 +1438,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
  []
 
 [18]
-File: 24884b49de2c461795f7cb4003f939758a8f98d850c8fab7bc0dd8c460751628.pdf Grap
-hic file (type pdf)
-<use 24884b49de2c461795f7cb4003f939758a8f98d850c8fab7bc0dd8c460751628.pdf>
+File: 3.pdf Graphic file (type pdf)
+<use 3.pdf>
  [19]
-File: 04294f28833ea9c49e5bb65e815d6ccec72b98bae2e1aac9c95b3fa1ebb6276d.pdf Grap
-hic file (type pdf)
-<use 04294f28833ea9c49e5bb65e815d6ccec72b98bae2e1aac9c95b3fa1ebb6276d.pdf>
-File: b8db9d8b55d7bc6ebd845f91b17f2a337dfb783b8cada1fbc95059c63f1e569d.pdf Grap
-hic file (type pdf)
-<use b8db9d8b55d7bc6ebd845f91b17f2a337dfb783b8cada1fbc95059c63f1e569d.pdf>
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf>
+File: 5.pdf Graphic file (type pdf)
+<use 5.pdf>
  [20]
-File: dcffa991be41f550a2ba5e4a5f7fc829dc33a12a115491dbefb5152401ca8853.pdf Grap
-hic file (type pdf)
-<use dcffa991be41f550a2ba5e4a5f7fc829dc33a12a115491dbefb5152401ca8853.pdf>
+File: 6.pdf Graphic file (type pdf)
+<use 6.pdf>
  [21]
-File: 95d2cf9ba6f6747a11e277ed1f362fa1f7baaf599b9b65cd11146f559699bd82.pdf Grap
-hic file (type pdf)
-<use 95d2cf9ba6f6747a11e277ed1f362fa1f7baaf599b9b65cd11146f559699bd82.pdf>
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf>
  [22]
-File: 0d54d0ef127ac485c7f35141a37fbf333f048aa887bf64b0228513a55af97818.pdf Grap
-hic file (type pdf)
-<use 0d54d0ef127ac485c7f35141a37fbf333f048aa887bf64b0228513a55af97818.pdf>
+File: 8.pdf Graphic file (type pdf)
+<use 8.pdf>
  [23]
-File: 83da35a78d1c77824733a6139b0166666fab91bd03ef60669e49caf4bf3c8083.pdf Grap
-hic file (type pdf)
-<use 83da35a78d1c77824733a6139b0166666fab91bd03ef60669e49caf4bf3c8083.pdf>
-File: 867f3a70b7fe180177797983e6061227b580d9786b56af848d5f926f3e989025.pdf Grap
-hic file (type pdf)
-<use 867f3a70b7fe180177797983e6061227b580d9786b56af848d5f926f3e989025.pdf>
+File: 9.pdf Graphic file (type pdf)
+<use 9.pdf>
+File: 10.pdf Graphic file (type pdf)
+<use 10.pdf>
  [24]
-File: b36464008dd4dd62d69c0d285b6e088de7502ec0fc72c9abe081b9fde80fc198.pdf Grap
-hic file (type pdf)
-<use b36464008dd4dd62d69c0d285b6e088de7502ec0fc72c9abe081b9fde80fc198.pdf>
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf>
  [25]
-File: fig_propeller_validation.pdf Graphic file (type pdf)
-<use fig_propeller_validation.pdf>
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf>
  [26] [27]
-File: 5de55c76562c1e3c2ec5cf9e26424799bacf331c9264db2f67a4ec98201835f7.pdf Grap
-hic file (type pdf)
-<use 5de55c76562c1e3c2ec5cf9e26424799bacf331c9264db2f67a4ec98201835f7.pdf>
-File: 35b6300777e08959c6b808a631d99afad62f17f1a2431eedae879dacb41adbac.pdf Grap
-hic file (type pdf)
-<use 35b6300777e08959c6b808a631d99afad62f17f1a2431eedae879dacb41adbac.pdf>
+File: 13.pdf Graphic file (type pdf)
+<use 13.pdf>
+File: 14.pdf Graphic file (type pdf)
+<use 14.pdf>
  [28]
-File: 1ec364335e33f1496197bdc977a59a9690d44d0a8db08d6b04dc8316f8c719c2.pdf Grap
-hic file (type pdf)
-<use 1ec364335e33f1496197bdc977a59a9690d44d0a8db08d6b04dc8316f8c719c2.pdf>
+File: 15.pdf Graphic file (type pdf)
+<use 15.pdf>
  [29]
-File: 6084725f6412878ba1bee2488cec01b279c77655d0530fc7a30997b58073aafb.pdf Grap
-hic file (type pdf)
-<use 6084725f6412878ba1bee2488cec01b279c77655d0530fc7a30997b58073aafb.pdf>
+File: 16.pdf Graphic file (type pdf)
+<use 16.pdf>
  [30]
 Overfull \hbox (2.5414pt too wide) in paragraph at lines 1665--1665
 []\TU/lmss/m/n/10 delta| 
@@ -1577,9 +1560,9 @@ braces):
 >  {english/localnumeral}  =>  {polyglossia@C@localnumeral}
 >  {english/Localnumeral}  =>  {polyglossia@C@localnumeral}.
  [35] (System identification of Vessel Manoeuvring Models.aux
-LaTeX Info: Redefining \rmfamily on input line 22.
-LaTeX Info: Redefining \sffamily on input line 22.
-LaTeX Info: Redefining \ttfamily on input line 22.
+LaTeX Info: Redefining \rmfamily on input line 25.
+LaTeX Info: Redefining \sffamily on input line 25.
+LaTeX Info: Redefining \ttfamily on input line 25.
 )
 Package rerunfilecheck Info: File `"System identification of Vessel Manoeuvring
  Models".out' has not changed.
@@ -1587,7 +1570,7 @@ Package rerunfilecheck Info: File `"System identification of Vessel Manoeuvring
  ) 
 Here is how much of TeX's memory you used:
  21880 strings out of 411568
- 386989 string characters out of 2834605
+ 377773 string characters out of 2834605
  962964 words of memory out of 3000000
  41645 multiletter control sequences out of 15000+600000
  407912 words of font info for 79 fonts, out of 8000000 for 9000
