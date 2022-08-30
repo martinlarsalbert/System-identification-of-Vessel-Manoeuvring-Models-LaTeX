@@ -1,15 +1,2 @@
-Identifying the ship's maneuvering dynamics can build models for ship maneuverability predictions
-with a wide range of useful applications. A majority of the publications in this field are based on
-simulated data. This paper presents a new system identification method where the system is
-identified from model test data. The identification process can be decomposed into finding a suitable
-Vessel Manoeuvring Model (VMM) for the hydrodynamic forces and to correctly handle errors from the
-measurement noise. A Parameter Identification Technique (PIT) is proposed to identify the VMM hydrodynamic derivatives, from measured model test trajectories and thrust. The most suitable VMM
-is found using the PIT with cross-validation on a set of competing VMMs. The PIT uses inverse
-dynamics regression and Extended Kalman Filter (EKF) with a Rauch Tung Striebel (RTS) smoother. The
-multicollinearity problems in the VMMs are addressed by reducing the number of parameters and introducing
-the thrust force models. Two case study vessels, wPCC (Wind Powered Car Carrier) and KVLCC2 (Korean Very Large Crude Carrier), with very different maneuverability
-characteristics are used to demonstrate and validate the proposed method. The turning circle is used as the
-prediction case for both ships. Robust VMMs identified on model test data, excluding the turning circle, show
-good agreement with the corresponding model test results for both ships. Using EKF and RTS as a
-preprocessor to remove measurement noise and using cross-validation to find a VMM with appropriate
-complexity produces VMMs with the capability of making predictions outside the training data.
+Identifying the ship's maneuvering dynamics can build models for ship maneuverability predictions with a wide range of useful applications. 
+A majority of the publications in this field are based on simulated data. In this paper model test data is used. The identification process can be decomposed into finding a suitable Vessel Manoeuvring Model (VMM) for the hydrodynamic forces and to correctly handle errors from the measurement noise. A Parameter Identification Technique (PIT) is proposed to identify the hydrodynamic derivatives. The most suitable VMM is found using the PIT with cross-validation on a set of competing VMMs. The PIT uses inverse dynamics regression and Extended Kalman Filter (EKF) with a Rauch Tung Striebel (RTS) smoother. Two case study vessels, wPCC and KVLCC2, with very different maneuverability characteristics are used to demonstrate and validate the proposed method. Turning circle predictions with the Robust VMMs, trained on zigzag model tests, show good agreement with the corresponding model test results for both ships.
