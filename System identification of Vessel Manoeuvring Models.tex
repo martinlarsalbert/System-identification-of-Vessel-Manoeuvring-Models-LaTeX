@@ -86,18 +86,172 @@
 \section{Introduction}
 \label{\detokenize{00.02_introduction:introduction}}\label{\detokenize{00.02_introduction::doc}}
 \sphinxAtStartPar
-Prediction of a ship’s manoeuvring performance is required in many applications, such as the maneuverability requirement for ship design and construction, the design of advanced ship autopilot systems, or master mariners’ training simulators. Ship manoeuvring performance can be assessed with varying accuracy, effort, and cost. The full\sphinxhyphen{}scale manoeuvring test during sea trials is the most common method used to demonstrate compliance with the International Maritime Organization (IMO) manoeuvring criteria \cite{imo_standards_2002}, which all ships over 100 meters must fulfill. However, manoeuvring prediction methods are needed before ships are built. The free model test is often recognized as the most accurate prediction method \cite{ittc_maneuvering_2008}.
-This method only gives results for one specific maneuver, whereas alternative maneuvers require conducting new tests and significant efforts. Some complex maneuvers, such as harbor maneuvers, are also complicated to conduct in a free model test.
-Instead, the system\sphinxhyphen{}based manoeuvring simulation is used where captive model tests can be conducted as inputs to a Vessel Manoeuvring Model (VMM). These tests are costly, and the increased flexibility of the mathematical model gives lower accuracy \cite{ittc_maneuvering_2008}.
-System identification methods applied to the free model tests offer a more cost\sphinxhyphen{}efficient way to develop VMMs.
+Ship manoeuvring performance can be assessed with varying accuracy, effort, and cost. The full\sphinxhyphen{}scale manoeuvring test during sea trials is the most common method used to demonstrate compliance with the International Maritime Organization (IMO) manoeuvring criteria \cite{imo_standards_2002}, which all ships over 100 meters must fulfill.
+However, manoeuvring prediction methods are needed before ships are built. The free model test \cite{ittc_ittc_2008} is often recognized as the most accurate prediction method \cite{ittc_maneuvering_2008}, which can also be conducted with high accuracy in CFD \cite{araki_estimating_2012}. These methods are expensive and they also have the drawback of obtaining only results for one specific maneuver at the time. Some complex maneuvers, such as harbor maneuvers, are also very hard to conduct in this way.
+The system\sphinxhyphen{}based manoeuvring model is a more cost\sphinxhyphen{}efficient solution with many applications such as the maneuverability requirement for ship design and construction, the design of advanced ship autopilot systems, unmanned surface vehicles (USVs) \cite{bai_review_2022} or master mariners’ training simulators.\\
+Captive model tests \cite{ittc_ittc_2008-1}, Planar Motion Mechanism tests (PMM) \cite{ittc_ittc_2008-1} or Virtual captive tests (VCT) \cite{liu_predictions_2018} can be conducted as input to the manoeuvring model. These tests are also costly, and the increased flexibility of the mathematical model gives lower accuracy \cite{ittc_maneuvering_2008}.
 
 \sphinxAtStartPar
-Both statistical regression and Non\sphinxhyphen{}parametric black box approaches have been used for the system identification \cite{he_nonparametric_2022}.  However, most of today’s system identification methods for developing ship manoeuvring models assume a predefined mathematical model, reducing the problem to a parameter identification.
-The Kalman Filter (KF) combined with Maximum Likelihood Estimation was proposed already in 1976 \cite{astrom_identification_1976} to develop a linear manoeuvring model based on manually recorded data in 1969 onboard the Atlantic Song freighter. The Extended Kalman Filter (EKF) can also estimate parameters if the parameters are represented as states of the state space model. This technique was used on a nonlinear Nomoto model \cite{perera_system_2015} and a 3 degree of freedom model (3DOF) \cite{shi_identification_2009} based on simulated data.
-Support Vector Regression (SVR) has been investigated using simulated data in \cite{zhu_parameter_2017} and \cite{wang_parameter_2021} and using measured data from free model tests in \cite{luo_parameter_2016}.
+System identification methods applied on recorded ship trajectories from free model tests, CFD free running trials \cite{araki_estimating_2012} or full scale ship operation offers a more cost\sphinxhyphen{}efficient way to develop system\sphinxhyphen{}based manoeuvring models.
+Some of the publications within this field are summarized in \hyperref[\detokenize{00.02_introduction:tab-methods}]{Table \ref{\detokenize{00.02_introduction:tab-methods}}}. The methods identifies models that can be categorized into three groups: white\sphinxhyphen{}box (WB), grey\sphinxhyphen{}box (GB) or black\sphinxhyphen{}box models (BB) \cite{miller_ship_2021}. The white\sphinxhyphen{}box models are deterministic and are not data driven by applying only physical principles, for instance with semi\sphinxhyphen{}empirical formulas which have very low cost but also very low accuracy \cite{ittc_maneuvering_2008}. The black\sphinxhyphen{}box models are stochastic and data driven. No knowledge about the system structure and parameters is required \cite{miller_ship_2021}. The grey\sphinxhyphen{}box modeling is a combination of white\sphinxhyphen{}box and black\sphinxhyphen{}box modeling methods, so that both a physical model and data is used.
 
 \sphinxAtStartPar
-The drift effect of the hydrodynamic coefficients is inevitable in modeling of ship manoeuvring motions by using the System Identification (SI) techniques. The drifts of hydrodynamic coefficients result from the so\sphinxhyphen{}called multicollinearity, meaning that if the input variables of a regression model are firmly linearly dependent on each other, the regression results of their coefficients may be incorrect \cite{luo_parameter_2016}. The identified coefficients within the mathematical model do not have to be physically correct but mathematically correct \cite{ittc_maneuvering_2008}. Many nonlinear hydrodynamic coefficients in the mathematical model of ship manoeuvring motions have no apparent physical meaning \cite{luo_parameter_2016}. Multicollinearity can be reduced by reducing the number of parameters in the model, either by simplification or adding more deterministic parts by including hydrodynamic relations. For instance, slender body theory can be added \cite{hwang_cancellation_1982}. Simplification can be based on hydrodynamic reasoning where the number of parameters can be reduced \cite{luo_parameter_2016}.
+The system identification can be applied on full scale data \cite{astrom_identification_1976}, \cite{perera_system_2015} which has the highest uncertainty, both in terms of model uncertainty and measurement uncertainty which is therefore the hardest task, but also the most relevant. The uncertainty can be reduced by instead using model test data as in \cite{araki_estimating_2012}, \cite{he_nonparametric_2022}, \cite{xue_identification_2021}, \cite{miller_ship_2021} and \cite{luo_parameter_2016} . The uncertainty can be further reduced by using simulated data as in \cite{shi_identification_2009}, \cite{zhu_parameter_2017}, \cite{wang_parameter_2021} which can show the potential of new methods with the benefit that the true model is known, but one also needs to remember the that the  objective is to identify real objects, not its mathematical model \cite{miller_ship_2021}.
+
+
+\begin{savenotes}\sphinxattablestart
+\centering
+\sphinxcapstartof{table}
+\sphinxthecaptionisattop
+\sphinxcaption{System identification references}\label{\detokenize{00.02_introduction:tab-methods}}
+\sphinxaftertopcaption
+\begin{tabulary}{\linewidth}[t]{|T|T|T|T|T|}
+\hline
+\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Method
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+BB
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+GB
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Data
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Reference
+\\
+\hline
+\sphinxAtStartPar
+Constrained Least Squares
+&
+\sphinxAtStartPar
+x
+&&
+\sphinxAtStartPar
+model test, CFD
+&
+\sphinxAtStartPar
+\cite{araki_estimating_2012}
+\\
+\hline
+\sphinxAtStartPar
+Neural network
+&
+\sphinxAtStartPar
+x
+&&
+\sphinxAtStartPar
+model test
+&
+\sphinxAtStartPar
+\cite{he_nonparametric_2022}
+\\
+\hline
+\sphinxAtStartPar
+Gaussian process
+&
+\sphinxAtStartPar
+x
+&&
+\sphinxAtStartPar
+model test
+&
+\sphinxAtStartPar
+\cite{xue_identification_2021}
+\\
+\hline
+\sphinxAtStartPar
+Kalman filter maximum likelihood
+&&
+\sphinxAtStartPar
+x
+&
+\sphinxAtStartPar
+full scale
+&
+\sphinxAtStartPar
+\cite{astrom_identification_1976}
+\\
+\hline
+\sphinxAtStartPar
+Extended kalman filter
+&&
+\sphinxAtStartPar
+x
+&
+\sphinxAtStartPar
+full scale
+&
+\sphinxAtStartPar
+\cite{perera_system_2015}
+\\
+\hline
+\sphinxAtStartPar
+Extended kalman filter
+&&
+\sphinxAtStartPar
+x
+&
+\sphinxAtStartPar
+simulated
+&
+\sphinxAtStartPar
+\cite{shi_identification_2009}
+\\
+\hline
+\sphinxAtStartPar
+SVR
+&&
+\sphinxAtStartPar
+x
+&
+\sphinxAtStartPar
+simulated
+&
+\sphinxAtStartPar
+\cite{zhu_parameter_2017}, \cite{wang_parameter_2021}
+\\
+\hline
+\sphinxAtStartPar
+SVR
+&&
+\sphinxAtStartPar
+x
+&
+\sphinxAtStartPar
+model test
+&
+\sphinxAtStartPar
+\cite{luo_parameter_2016}
+\\
+\hline
+\sphinxAtStartPar
+Genetic algorithm
+&&
+\sphinxAtStartPar
+x
+&
+\sphinxAtStartPar
+lake test
+&
+\sphinxAtStartPar
+\cite{miller_ship_2021}
+\\
+\hline
+\end{tabulary}
+\par
+\sphinxattableend\end{savenotes}
+
+\sphinxAtStartPar
+Black\sphinxhyphen{}box modeling was used in \cite{he_nonparametric_2022} using neural network and in \cite{xue_identification_2021} using gaussian process. The nonparametric models are related, where the system structure is known but no parameters are required as seen in \cite{pongduang_nonparametric_2020}. However, most of today’s system identification methods for ship manoeuvring models use the grey\sphinxhyphen{}box modeling by assuming a predefined mathematical model, which reduces the problem to a parameter estimation.
+The Kalman Filter (KF) combined with Maximum Likelihood Estimation was proposed already in 1976 \cite{astrom_identification_1976} to develop a linear manoeuvring model based on manually recorded data in 1969 onboard the Atlantic Song freighter. The Extended Kalman Filter (EKF) can also estimate parameters if the parameters are represented as states of the state space model. This technique was used on a nonlinear Nomoto model \cite{perera_system_2015} and a 3 degree of freedom model (3DOF) \cite{shi_identification_2009}. \cite{araki_estimating_2012} used EKF with the constrained parameters based on physical reasoning and prior knowledge using constrained least squares regression.
+Support Vector Regression (SVR) has been investigated in \cite{zhu_parameter_2017}, \cite{wang_parameter_2021} and \cite{luo_parameter_2016}. \cite{miller_ship_2021} applied a genetic algorithm for the system identification of model test performed on a lake.
+
+\sphinxAtStartPar
+The drift effect of the hydrodynamic coefficients is inevitable in modeling of ship manoeuvring motions by using the system identification. The drifts of hydrodynamic coefficients result from the so\sphinxhyphen{}called multicollinearity, meaning that if the input variables of a regression model are firmly linearly dependent on each other, the regression results of their coefficients may be incorrect \cite{luo_parameter_2016}. The identified coefficients within the mathematical model do not have to be physically correct but mathematically correct \cite{ittc_maneuvering_2008}. Many nonlinear hydrodynamic coefficients in the mathematical model of ship manoeuvring motions have no apparent physical meaning \cite{luo_parameter_2016}. Multicollinearity can be reduced by reducing the number of parameters in the model, either by simplification or adding more deterministic parts by including hydrodynamic relations. For instance, slender body theory can be added \cite{hwang_cancellation_1982}. Simplification can be based on hydrodynamic reasoning where the number of parameters can be reduced \cite{luo_parameter_2016}.
 
 \sphinxAtStartPar
 However, system identification methods must handle imperfections in the data from measurement noise and model uncertainty of the VMM, which will always be present since the model can never perfectly capture all fundamental physics. When developing a VMM with model test data for manoeuvring prediction, preprocessing of data and a method to choose an appropriate VMM are needed \cite{alexandersson_comparison_2022}.

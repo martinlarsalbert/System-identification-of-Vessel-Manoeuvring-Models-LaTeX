@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.3) (preloaded format=xelatex 2021.8.25)  30 SEP 2022 08:07
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.3) (preloaded format=xelatex 2021.8.25)  30 SEP 2022 15:43
 entering extended mode
 **"./System identification of Vessel Manoeuvring Models.tex"
 (System identification of Vessel Manoeuvring Models.tex
@@ -817,9 +817,9 @@ File: psdextra.def 2021-02-27 v7.00k Hyperref: Additions to PDF string support
 
 Writing index file "System identification of Vessel Manoeuvring Models".idx
 (System identification of Vessel Manoeuvring Models.aux
-LaTeX Info: Redefining \rmfamily on input line 25.
-LaTeX Info: Redefining \sffamily on input line 25.
-LaTeX Info: Redefining \ttfamily on input line 25.
+LaTeX Info: Redefining \rmfamily on input line 31.
+LaTeX Info: Redefining \sffamily on input line 31.
+LaTeX Info: Redefining \ttfamily on input line 31.
 )
 \openout1 = `"System identification of Vessel Manoeuvring Models.aux"'.
 
@@ -1219,25 +1219,25 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [1
 
 
-] [2]
+] [2] [3]
 File: coordinate_system.PNG Graphic file (type bmp)
 <coordinate_system.PNG>
- [3] [4]
-Overfull \hbox (22.43968pt too wide) detected at line 177
+ [4] [5]
+Overfull \hbox (22.43968pt too wide) detected at line 331
 []
  []
 
 
-Overfull \hbox (37.08774pt too wide) detected at line 183
+Overfull \hbox (37.08774pt too wide) detected at line 337
 []
  []
 
 
-Overfull \hbox (54.84775pt too wide) detected at line 189
+Overfull \hbox (54.84775pt too wide) detected at line 343
 []
  []
 
-[5] [6] [7]
+[6] [7]
 File: method.png Graphic file (type bmp)
 <method.png>
  [8] [9]
@@ -1253,187 +1253,187 @@ File: 2.pdf Graphic file (type pdf)
 File: wpcc_mdl.png Graphic file (type bmp)
 <wpcc_mdl.png>
  [16]
-Underfull \hbox (badness 10000) in paragraph at lines 815--815
+Underfull \hbox (badness 10000) in paragraph at lines 969--969
 []$[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 815--815
+Underfull \hbox (badness 10000) in paragraph at lines 969--969
 []$[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 815--815
+Underfull \hbox (badness 10000) in paragraph at lines 969--969
 []$[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 815--815
+Underfull \hbox (badness 10000) in paragraph at lines 969--969
 []$[][]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 815--815
+Underfull \hbox (badness 10000) in paragraph at lines 969--969
 []$[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 815--815
+Underfull \hbox (badness 10000) in paragraph at lines 969--969
 []$[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 815--815
+Underfull \hbox (badness 10000) in paragraph at lines 969--969
 []$[]$
  []
 
 
-Overfull \hbox (0.766pt too wide) in paragraph at lines 815--815
+Overfull \hbox (0.766pt too wide) in paragraph at lines 969--969
 []$[][]$| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 815--815
+Underfull \hbox (badness 10000) in paragraph at lines 969--969
 []$[][]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 815--815
+Underfull \hbox (badness 10000) in paragraph at lines 969--969
 []$[][]$
  []
 
 
-Overfull \hbox (2.78pt too wide) in paragraph at lines 815--815
+Overfull \hbox (2.78pt too wide) in paragraph at lines 969--969
 []\TU/lmr/m/n/10 41.2| 
  []
 
 
-Overfull \hbox (2.78pt too wide) in paragraph at lines 815--815
+Overfull \hbox (2.78pt too wide) in paragraph at lines 969--969
 []\TU/lmr/m/n/10 0.25| 
  []
 
 
-Overfull \hbox (2.78pt too wide) in paragraph at lines 815--815
+Overfull \hbox (2.78pt too wide) in paragraph at lines 969--969
 []\TU/lmr/m/n/10 0.15| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 815--815
+Underfull \hbox (badness 10000) in paragraph at lines 969--969
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 815--815
+Underfull \hbox (badness 10000) in paragraph at lines 969--969
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 815--815
+Underfull \hbox (badness 10000) in paragraph at lines 969--969
 []\TU/lmr/m/n/10 KVLCC2
  []
 
 
-Overfull \hbox (2.78pt too wide) in paragraph at lines 815--815
+Overfull \hbox (2.78pt too wide) in paragraph at lines 969--969
 []\TU/lmr/m/n/10 45.7| 
  []
 
 
-Overfull \hbox (2.78pt too wide) in paragraph at lines 815--815
+Overfull \hbox (2.78pt too wide) in paragraph at lines 969--969
 []\TU/lmr/m/n/10 0.25| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 815--815
+Underfull \hbox (badness 10000) in paragraph at lines 969--969
 []\TU/lmr/m/n/10 -
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 -
  []
 
 
-Overfull \hbox (1.79082pt too wide) in paragraph at lines 1070--1070
+Overfull \hbox (1.79082pt too wide) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 0.179| 
  []
 
 
-Overfull \hbox (1.79082pt too wide) in paragraph at lines 1070--1070
+Overfull \hbox (1.79082pt too wide) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 2.402| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 KVLCC2
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 -
  []
 
 
-Overfull \hbox (1.79082pt too wide) in paragraph at lines 1070--1070
+Overfull \hbox (1.79082pt too wide) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 4.305| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1224--1224
 []\TU/lmr/m/n/10 -
  []
 
@@ -1477,41 +1477,41 @@ File: 15.pdf Graphic file (type pdf)
 File: 16.pdf Graphic file (type pdf)
 <use 16.pdf>
  [30]
-Overfull \hbox (2.5414pt too wide) in paragraph at lines 1665--1665
+Overfull \hbox (2.5414pt too wide) in paragraph at lines 1819--1819
 []\TU/lmss/m/n/10 delta| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1665--1665
+Underfull \hbox (badness 10000) in paragraph at lines 1819--1819
 []\TU/lmss/m/n/10 A (IMO)
  []
 
 
-Underfull \hbox (badness 6641) in paragraph at lines 1665--1665
+Underfull \hbox (badness 6641) in paragraph at lines 1819--1819
 []\TU/lmss/m/n/10 TD (IMO)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1665--1665
+Underfull \hbox (badness 10000) in paragraph at lines 1819--1819
 []\TU/lmr/m/n/10 -
  []
 
-[31] [32] (System identification of Vessel Manoeuvring Models.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 35--42
+[31] [32] (System identification of Vessel Manoeuvring Models.bbl [33]
+Underfull \hbox (badness 10000) in paragraph at lines 70--77
 \TU/lmr/m/n/10 URL [][]$[][][][][] [] [] [] [][][][][][][][][][][][][][][][][][
 ][][][] [] [][][][] [] [][][] [] [][][][][][][][][][][][][][][][][] [] [][][][]
 [][][] [] [][][] [] [][] [] [][][][] [] [] [] [][][][][][][] []
  []
 
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 65--73
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--106
 \TU/lmr/m/n/10 URL [][]$[][][][][] [] [] [] [][][][][][][][][][][][][][][][][][
 ][][][] [] [][][][] [] [][][] [] [][][][][][][][][][][][][][][][][] [] [][][][]
 [][][] [] [][][] [] [][] [] [][][][] [] [] [] [][][][][][][] []
  []
 
-[34]
-Overfull \hbox (60.25386pt too wide) in paragraph at lines 148--157
+[34] [35]
+Overfull \hbox (60.25386pt too wide) in paragraph at lines 212--221
 \TU/lmr/m/n/10 URL [][]$[][][][][] [] [] [] [][][][][][][][] [] [][][] [] [][][
 ] [] [][][][][][][] [] [][] [] [][] [] [][][] [] [][][][][][] [] [][][][][][][]
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
@@ -1519,7 +1519,7 @@ Overfull \hbox (60.25386pt too wide) in paragraph at lines 148--157
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--161
+Underfull \hbox (badness 10000) in paragraph at lines 223--225
 []\TU/lmr/m/n/10 J. E. Brix, Manoeuvring Technical Manual, Seehafen-Verlag, 199
 3, google-Books-ID:
  []
@@ -1559,23 +1559,23 @@ braces):
 >  {english/babelname}  =>  {american}
 >  {english/localnumeral}  =>  {polyglossia@C@localnumeral}
 >  {english/Localnumeral}  =>  {polyglossia@C@localnumeral}.
- [35] (System identification of Vessel Manoeuvring Models.aux
-LaTeX Info: Redefining \rmfamily on input line 25.
-LaTeX Info: Redefining \sffamily on input line 25.
-LaTeX Info: Redefining \ttfamily on input line 25.
+ [36] (System identification of Vessel Manoeuvring Models.aux
+LaTeX Info: Redefining \rmfamily on input line 31.
+LaTeX Info: Redefining \sffamily on input line 31.
+LaTeX Info: Redefining \ttfamily on input line 31.
 )
 Package rerunfilecheck Info: File `"System identification of Vessel Manoeuvring
  Models".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 21880 strings out of 411568
- 377773 string characters out of 2834605
- 962964 words of memory out of 3000000
- 41645 multiletter control sequences out of 15000+600000
+ 21905 strings out of 411568
+ 378456 string characters out of 2834605
+ 963964 words of memory out of 3000000
+ 41670 multiletter control sequences out of 15000+600000
  407912 words of font info for 79 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
- 70i,23n,115p,1489b,2178s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,23n,115p,1489b,2218s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on System identification of Vessel Manoeuvring Models.pdf (35 pa
+Output written on System identification of Vessel Manoeuvring Models.pdf (36 pa
 ges).
