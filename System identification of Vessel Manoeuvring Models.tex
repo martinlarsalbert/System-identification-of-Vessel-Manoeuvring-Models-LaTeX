@@ -96,7 +96,7 @@ System identification methods applied on recorded ship trajectories from free mo
 Some of the publications within this field are summarized in \hyperref[\detokenize{00.02_introduction:tab-methods}]{Table \ref{\detokenize{00.02_introduction:tab-methods}}}. The methods identifies models that can be categorized into three groups: white\sphinxhyphen{}box (WB), grey\sphinxhyphen{}box (GB) or black\sphinxhyphen{}box models (BB) \cite{miller_ship_2021}. The white\sphinxhyphen{}box models are deterministic and are not data driven by applying only physical principles, for instance with semi\sphinxhyphen{}empirical formulas which have very low cost but also very low accuracy \cite{ittc_maneuvering_2008}. The black\sphinxhyphen{}box models are stochastic and data driven. No knowledge about the system structure and parameters is required \cite{miller_ship_2021}. The grey\sphinxhyphen{}box modeling is a combination of white\sphinxhyphen{}box and black\sphinxhyphen{}box modeling methods, so that both a physical model and data is used.
 
 \sphinxAtStartPar
-The system identification can be applied on full scale data \cite{astrom_identification_1976}, \cite{perera_system_2015} which has the highest uncertainty, both in terms of model uncertainty and measurement uncertainty which is therefore the hardest task, but also the most relevant. The uncertainty can be reduced by instead using model test data as in \cite{araki_estimating_2012}, \cite{he_nonparametric_2022}, \cite{xue_identification_2021}, \cite{miller_ship_2021} and \cite{luo_parameter_2016} . The uncertainty can be further reduced by using simulated data as in \cite{shi_identification_2009}, \cite{zhu_parameter_2017}, \cite{wang_parameter_2021} which can show the potential of new methods with the benefit that the true model is known, but one also needs to remember the that the  objective is to identify real objects, not its mathematical model \cite{miller_ship_2021}.
+The system identification can be applied on full scale data \cite{astrom_identification_1976}, \cite{perera_system_2015}, \cite{revestido_herrero_two-step_2012} which has the highest uncertainty, both in terms of model uncertainty and measurement uncertainty which is therefore the hardest task, but also the most relevant. The uncertainty can be reduced by instead using model test data as in \cite{araki_estimating_2012}, \cite{he_nonparametric_2022}, \cite{xue_identification_2021}, \cite{miller_ship_2021} and \cite{luo_parameter_2016} . The uncertainty can be further reduced by using simulated data as in \cite{shi_identification_2009}, \cite{zhu_parameter_2017}, \cite{wang_parameter_2021} which can show the potential of new methods with the benefit that the true model is known, but one also needs to remember the that the  objective is to identify real objects, not its mathematical model \cite{miller_ship_2021}.
 
 
 \begin{savenotes}\sphinxattablestart
@@ -177,6 +177,19 @@ full scale
 \\
 \hline
 \sphinxAtStartPar
+Unscented kalman filter
+&&
+\sphinxAtStartPar
+x
+&
+\sphinxAtStartPar
+full scale
+&
+\sphinxAtStartPar
+\cite{revestido_herrero_two-step_2012}
+\\
+\hline
+\sphinxAtStartPar
 Extended kalman filter
 &&
 \sphinxAtStartPar
@@ -247,7 +260,7 @@ lake test
 
 \sphinxAtStartPar
 Black\sphinxhyphen{}box modeling was used in \cite{he_nonparametric_2022} using neural network and in \cite{xue_identification_2021} using gaussian process. The nonparametric models are related, where the system structure is known but no parameters are required as seen in \cite{pongduang_nonparametric_2020}. However, most of today’s system identification methods for ship manoeuvring models use the grey\sphinxhyphen{}box modeling by assuming a predefined mathematical model, which reduces the problem to a parameter estimation.
-The Kalman Filter (KF) combined with Maximum Likelihood Estimation was proposed already in 1976 \cite{astrom_identification_1976} to develop a linear manoeuvring model based on manually recorded data in 1969 onboard the Atlantic Song freighter. The Extended Kalman Filter (EKF) can also estimate parameters if the parameters are represented as states of the state space model. This technique was used on a nonlinear Nomoto model \cite{perera_system_2015} and a 3 degree of freedom model (3DOF) \cite{shi_identification_2009}. EKF was used in \cite{araki_estimating_2012} with the constrained parameters based on physical reasoning and prior knowledge using constrained least squares regression.
+The Kalman Filter (KF) combined with Maximum Likelihood Estimation was proposed already in 1976 \cite{astrom_identification_1976} to develop a linear manoeuvring model based on manually recorded data in 1969 onboard the Atlantic Song freighter. The Extended Kalman Filter (EKF) can also estimate parameters if the parameters are represented as states of the state space model. This technique was used on a nonlinear Nomoto model \cite{perera_system_2015} and a 3 degree of freedom model (3DOF) \cite{shi_identification_2009}. EKF was used in \cite{araki_estimating_2012} with the constrained parameters based on physical reasoning and prior knowledge using constrained least squares regression. Unscented Kalman Filter (UKF), which has been proposed as an improvement to the EKF in handling nonlinear systems, was used in \cite{revestido_herrero_two-step_2012}.
 Support Vector Regression (SVR) has been investigated in \cite{zhu_parameter_2017}, \cite{wang_parameter_2021} and \cite{luo_parameter_2016}. A genetic algorithm was used in \cite{miller_ship_2021} for the system identification of model test performed on a lake.
 
 \sphinxAtStartPar
@@ -554,7 +567,7 @@ A ship’s dynamics can be expressed by the so\sphinxhyphen{}called manoeuvring 
 \subsection{Overview of the proposed procedure}
 \label{\detokenize{01.01_method:overview-of-the-proposed-procedure}}
 \sphinxAtStartPar
-After choosing a proper manoeuvring model to describe a ship’s manoeuvring performance, the coefficients in those manoeuvring models can be estimated by the proposed parameter estimation method composed of two basic steps as in Fig.1. During the estimation process, a manoeuvring model is required as the input system model in the EKF. But the identified manoeuvring model is of course not known yet which is a ‘’the chicken or the egg’’ situation. This is solved with initial guessing and iteration.
+After choosing a proper manoeuvring model to describe a ship’s manoeuvring performance, the coefficients in those manoeuvring models can be estimated by the proposed parameter estimation method composed of two basic steps similar to \cite{revestido_herrero_two-step_2012} as shown in Fig.1. During the estimation process, a manoeuvring model is required as the input system model in the EKF. But the identified manoeuvring model is of course not known yet which is a ‘’the chicken or the egg’’ situation. This is solved with initial guessing and iteration.
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{)}%
 \item {} 
@@ -1697,7 +1710,7 @@ The forces are well predicted with both manoeuvring models. The AVMM is not givi
 \caption{Validation of force models for KVLCC2.}\label{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-forces}}\end{figure}
 
 \sphinxAtStartPar
-Simulations of the validation cases with the MAVMM is shown for one of the ZigZag20/20 validation cases in \hyperref[\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-sim}]{Fig.\@ \ref{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-sim}}} where the predicted thrust is also shown.
+Simulations of the validation cases with the MAVMM is shown for one of the ZigZag20/20 validation cases in \hyperref[\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-sim}]{Fig.\@ \ref{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-sim}}} and \hyperref[\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-sim-error}]{Fig.\@ \ref{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-sim-error}}} where the predicted thrust is also shown.
 
 \begin{figure}[H]
 \centering
@@ -1706,22 +1719,36 @@ Simulations of the validation cases with the MAVMM is shown for one of the ZigZa
 \noindent\sphinxincludegraphics{{14}.pdf}
 \caption{Validation with simulations for KVLCC2.}\label{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-sim}}\end{figure}
 
-\sphinxAtStartPar
-Results from the final prediction of the turning circle test are shown in  \hyperref[\detokenize{06.20_results_kvlcc2:fig-kvlcc2-track-plot-testing-sim}]{Fig.\@ \ref{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-track-plot-testing-sim}}} and \hyperref[\detokenize{06.20_results_kvlcc2:fig-kvlcc2-testing-sim}]{Fig.\@ \ref{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-testing-sim}}}. The prediction is conducted using simulation with the MAVMM trained on the training and validation dataset. Monte Carlo simulations with alternative realizations of the regression are also shown in this figure. The alternative realizations are very similar to the model with mean values of the regression (black line).
-
 \begin{figure}[H]
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics{{15}.pdf}
-\caption{Comparison between predicted Turning circle test with MAVMM trained on HSVA data and MARIN model test results for KVLCC2.}\label{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-track-plot-testing-sim}}\end{figure}
+\caption{Validation error (prediction\sphinxhyphen{}model test) with simulations for KVLCC2.}\label{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-sim-error}}\end{figure}
+
+\sphinxAtStartPar
+Results from the final prediction of the turning circle test are shown in  \hyperref[\detokenize{06.20_results_kvlcc2:fig-kvlcc2-track-plot-testing-sim}]{Fig.\@ \ref{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-track-plot-testing-sim}}}, \hyperref[\detokenize{06.20_results_kvlcc2:fig-kvlcc2-testing-sim}]{Fig.\@ \ref{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-testing-sim}}} and \hyperref[\detokenize{06.20_results_kvlcc2:fig-kvlcc2-testing-sim-error}]{Fig.\@ \ref{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-testing-sim-error}}}. The prediction is conducted using simulation with the MAVMM trained on the training and validation dataset. Monte Carlo simulations with alternative realizations of the regression are also shown in this figure. The alternative realizations are very similar to the model with mean values of the regression (black line).
 
 \begin{figure}[H]
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics{{16}.pdf}
+\caption{Comparison between predicted Turning circle test with MAVMM trained on HSVA data and MARIN model test results for KVLCC2.}\label{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-track-plot-testing-sim}}\end{figure}
+
+\begin{figure}[H]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{17}.pdf}
 \caption{Comparison between predicted Turning circle test with MAVMM trained on HSVA data and MARIN model test results for KVLCC2.}\label{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-testing-sim}}\end{figure}
+
+\begin{figure}[H]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{18}.pdf}
+\caption{The prediction error (prediction\sphinxhyphen{}model test) for Turning circle test with MAVMM trained on HSVA data and MARIN model test results for KVLCC2.}\label{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-testing-sim-error}}\end{figure}
 
 \sphinxAtStartPar
 For KVLCC2 comparisons of turning circle advance and tactical diameter compared to the model test result is shown in \hyperref[\detokenize{06.20_results_kvlcc2:tab-kvlcc2-advance}]{Table \ref{\detokenize{06.20_results_kvlcc2:tab-kvlcc2-advance}}}. Predicted advance and tactical diameter differ 2\% and 5\%, which can be considered acceptable, considering the margin to the IMO standard limits, which are also shown in this table. The results are also closer to the model tests than a similar study conducted for the KVLCC2 \cite{he_nonparametric_2022}.
@@ -2021,6 +2048,48 @@ se
 \par
 \sphinxattableend\end{savenotes}
 
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{dataframes\PYGZus{}diff}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Test MAVMM}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+                   x0         r  delta         y0         v     thrust  \PYGZbs{}
+time                                                                     
+0.000000     0.000000  0.000000    0.0   0.000000  0.000000  45.034462   
+0.295850    \PYGZhy{}0.001004 \PYGZhy{}0.000032    0.0  \PYGZhy{}0.000082 \PYGZhy{}0.000841  45.163867   
+0.591700     0.000598  0.000380    0.0  \PYGZhy{}0.000327 \PYGZhy{}0.000648  44.912564   
+0.887551    \PYGZhy{}0.000676  0.000590    0.0  \PYGZhy{}0.000351 \PYGZhy{}0.001126  44.394922   
+1.183401     0.000013  0.000552    0.0  \PYGZhy{}0.000608 \PYGZhy{}0.002136  44.550656   
+...               ...       ...    ...        ...       ...        ...   
+305.021576 \PYGZhy{}21.512764 \PYGZhy{}0.017724    0.0  21.842142  0.070276  50.169097   
+305.317426 \PYGZhy{}21.517521 \PYGZhy{}0.017818    0.0  21.932342  0.068774  50.204161   
+305.613277 \PYGZhy{}21.521939 \PYGZhy{}0.017912    0.0  22.020954  0.067257  50.239271   
+305.909127 \PYGZhy{}21.526030 \PYGZhy{}0.018005    0.0  22.107975  0.065726  50.274424   
+306.204977 \PYGZhy{}21.399168 \PYGZhy{}0.018055    0.0  22.152031  0.064961  50.285378   
+
+                   u         U  rev       psi  
+time                                           
+0.000000    0.000000  0.000000  0.0  0.000000  
+0.295850   \PYGZhy{}0.001341 \PYGZhy{}0.001350  0.0  0.000194  
+0.591700    0.002999  0.002992  0.0  0.000392  
+0.887551   \PYGZhy{}0.002012 \PYGZhy{}0.002024  0.0  0.000785  
+1.183401   \PYGZhy{}0.000912 \PYGZhy{}0.000939  0.0  0.001242  
+...              ...       ...  ...       ...  
+305.021576 \PYGZhy{}0.088915 \PYGZhy{}0.084588  0.0  0.230656  
+305.317426 \PYGZhy{}0.089951 \PYGZhy{}0.085656  0.0  0.228062  
+305.613277 \PYGZhy{}0.090990 \PYGZhy{}0.086730  0.0  0.225468  
+305.909127 \PYGZhy{}0.092032 \PYGZhy{}0.087810  0.0  0.222872  
+306.204977 \PYGZhy{}0.092053 \PYGZhy{}0.087854  0.0  0.218538  
+
+[1036 rows x 10 columns]
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}
+\end{sphinxuseclass}
 
 \subsection{Discussion}
 \label{\detokenize{06.50_results_discussion:discussion}}\label{\detokenize{06.50_results_discussion::doc}}
