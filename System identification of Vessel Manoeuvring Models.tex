@@ -63,7 +63,7 @@
         
 
 \title{System identification of Vessel Manoeuvring Models}
-\date{Sep 30, 2022}
+\date{Oct 03, 2022}
 \release{}
 
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -247,25 +247,25 @@ lake test
 
 \sphinxAtStartPar
 Black\sphinxhyphen{}box modeling was used in \cite{he_nonparametric_2022} using neural network and in \cite{xue_identification_2021} using gaussian process. The nonparametric models are related, where the system structure is known but no parameters are required as seen in \cite{pongduang_nonparametric_2020}. However, most of today’s system identification methods for ship manoeuvring models use the grey\sphinxhyphen{}box modeling by assuming a predefined mathematical model, which reduces the problem to a parameter estimation.
-The Kalman Filter (KF) combined with Maximum Likelihood Estimation was proposed already in 1976 \cite{astrom_identification_1976} to develop a linear manoeuvring model based on manually recorded data in 1969 onboard the Atlantic Song freighter. The Extended Kalman Filter (EKF) can also estimate parameters if the parameters are represented as states of the state space model. This technique was used on a nonlinear Nomoto model \cite{perera_system_2015} and a 3 degree of freedom model (3DOF) \cite{shi_identification_2009}. \cite{araki_estimating_2012} used EKF with the constrained parameters based on physical reasoning and prior knowledge using constrained least squares regression.
-Support Vector Regression (SVR) has been investigated in \cite{zhu_parameter_2017}, \cite{wang_parameter_2021} and \cite{luo_parameter_2016}. \cite{miller_ship_2021} applied a genetic algorithm for the system identification of model test performed on a lake.
+The Kalman Filter (KF) combined with Maximum Likelihood Estimation was proposed already in 1976 \cite{astrom_identification_1976} to develop a linear manoeuvring model based on manually recorded data in 1969 onboard the Atlantic Song freighter. The Extended Kalman Filter (EKF) can also estimate parameters if the parameters are represented as states of the state space model. This technique was used on a nonlinear Nomoto model \cite{perera_system_2015} and a 3 degree of freedom model (3DOF) \cite{shi_identification_2009}. EKF was used in \cite{araki_estimating_2012} with the constrained parameters based on physical reasoning and prior knowledge using constrained least squares regression.
+Support Vector Regression (SVR) has been investigated in \cite{zhu_parameter_2017}, \cite{wang_parameter_2021} and \cite{luo_parameter_2016}. A genetic algorithm was used in \cite{miller_ship_2021} for the system identification of model test performed on a lake.
 
 \sphinxAtStartPar
 The drift effect of the hydrodynamic coefficients is inevitable in modeling of ship manoeuvring motions by using the system identification. The drifts of hydrodynamic coefficients result from the so\sphinxhyphen{}called multicollinearity, meaning that if the input variables of a regression model are firmly linearly dependent on each other, the regression results of their coefficients may be incorrect \cite{luo_parameter_2016}. The identified coefficients within the mathematical model do not have to be physically correct but mathematically correct \cite{ittc_maneuvering_2008}. Many nonlinear hydrodynamic coefficients in the mathematical model of ship manoeuvring motions have no apparent physical meaning \cite{luo_parameter_2016}. Multicollinearity can be reduced by reducing the number of parameters in the model, either by simplification or adding more deterministic parts by including hydrodynamic relations. For instance, slender body theory can be added \cite{hwang_cancellation_1982}. Simplification can be based on hydrodynamic reasoning where the number of parameters can be reduced \cite{luo_parameter_2016}.
 
 \sphinxAtStartPar
-However, system identification methods must handle imperfections in the data from measurement noise and model uncertainty of the VMM, which will always be present since the model can never perfectly capture all fundamental physics. When developing a VMM with model test data for manoeuvring prediction, preprocessing of data and a method to choose an appropriate VMM are needed \cite{alexandersson_comparison_2022}.
-This paper proposes an innovative approach to address those issues for ship manoeuvring system identification based on actual noise test data. First, a Parameter Identification Technique (PIT) is proposed to study the capability of several candidate VMMs. Model test data in all degrees of freedom is recorded as ship trajectories, including position and heading and thrust, where a model for propeller thrust is also proposed and further developed. In this method, the inverse dynamics regression and Extended Kalman Filter (EKF) with a Rauch Tung Striebel (RTS) smoother \cite{rauch_maximum_1965} are proposed for necessary data cleaning before feeding into the VMMs. An iterative approach is adopted to determine the most appropriate VMM. The multicollinearity problem is addressed by identifying a ship manoeuvring system with proper parameters in the VMM. The proposed approach is verified by identifying a selected VMM and predicting turning circle manoeuvres for two different test vessels.
+However, system identification methods must handle imperfections in the data from measurement noise and model uncertainty of the manoeuvring model, which will always be present since the model can never perfectly capture all fundamental physics. When developing a manoeuvring model with model test data for manoeuvring prediction, preprocessing of data and a method to choose an appropriate manoeuvring model are needed \cite{alexandersson_comparison_2022}.
+This paper proposes an innovative approach to address those issues for ship manoeuvring system identification based on actual noise test data. First, a parameter estimation method  is proposed to study the capability of several candidate manoeuvring models. Model test data in all degrees of freedom is recorded as ship trajectories, including position and heading and thrust, where a model for propeller thrust is also proposed and further developed. In this method, the inverse dynamics regression and Extended the Kalman Filter (EKF) with a Rauch Tung Striebel (RTS) smoother \cite{rauch_maximum_1965} are proposed for the necessary data cleaning before feeding into the manoeuvring model. An iterative approach is adopted to determine the most appropriate manoeuvring model. The multicollinearity problem is addressed by identifying a ship manoeuvring system with proper parameters in the manoeuvring model. The proposed approach is verified by identifying a selected manoeuvring model and predicting turning circle manoeuvres for two different test vessels.
 
 \sphinxAtStartPar
-For the completeness of this paper, different VMMs and propeller models are briefly introduced in \hyperref[\detokenize{02.01_VMMs:vmm}]{Section \ref{\detokenize{02.01_VMMs:vmm}}}. Then the proposed PIT algorithm to identify the parameters in the VMMs is presented in \hyperref[\detokenize{01.01_method:method}]{Section \ref{\detokenize{01.01_method:method}}}, where each subcomponent is also described. The PIT is applied to two case study ships which are introduced in \hyperref[\detokenize{05.01_case_studies:case-studies}]{Section \ref{\detokenize{05.01_case_studies:case-studies}}} and corresponding results are presented in the \hyperref[\detokenize{06.01_results:results}]{Section \ref{\detokenize{06.01_results:results}}}, followed by conclusions.
+For the completeness of this paper, different manoeuvring models and propeller models are briefly introduced in \hyperref[\detokenize{02.01_VMMs:vmm}]{Section \ref{\detokenize{02.01_VMMs:vmm}}}. Then the proposed parameter estimation method is presented in \hyperref[\detokenize{01.01_method:method}]{Section \ref{\detokenize{01.01_method:method}}}, where each subcomponent is also described. The parameter estimation is applied to two case study ships which are introduced in \hyperref[\detokenize{05.01_case_studies:case-studies}]{Section \ref{\detokenize{05.01_case_studies:case-studies}}} and corresponding results are presented in the \hyperref[\detokenize{06.01_results:results}]{Section \ref{\detokenize{06.01_results:results}}}, followed by conclusions.
 
 
 \section{Vessel Manoeuvring Models}
 \label{\detokenize{02.01_VMMs:vessel-manoeuvring-models}}\label{\detokenize{02.01_VMMs:vmm}}\label{\detokenize{02.01_VMMs::doc}}
 \sphinxAtStartPar
-Ship manoeuvring is a simplified case of seakeeping. The encountering waves have been removed, assuming calm water conditions. This simplification allows the ship dynamics to be expressed with only four degrees of freedom: surge, sway, roll, and yaw, where the roll is often excluded. Surge, sway, and yaw have very low frequencies during manoeuvres, so added masses and other hydrodynamic derivatives can be assumed as constants  \cite{fossen_handbook_2021}. Three Vessel Manoeuvring Models (VMMs) are used in this paper: Linear (LVMM) \cite{matusiak_dynamics_2017}, Abkowitz (AVMM), \cite{abkowitz_ship_1964} and Modified Abkowitz (MAVMM), which is proposed in this study.
-\hyperref[\detokenize{02.01_VMMs:coordinate-system}]{Fig.\@ \ref{\detokenize{02.01_VMMs:coordinate-system}}} shows the reference frames used in the VMMs where \(x_0\) and \(y_0\) and heading \(\Psi\) are the global position and orientation of a ship fix reference frame \(O(x,y,z)\) (or rather \(O(x,y)\) when heave is exluded) with origin at midship. \(u\), \(v\), \(r\), \(X\), \(Y\) and \(N\) are velocities and forces in the ship fix reference frame.
+Ship manoeuvring is a simplified case of seakeeping. The encountering waves have been removed, assuming calm water conditions. This simplification allows the ship dynamics to be expressed with only four degrees of freedom: surge, sway, roll, and yaw, where the roll is often excluded. Surge, sway, and yaw have very low frequencies during manoeuvres, so added masses and other hydrodynamic derivatives can be assumed as constants  \cite{fossen_handbook_2021}. Three manoeuvring models are used in this paper: Linear (LVMM) \cite{matusiak_dynamics_2017}, Abkowitz (AVMM), \cite{abkowitz_ship_1964} and Modified Abkowitz (MAVMM), which is proposed in this study.
+\hyperref[\detokenize{02.01_VMMs:coordinate-system}]{Fig.\@ \ref{\detokenize{02.01_VMMs:coordinate-system}}} shows the reference frames used in the manoeuvring models where \(x_0\) and \(y_0\) and heading \(\Psi\) are the global position and orientation of a ship fix reference frame \(O(x,y,z)\) (or rather \(O(x,y)\) when heave is exluded) with origin at midship. \(u\), \(v\), \(r\), \(X\), \(Y\) and \(N\) are velocities and forces in the ship fix reference frame.
 
 \begin{figure}[H]
 \centering
@@ -301,10 +301,10 @@ how global coordinates \(x_0\), \(y_0\) and \(\Psi\) depend on \(u\), \(v\), and
 \end{equation}
 \sphinxAtStartPar
 where \(\mathbf{c}\) is control inputs (rudder angle \(\delta\) and thrust); the last three derivatives: \(\dot{u}\), \(\dot{v}\), \(\dot{r}\) are calculated with \autoref{equation:02.01_VMMs:eqacc}.
-\(\mathbf{w}\) is the process noise, i.e., the difference between the predicted state by the VMM and the true
-state of the system. \(\mathbf{w}\) is unknown when the VMM is used for manoeuvre predictions and therefore normally
-assumed to be zero, but it is an important factor when the VMM is used in the EKF, see Section \(\ref{\detokenize{04.01_EK::doc}}\).
-The manoeuvring simulation can now be conducted by numerical integration of \autoref{equation:02.01_VMMs:eqf}. The main difference between the VMM:s lies in how the hydrodynamic functions \(X_D(u,v,r,\delta,thrust)\), \(Y_D(u,v,r,\delta,thrust)\), \(N_D(u,v,r,\delta,thrust)\) are defined. These expressions are denoted below for the various VMMs: LVMM, AVMM and MAVMM.
+\(\mathbf{w}\) is the process noise, i.e., the difference between the predicted state by the manoeuvring model and the true
+state of the system. \(\mathbf{w}\) is unknown when the manoeuvring model is used for manoeuvre predictions and therefore normally
+assumed to be zero, but it is an important factor when the manoeuvring model is used in the EKF, see Section \(\ref{\detokenize{04.01_EK::doc}}\).
+The manoeuvring simulation can now be conducted by numerical integration of \autoref{equation:02.01_VMMs:eqf}. The main difference between the manoeuvring models lies in how the hydrodynamic functions \(X_D(u,v,r,\delta,thrust)\), \(Y_D(u,v,r,\delta,thrust)\), \(N_D(u,v,r,\delta,thrust)\) are defined. These expressions are denoted below for the various manoeuvring models: LVMM, AVMM and MAVMM.
 
 \sphinxAtStartPar
 LVMM (Linear Vessel Manoeuvring Model) \cite{matusiak_dynamics_2017}:
@@ -541,58 +541,44 @@ Where \(x_p\) is the propeller longitudinal position and \(w_{p0}\) is the regul
 \section{Method}
 \label{\detokenize{01.01_method:method}}\label{\detokenize{01.01_method:id1}}\label{\detokenize{01.01_method::doc}}
 \sphinxAtStartPar
-The system identification can be simplified into parameter identification if a Mathematical Vessel Manoeuvring Model (VMM) is assumed to describe the ship manoeuvring system. An accurate and reliable approach to building the VMM for a ship’s manoeuvres is proposed here and presented in \hyperref[\detokenize{01.01_method:overview}]{Fig.\@ \ref{\detokenize{01.01_method:overview}}}.
-In this procedure, a VMM is used to solve the reversed manoeuvring problem, such as predicting unknown forces from known ship manoeuverability. The hydrodynamic derivatives in the VMM can be identified with regression of the force polynomials on forces predicted with inverse dynamics. The Ordinary Least Square (OLS) method regresses the hydrodynamic derivatives. The OLS is known to be extremely sensitive to noise and outliers inevitably associated with both experimental and full\sphinxhyphen{}scale test data. Thereby, the focus in the present Parameter Identification Technique (PIT) is on pre\sphinxhyphen{}processing data with filtering rather than the regression method itself, which is different from other PIT methods. Both the Extended Kalman Filter (EKF) and Rauch Tung Striebel (RTS) smoother are used to perform the data\sphinxhyphen{}processing for building a proper VMM.
+A ship’s dynamics can be expressed by the so\sphinxhyphen{}called manoeuvring model, which is often used to simulate ship manoeuvring. An efficient approach to build the manoeuvring model for a ship’s manoeuvres is proposed here and presented in \hyperref[\detokenize{02.01_VMMs:vmm}]{Section \ref{\detokenize{02.01_VMMs:vmm}}}. In this procedure, an initial manoeuvring model is used to solve the reversed manoeuvring problem, i.e., predicting unknown forces from known ship manoeuvres. Then, the hydrodynamic derivatives in the manoeuvring model can be identified with regression of the force polynomials on forces predicted with inverse dynamics, which is called motion regression in this paper. The Ordinary Least Square (OLS) method is used to regress the hydrodynamic derivatives in the proposed parameter estimation method. The OLS is known to be extremely sensitive to noise and outliers inevitably associated with both experimental and full\sphinxhyphen{}scale test data. Thereby, the focus in the present parameter estimation is on pre\sphinxhyphen{}processing data with filtering rather than the regression method itself. Both the Extended Kalman Filter (EKF) and Rauch Tung Striebel (RTS) smoother are used to perform the data\sphinxhyphen{}processing for building a proper manoeuvring model.
 
 \begin{figure}[H]
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=500\sphinxpxdimen]{{method}.png}
-\caption{Flow chart over the proposed Parameter Identification Technique (PIT)}\label{\detokenize{01.01_method:overview}}\end{figure}
+\caption{Flow chart over the proposed parameter estimation method}\label{\detokenize{01.01_method:overview}}\end{figure}
 
 
 \subsection{Overview of the proposed procedure}
 \label{\detokenize{01.01_method:overview-of-the-proposed-procedure}}
 \sphinxAtStartPar
-After choosing a proper VMM model to describe a ship’s manoeuvring performance, the coefficients in the VMM can be estimated by the proposed PIT method in \hyperref[\detokenize{01.01_method:overview}]{Fig.\@ \ref{\detokenize{01.01_method:overview}}}.
-The measurement noise needs to be removed if the regression of hydrodynamic derivatives in the VMM should work well. However, filtering with the EKF also needs an accurate VMM as the system model. Therefore the accurate VMM is both the input and output of the PIT. The system model VMM in the EKF is guessed to solve this dilemma. A linear VMM with hydrodynamic derivatives estimated with semi\sphinxhyphen{}empirical formulas is used as the initial guess. Once the regressed VMM has been obtained, the PIT can be rerun using the regressed VMM as the system model in the EKF, to obtain an even better VMM. This procedure can be repeated several times for improved accuracy. Using semi\sphinxhyphen{}empirical formulas for the initially guessed VMM adds prior knowledge about the ship dynamics to the regression. When used with the recursive EKF, this method is an innovation compared to other PIT methods.
-
-\sphinxAtStartPar
-The iterative process is composed of two basic steps:
+After choosing a proper manoeuvring model to describe a ship’s manoeuvring performance, the coefficients in those manoeuvring models can be estimated by the proposed parameter estimation method composed of two basic steps as in Fig.1. During the estimation process, a manoeuvring model is required as the input system model in the EKF. But the identified manoeuvring model is of course not known yet which is a ‘’the chicken or the egg’’ situation. This is solved with initial guessing and iteration.
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{)}%
 \item {} 
 \sphinxAtStartPar
-First, hydrodynamic derivatives of a predefined format of VMM are initially guessed. The derivatives
-are estimated with semi\sphinxhyphen{}empirical formulas for a linear VMM to make an initial guess. The VMM is
-used in the EKF and RTS smoother to filter all the model tests. The VMMs are assumed to have
-Markov property, meaning that future states depend only on the current state. Then the filtered data
-with estimated hidden states from all the model tests can be joined into a time\sphinxhyphen{}independent dataset
-passed to the motion regression. The hydrodynamic derivatives are regressed on quasi\sphinxhyphen{}static forces
-from inverse dynamics giving the identified nonlinear VMM.
+First, hydrodynamic derivatives of a pre\sphinxhyphen{}defined format of manoeuvring model are initially guessed. To make a fair guess, the derivatives are estimated with semi\sphinxhyphen{}empirical formulas for a linear manoeuvring model. The manoeuvring model is used in the EKF and RTS smoother to filter all the model tests. The manoeuvring models are assumed to have Markov property which means that future states depend only on the current state. Then the filtered data with estimated hidden states from all the model tests can be joined into a time independent dataset passed to the motion regression. The hydrodynamic derivatives are regressed on quasi\sphinxhyphen{}static forces from inverse dynamics giving the identified nonlinear manoeuvring model.
 
 \item {} 
 \sphinxAtStartPar
-Re\sphinxhyphen{}run the iteration in the previous step with EKF that use the identified VMM from the previous
-step to replace the guessed system model in the initial stage, such as with AVMM or MAVMM. There
-should be more trust in this model than in the guessed model, so the covariance matrices should be
-updated.
+Re\sphinxhyphen{}run the iteration in the previous step with EKF that use the identified manoeuvring model from the previous step to replace the guessed system model in the initial stage (with AVMM, Modified Abkowitz model etc.). There should be a higher belief in this model than the guessed model, so the covariance matrixes should be updated.
 
 \end{enumerate}
 
 \sphinxAtStartPar
-An example with simulation results from the steps in the iterative EKF is shown in \hyperref[\detokenize{01.01_method:iterations}]{Fig.\@ \ref{\detokenize{01.01_method:iterations}}}.
+In the following, the methods of inverse dynamics, regression and EKF used in our proposed parameter estimation method, and their connections, are presented in detail.
+
+\sphinxAtStartPar
+\hyperref[\detokenize{01.01_method:iterations}]{Fig.\@ \ref{\detokenize{01.01_method:iterations}}} shows an example of simulation results with the initial guessed model and two iterrations of the parameter estimation algorithm.
 
 \begin{figure}[H]
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics{{0}.pdf}
-\caption{Simulation with: initial model, first and second iteration of the PIT}\label{\detokenize{01.01_method:iterations}}\end{figure}
-
-\sphinxAtStartPar
-In the following section, the methods of inverse dynamics, regression and EKF used in the proposed PIT method, and their connections, are presented in detail.
+\caption{Simulation with: initial model, first and second iteration of the parameter estimation}\label{\detokenize{01.01_method:iterations}}\end{figure}
 
 
 \subsection{Inverse dynamics and regression}
@@ -645,10 +631,10 @@ The regressed hydrodynamic derivatives are stored in the \(\gamma\) vector:
 \begin{split}\displaystyle \gamma = \left[\begin{matrix}X_{T}\\X_{u}\\X_{\delta\delta}\\X_{rr}\\X_{uu}\\X_{vr}\end{matrix}\right]\end{split}
 \end{equation}
 \sphinxAtStartPar
-The hydrodynamic derivatives in the VMM are considered Gaussian random variables when conducting the Ordinary Least Squares (OLS) regression. The hydrodynamic derivatives in the VMM are usually taken as the mean value of each regressed random variable, being the most likely estimate. The regression result can be described with a Multivariate Gaussian Distribution, defined by the regression’s mean values and covariance matrix. Monte Carlo simulations can be conducted with this distribution to study alternative realizations of the regression.
+The hydrodynamic derivatives in the manoeuvring model are considered Gaussian random variables when conducting the Ordinary Least Squares (OLS) regression. The hydrodynamic derivatives in the manoeuvring model are usually taken as the mean value of each regressed random variable, being the most likely estimate. The regression result can be described with a Multivariate Gaussian Distribution, defined by the regression’s mean values and covariance matrix. Monte Carlo simulations can be conducted with this distribution to study alternative realizations of the regression.
 
 \sphinxAtStartPar
-Strong multicollinearity is a known problem for the the VMM:s \cite{luo_parameter_2016}, \cite{wang_quantifying_2018}.
+Strong multicollinearity is a known problem for the manoeuvring models \cite{luo_parameter_2016}, \cite{wang_quantifying_2018}.
 The thrust coefficient \(X_T\) in the hydrodynamic function \(X_D\) in \autoref{equation:02.01_VMMs:eqxabkowitz} introduces multicollinearity to the regression. This coefficient can instead be calculated from the thrust deduction factor \(t_{df}\):
 \begin{equation}\label{equation:03.01_inverse_dynamics:eqXthrust}
 \begin{split}\displaystyle X_{T} = 1 - t_{df}\end{split}
@@ -673,11 +659,11 @@ It is possible to do an exact parameter identification on perfect (simulated) da
 \subsubsection{The EKF recursive algorithm}
 \label{\detokenize{04.01_EK:the-ekf-recursive-algorithm}}
 \sphinxAtStartPar
-EKF is an extension of the Kalman Filter (KF) to work on nonlinear systems such as the VMMs. The basic idea is that noise can be disregarded if it does not make sense from a physical point of view. If noisy measurement data were perfectly correct, this would mean that the ship has many vibrations that must have originated from tremendous forces, considering the large mass of the ship. The prior understanding of model tests suggests that these forces are not present during the test. Therefore, the noise should be considered as measurement noise and should be removed. Low\sphinxhyphen{}pass filtering is a common way to remove noise, where motions above some cut\sphinxhyphen{}off frequencies are regarded as unphysical measurement noise. The problem with low\sphinxhyphen{}pass filter is that it is hard to know what cut\sphinxhyphen{}off frequency to choose, either too low: removing part of the signal, or too high: keeping some unfiltered measurement noise in the data. The Kalman filter has a system model that continuously estimates the system’s state that is run in parallel with the measurement data. The filter estimates the current state as a combination of the measurement data and the system model estimate based on belief in the data and the model. If the data has low noise, the estimate turns toward that data. Conversely, if the model gives very good predictions, then that estimate turns towards the model.
+EKF is an extension of the Kalman Filter (KF) to work on nonlinear systems such as the manoeuvring models. The basic idea is that noise can be disregarded if it does not make sense from a physical point of view. If noisy measurement data were perfectly correct, this would mean that the ship has many vibrations that must have originated from tremendous forces, considering the large mass of the ship. The prior understanding of model tests suggests that these forces are not present during the test. Therefore, the noise should be considered as measurement noise and should be removed. Low\sphinxhyphen{}pass filtering is a common way to remove noise, where motions above some cut\sphinxhyphen{}off frequencies are regarded as unphysical measurement noise. The problem with low\sphinxhyphen{}pass filter is that it is hard to know what cut\sphinxhyphen{}off frequency to choose, either too low: removing part of the signal, or too high: keeping some unfiltered measurement noise in the data. The Kalman filter has a system model that continuously estimates the system’s state that is run in parallel with the measurement data. The filter estimates the current state as a combination of the measurement data and the system model estimate based on belief in the data and the model. If the data has low noise, the estimate turns toward that data. Conversely, if the model gives very good predictions, then that estimate turns towards the model.
 
 \sphinxAtStartPar
 The system’s inverse dynamics require the entire states, including positions, velocities, and accelerations, to be known. Only positions are known from the measurements, which means that velocities and accelerations are hidden states that the EKF should estimate.
-The state transition \(f(\mathbf{x},\mathbf{c})\) is taken from the VMM (\autoref{equation:02.01_VMMs:eqf}) to use the VMM as the EKF predictor.
+The state transition \(f(\mathbf{x},\mathbf{c})\) is taken from the manoeuvring model (\autoref{equation:02.01_VMMs:eqf}) to use the manoeuvring model as the EKF predictor.
 The state of the system is observed (measured) with a linear observation model (\autoref{equation:04.01_EK:eqobserve}) where \(\mathbf{y}\) is the measured data \(\mathbf{H}\) is the observation matrix and \(\eta\) is measurement noise.
 \begin{equation}\label{equation:04.01_EK:eqobserve}
 \begin{split}\mathbf{y} = \mathbf{H} x + \eta\end{split}
@@ -800,13 +786,13 @@ The initial state \(x_0\) is taken as the mean value of the first five measureme
 \end{equation}
 \sphinxAtStartPar
 Where \(h\) is the discrete time step, \(R_d\) describes the covariance matrix of the measurement, \(Q_d\) is the covariance matrix of the process model, and \(P_0\) is the initial state covariance.
-Selecting good values for these three matrices is the most complicated part of getting the EKF to work well. The amount of expected measurement noise in the data should be inserted in to \(R_d\), and the amount of error generated by the process model (VMM) needs to be estimated in \(Q_d\). The choices for these matrices depend on the reliability of the present data and the present process model.
+Selecting good values for these three matrices is the most complicated part of getting the EKF to work well. The amount of expected measurement noise in the data should be inserted in to \(R_d\), and the amount of error generated by the process model (manoeuvring model) needs to be estimated in \(Q_d\). The choices for these matrices depend on the reliability of the present data and the present process model.
 
 
 \subsubsection{The Rauch Tung Striebel (RTS) smoother}
 \label{\detokenize{04.01_EK:the-rauch-tung-striebel-rts-smoother}}\label{\detokenize{04.01_EK:rts}}
 \sphinxAtStartPar
-The EKF is recursive and can be run online, continuously making new estimates as new measurements arrive. The EKF uses passed measurements to estimate states in the near future. This prediction is helpful for online applications such as  autopilots or autonomous ships. This restriction is  unnecessary for the PIT on already existing data where a whole time series of existing measurements are available. The fact that both past and future data are known can be used to improve the filter. An EKF filter can include future time steps by adding a smoother after the filter. The PIT uses a Rauch Tung Striebel (RTS) smoother \cite{rauch_maximum_1965}, which is an algorithm that runs the EKF backward to also account for future time steps.
+The EKF is recursive and can be run online, continuously making new estimates as new measurements arrive. The EKF uses passed measurements to estimate states in the near future. This prediction is helpful for online applications such as  autopilots or autonomous ships (USVs) (USVs). This restriction is  unnecessary for the parameter estimation on already existing data where a whole time series of existing measurements are available. The fact that both past and future data are known can be used to improve the filter. An EKF filter can include future time steps by adding a smoother after the filter. The parameter estimation uses a Rauch Tung Striebel (RTS) smoother \cite{rauch_maximum_1965}, which is an algorithm that runs the EKF backward to also account for future time steps.
 The EKF and RTS have been run on simulated data with Gaussian noise added to see if the real states can be identified. Results from this can be seen in  \hyperref[\detokenize{04.01_EK:fig-ekf}]{Fig.\@ \ref{\detokenize{04.01_EK:fig-ekf}}}. This figure shows that the RTS smoother is also needed to get an accurate estimate of the yaw acceleration.
 
 \begin{figure}[H]
@@ -820,8 +806,8 @@ The EKF and RTS have been run on simulated data with Gaussian noise added to see
 \section{Presentation of Case Studies}
 \label{\detokenize{05.01_case_studies:presentation-of-case-studies}}\label{\detokenize{05.01_case_studies:case-studies}}\label{\detokenize{05.01_case_studies::doc}}
 \sphinxAtStartPar
-The two case study model test results from the wPCC as in \hyperref[\detokenize{05.01_case_studies:wpcc-mdl}]{Fig.\@ \ref{\detokenize{05.01_case_studies:wpcc-mdl}}} and the well\sphinxhyphen{}known KVLCC2 are used to validate the proposed PIT method to obtain the hydrodynamic derivatives of the VMMs to describe a ship’s maneuverability. The general aim of developing a VMM with PIT is to be able to make predictions for unseen data outside the known data from model tests or full\sphinxhyphen{}scale operations. Therefore, both test cases aim to predict turning circle maneuvers with VMMs trained on model test data where turning circle maneuvers are excluded. The training data contains drift angles and yaw rates much smaller than typically encountered during a turning circle maneuver.
-The main dimensions of the two case study ship models are listed in \hyperref[\detokenize{05.01_case_studies:main-dimensions-of-test-case-ship-models}]{Table \ref{\detokenize{05.01_case_studies:main-dimensions-of-test-case-ship-models}}}, with explanations in \hyperref[\detokenize{05.01_case_studies:list-of-main-dimensions-symbols}]{Table \ref{\detokenize{05.01_case_studies:list-of-main-dimensions-symbols}}}. The wPCC is a wind\sphinxhyphen{}powered car carrier tested at SSPA \cite{alexandersson_wpcc_2022}. This twin screw ship with large rudders has good course stability and symmetric hydrodynamic manoeuvring forces. The KVLCC2 model test data from the Hamburg ship model basin (HSVA) and Maritime Research Institute Netherlands (MARIN) was made available by SIMMAN2008 conference \cite{stern_experience_2011}. This single screw ship is more course unstable than the wPCC test case, and manoeuvring forces are unsymmetrical due to the single propeller. This instability makes it good as the second test case with PIT on an unsymmetrical model.
+The two case study model test results from the wPCC as in \hyperref[\detokenize{05.01_case_studies:wpcc-mdl}]{Fig.\@ \ref{\detokenize{05.01_case_studies:wpcc-mdl}}} and the well\sphinxhyphen{}known KVLCC2 are used to validate the proposed parameter estimation method to obtain the hydrodynamic derivatives of the manoeuvring models to describe a ship’s maneuverability. The general aim of developing a manoeuvring model with parameter estimation is to be able to make predictions for unseen data outside the known data from model tests or full\sphinxhyphen{}scale operations. Therefore, both test cases aim to predict turning circle maneuvers with manoeuvring models trained on model test data where turning circle maneuvers are excluded. The training data contains drift angles and yaw rates much smaller than typically encountered during a turning circle maneuver.
+The main dimensions of the two case study ship models are listed in \hyperref[\detokenize{05.01_case_studies:main-dimensions-of-test-case-ship-models}]{Table \ref{\detokenize{05.01_case_studies:main-dimensions-of-test-case-ship-models}}}, with explanations in \hyperref[\detokenize{05.01_case_studies:list-of-main-dimensions-symbols}]{Table \ref{\detokenize{05.01_case_studies:list-of-main-dimensions-symbols}}}. The wPCC is a wind\sphinxhyphen{}powered car carrier tested at SSPA \cite{alexandersson_wpcc_2022}. This twin screw ship with large rudders has good course stability and symmetric hydrodynamic manoeuvring forces. The KVLCC2 model test data from the Hamburg ship model basin (HSVA) and Maritime Research Institute Netherlands (MARIN) was made available by SIMMAN2008 conference \cite{stern_experience_2011}. This single screw ship is more course unstable than the wPCC test case, and manoeuvring forces are unsymmetrical due to the single propeller. This instability makes it good as the second test case with parameter estimation on an unsymmetrical model.
 
 \begin{figure}[H]
 \centering
@@ -1083,7 +1069,7 @@ Longitudinal position of rudder
 \sphinxattableend\end{savenotes}
 
 \sphinxAtStartPar
-The PIT method requires an initial guessed linear VMM. For these initial models for the two test cases, their hydrodynamic derivatives are calculated with semi\sphinxhyphen{}empirical formulas (\autoref{equation:05.01_case_studies:eqnr}\sphinxhyphen{}\autoref{equation:05.01_case_studies:eqyvdot}) taken from \cite{brix_manoeuvring_1993} and shown in table \hyperref[\detokenize{05.01_case_studies:intial-guess}]{Table \ref{\detokenize{05.01_case_studies:intial-guess}}}.
+The parameter estimation method requires an initial guessed linear manoeuvring model. For these initial models for the two test cases, their hydrodynamic derivatives are calculated with semi\sphinxhyphen{}empirical formulas (\autoref{equation:05.01_case_studies:eqnr}\sphinxhyphen{}\autoref{equation:05.01_case_studies:eqyvdot}) taken from \cite{brix_manoeuvring_1993} and shown in \hyperref[\detokenize{05.01_case_studies:intial-guess}]{Table \ref{\detokenize{05.01_case_studies:intial-guess}}}.
 \begin{equation}\label{equation:05.01_case_studies:eqnr}
 \begin{split}\displaystyle N_{r} = - \frac{\pi T^{2} \left(\frac{0.039 B}{T} - \frac{0.56 B}{L} + 0.25\right)}{L^{2}}\end{split}
 \end{equation}\begin{equation}\label{equation:05.01_case_studies:eqnrdot}
@@ -1229,10 +1215,10 @@ KVLCC2 (HSVA)
 \subsection{The wPCC test scenarios}
 \label{\detokenize{05.01_case_studies:the-wpcc-test-scenarios}}
 \sphinxAtStartPar
-For the wPCC test case, the capability of the proposed PIT method to build a VMM is verified by a turning circle maneuver. If the VMM built by the proposed method based on a series of model tests including ZigZag10/10, 20/20 to port and starboard as well as self\sphinxhyphen{}propulsion and pull out test \cite{imo_standards_2002} can predict the turning circle maneuver, then it is a capable model. The turning circle test contains much larger drift angles, rudder angles, and yaw rates than the model tests used for training, so the VMM prediction ability is tested outside the training data.
+For the wPCC test case, the capability of the proposed parameter estimation method to build a manoeuvring model is verified by a turning circle maneuver. If the manoeuvring model built by the proposed method based on a series of model tests including ZigZag10/10, 20/20 to port and starboard as well as self\sphinxhyphen{}propulsion and pull out test \cite{imo_standards_2002} can predict the turning circle maneuver, then it is a capable model. The turning circle test contains much larger drift angles, rudder angles, and yaw rates than the model tests used for training, so the manoeuvring model prediction ability is tested outside the training data.
 The wPCC test case focuses on predicting forces and moments from the ship hull and rudders. The propeller force is not part of the prediction model but is taken from the model test measurements.
 The model test data used for modeling is split into training and validation datasets. The training dataset contains self\sphinxhyphen{}propulsion, pull\sphinxhyphen{}out tests, and zigzag10/10 tests to starboard and port. The validation dataset consists of three zigzag20/20 tests, so the validation set contains larger drift angles, rudder angles, and yaw rates than the training set in a similar way as for the real prediction case. The training and validation datasets as well as the turning circle test are shown in \hyperref[\detokenize{05.01_case_studies:fig-traintest}]{Fig.\@ \ref{\detokenize{05.01_case_studies:fig-traintest}}}.
-The purpose of the validation dataset is to be used in the cross\sphinxhyphen{}validation to select the suitable VMM for the final regression, where both training and validation data are included.
+The purpose of the validation dataset is to be used in the cross\sphinxhyphen{}validation to select the suitable manoeuvring model for the final regression, where both training and validation data are included.
 
 \begin{figure}[H]
 \centering
@@ -1245,11 +1231,11 @@ The purpose of the validation dataset is to be used in the cross\sphinxhyphen{}v
 \subsection{The KVLCC2 test scenarios}
 \label{\detokenize{05.01_case_studies:the-kvlcc2-test-scenarios}}
 \sphinxAtStartPar
-The proposed method is also verified using the KVLCC2 case study ship model. It demonstrates that a turning circle maneuver should be predicted by the VMM by the PIT method based on a series of model tests carried out at HSVA for the SIMMAN2008 conference \cite{stern_experience_2011}. The turning circle test contains much larger drift angles, rudder angles, and yaw rates compared to the model tests used for training so that
-the VMM prediction ability outside the training data is tested.
-The propeller is part of the VMM for this test case, instead of only the hull and rudders, as in the wPCC test case, so that the entire ship can be simulated without additional input.
+The proposed method is also verified using the KVLCC2 case study ship model. It demonstrates that a turning circle maneuver should be predicted by the manoeuvring model by the parameter estimation method based on a series of model tests carried out at HSVA for the SIMMAN2008 conference \cite{stern_experience_2011}. The turning circle test contains much larger drift angles, rudder angles, and yaw rates compared to the model tests used for training so that
+the manoeuvring model prediction ability outside the training data is tested.
+The propeller is part of the manoeuvring model for this test case, instead of only the hull and rudders, as in the wPCC test case, so that the entire ship can be simulated without additional input.
 The model test data used for training is split into a training and validation dataset. The training dataset contains various zigzag tests to starboard and port. The validation dataset includes a ZigZag35/5 test so that the validation set contains larger drift angles, rudder angles, and yaw rates than the training set in a similar way to the real prediction case. The test set is taken from turning circle model tests carried out at MARIN for the SIMMAN2008 conference \cite{stern_experience_2011}. The training and validation datasets as well as the test set are shown in \hyperref[\detokenize{05.01_case_studies:fig-kvlcc2-traintest}]{Fig.\@ \ref{\detokenize{05.01_case_studies:fig-kvlcc2-traintest}}}.
-The purpose of the validation dataset is to be used in cross\sphinxhyphen{}validation to select the suitable VMM for the final regression, where both training and validation data are included.
+The purpose of the validation dataset is to be used in cross\sphinxhyphen{}validation to select the suitable manoeuvring model for the final regression, where both training and validation data are included.
 
 \begin{figure}[H]
 \centering
@@ -1262,7 +1248,7 @@ The purpose of the validation dataset is to be used in cross\sphinxhyphen{}valid
 \section{Results}
 \label{\detokenize{06.01_results:results}}\label{\detokenize{06.01_results:id1}}\label{\detokenize{06.01_results::doc}}
 \sphinxAtStartPar
-The results motivating the choices of methods in the proposed PIT are presented below. Result with the inverse dynamics regression is presented in Section \(\ref{\detokenize{06.40_results_inverse_dynamics::doc}}\) for one ideal case without measurement noise. A comparison between the proposed preprocessors, EKF and RTS, and alternative low\sphinxhyphen{}pass filter is presented in Section \(\ref{\detokenize{06.31_results_noise::doc}}\). Results with the PIT for the turning circle test cases are presented for both ships in Section \(\ref{\detokenize{06.10_results_wpcc::doc}}\) and \(\ref{\detokenize{06.20_results_kvlcc2::doc}}\). Results from the KVLCC2 propeller model is also presented in Section  \(\ref{\detokenize{06.20_results_kvlcc2:kvlcc2-propeller-model}}\).
+The results motivating the choices of methods in the proposed parameter estimation are presented below. Result with the inverse dynamics regression is presented in Section \(\ref{\detokenize{06.40_results_inverse_dynamics::doc}}\) for one ideal case without measurement noise. A comparison between the proposed preprocessors, EKF and RTS, and alternative low\sphinxhyphen{}pass filter is presented in Section \(\ref{\detokenize{06.31_results_noise::doc}}\). Results with the parameter estimation for the turning circle test cases are presented for both ships in Section \(\ref{\detokenize{06.10_results_wpcc::doc}}\) and \(\ref{\detokenize{06.20_results_kvlcc2::doc}}\). Results from the KVLCC2 propeller model is also presented in Section  \(\ref{\detokenize{06.20_results_kvlcc2:the-kvlcc2-propeller-model}}\).
 
 
 \subsection{Inverse dynamics}
@@ -1272,7 +1258,7 @@ The results motivating the choices of methods in the proposed PIT are presented 
 \end{sphinxuseclass}
 \end{sphinxuseclass}
 \sphinxAtStartPar
-The hydrodynamic derivatives within the VMM can be identified exactly at ideal conditions for the PIT with no measurement noise and a perfect estimator. For example, artificial data from a turning circle test can be simulated by a pre\sphinxhyphen{}defined/true VMM. The hydrodynamic derivatives within the VMM can be identified with the same values. Results from such a simulation is shown in \hyperref[\detokenize{06.40_results_inverse_dynamics:fig-bar-parameters}]{Fig.\@ \ref{\detokenize{06.40_results_inverse_dynamics:fig-bar-parameters}}} where the regression has identified the true values precisely.
+The hydrodynamic derivatives within the manoeuvring model can be identified exactly at ideal conditions for the parameter estimation with no measurement noise and a perfect estimator. For example, artificial data from a turning circle test can be simulated by a pre\sphinxhyphen{}defined/true manoeuvring model. The hydrodynamic derivatives within the manoeuvring model can be identified with the same values. Results from such a simulation is shown in \hyperref[\detokenize{06.40_results_inverse_dynamics:fig-bar-parameters}]{Fig.\@ \ref{\detokenize{06.40_results_inverse_dynamics:fig-bar-parameters}}} where the regression has identified the true values precisely.
 
 \begin{figure}[H]
 \centering
@@ -1285,8 +1271,8 @@ The hydrodynamic derivatives within the VMM can be identified exactly at ideal c
 \subsection{Preprocessing}
 \label{\detokenize{06.31_results_noise:preprocessing}}\label{\detokenize{06.31_results_noise::doc}}
 \sphinxAtStartPar
-The low\sphinxhyphen{}pass filter is a prevalent alternative to preprocessing the model test data, as opposed to the EKF used by the proposed PIT.
-In order to study which of the filters works best, the proposed PIT has been run on the wPCC model test data with the EKF + RTS smoother replaced by a Low\sphinxhyphen{}pass filter instead. The low\sphinxhyphen{}pass filter applies a first\sphinxhyphen{}order linear digital Butterworth filter twice, once forward and once backward, to get zero phase \cite{virtanen_scipy_2020}. \hyperref[\detokenize{06.31_results_noise:fig-lowpass-accuracy}]{Fig.\@ \ref{\detokenize{06.31_results_noise:fig-lowpass-accuracy}}} shows the average simulation error \( \overline{RMSE} \) with low\sphinxhyphen{}pass filters at various cut\sphinxhyphen{}off frequencies for all wPCC model tets. Corresponding error with PIT using EKF + RTS is also shown in the figure. The simulation error for each model test is expressed as Root Mean Square Error \(RMSE\) (\autoref{equation:06.31_results_noise:eqrmse}) of the distance between the position from the model test and simulation.
+The low\sphinxhyphen{}pass filter is a prevalent alternative to preprocessing the model test data, as opposed to the EKF used by the proposed parameter estimation.
+In order to study which of the filters works best, the proposed parameter estimation has been run on the wPCC model test data with the EKF + RTS smoother replaced by a Low\sphinxhyphen{}pass filter instead. The low\sphinxhyphen{}pass filter applies a first\sphinxhyphen{}order linear digital Butterworth filter twice, once forward and once backward, to get zero phase \cite{virtanen_scipy_2020}. \hyperref[\detokenize{06.31_results_noise:fig-lowpass-accuracy}]{Fig.\@ \ref{\detokenize{06.31_results_noise:fig-lowpass-accuracy}}} shows the average simulation error \( \overline{RMSE} \) with low\sphinxhyphen{}pass filters at various cut\sphinxhyphen{}off frequencies for all wPCC model tets. Corresponding error with parameter estimation using EKF + RTS is also shown in the figure. The simulation error for each model test is expressed as Root Mean Square Error \(RMSE\) (\autoref{equation:06.31_results_noise:eqrmse}) of the distance between the position from the model test and simulation.
 \begin{equation}\label{equation:06.31_results_noise:eqrmse}
 \begin{split}RMSE=\sqrt{ \frac{\sum_{n=1}^{N} (d_n^2) }{N}} \end{split}
 \end{equation}
@@ -1301,14 +1287,14 @@ where \(d_n\) is the euclidean distance for each time step between the model tes
 \caption{Average simulation error with MAVMM fitted on wPCC model test data using low\sphinxhyphen{}pass filters with various cutt off frequency or EKF.}\label{\detokenize{06.31_results_noise:fig-lowpass-accuracy}}\end{figure}
 
 \sphinxAtStartPar
-Even though high accuracy can be obtained using a low\sphinxhyphen{}pass filter as the pre\sphinxhyphen{}processor, if an optimal cut\sphinxhyphen{}off frequency is selected, its accuracy decreases quickly at lower or higher frequencies. With higher cut\sphinxhyphen{}off frequencies, too much of the measurement error remains in the data, resulting in poor performance of the OLS regression. In extreme cases, it is like having no filter at all. Using too low of a cut\sphinxhyphen{}off frequency removes too much, including parts of the actual signal. The results show that the low\sphinxhyphen{}pass filter with a 7 Hz cut\sphinxhyphen{}off frequency has the lowest error among the low\sphinxhyphen{}pass filters, but EKF + RTS in the PIT has an even lower error, which is why this is used as the preprocessor in the proposed PIT.
+Even though high accuracy can be obtained using a low\sphinxhyphen{}pass filter as the pre\sphinxhyphen{}processor, if an optimal cut\sphinxhyphen{}off frequency is selected, its accuracy decreases quickly at lower or higher frequencies. With higher cut\sphinxhyphen{}off frequencies, too much of the measurement error remains in the data, resulting in poor performance of the OLS regression. In extreme cases, it is like having no filter at all. Using too low of a cut\sphinxhyphen{}off frequency removes too much, including parts of the actual signal. The results show that the low\sphinxhyphen{}pass filter with a 7 Hz cut\sphinxhyphen{}off frequency has the lowest error among the low\sphinxhyphen{}pass filters, but EKF + RTS in the parameter estimation has an even lower error, which is why this is used as the preprocessor in the proposed parameter estimation.
 
 
 \subsection{The wPCC tests}
 \label{\detokenize{06.10_results_wpcc:the-wpcc-tests}}\label{\detokenize{06.10_results_wpcc::doc}}
 \sphinxAtStartPar
-The LVMM was ruled too simple, so only the AVMM and MAVMM were considered possible VMMs in the cross\sphinxhyphen{}validation.
-Forces and moment predicted for the validation dataset with the VMMs fitted with proposed PIT on the training set are shown in \hyperref[\detokenize{06.10_results_wpcc:fig-validation-forces}]{Fig.\@ \ref{\detokenize{06.10_results_wpcc:fig-validation-forces}}}. It can be seen that the fitted AVMM overpredicts the forces by far. Therefore, simulations of the validation cases are only possible using the MAVMM, which is selected as the suitable VMM for the wPCC.
+The LVMM was ruled too simple, so only the AVMM and MAVMM were considered possible manoeuvring models in the cross\sphinxhyphen{}validation.
+Forces and moment predicted for the validation dataset with the manoeuvring models fitted with proposed parameter estimation on the training set are shown in \hyperref[\detokenize{06.10_results_wpcc:fig-validation-forces}]{Fig.\@ \ref{\detokenize{06.10_results_wpcc:fig-validation-forces}}}. It can be seen that the fitted AVMM overpredicts the forces by far. Therefore, simulations of the validation cases are only possible using the MAVMM, which is selected as the suitable manoeuvring model for the wPCC.
 The simulations are shown for one of the ZigZag20/20 validation cases in \hyperref[\detokenize{06.10_results_wpcc:fig-validation-sim}]{Fig.\@ \ref{\detokenize{06.10_results_wpcc:fig-validation-sim}}}.
 
 \begin{figure}[H]
@@ -1326,7 +1312,7 @@ The simulations are shown for one of the ZigZag20/20 validation cases in \hyperr
 \caption{Validation with simulations for wPCC ZigZag20/20.}\label{\detokenize{06.10_results_wpcc:fig-validation-sim}}\end{figure}
 
 \sphinxAtStartPar
-The over\sphinxhyphen{}prediction of forces with the AVMM can be explained by the large problems with multicollinearity that were encountered when applying the PIT method to the wPCC data. The absolute correlation coefficient between the features in the wPCC yaw moment regression are shown in \hyperref[\detokenize{06.10_results_wpcc:fig-ncorr}]{Fig.\@ \ref{\detokenize{06.10_results_wpcc:fig-ncorr}}}. It can be seen that most of the coefficients have very high absolute correlation (indicated in black). Some of the regressed hydrodynamic derivatives in the AVMM also have a substantial values and large uncertainty.
+The over\sphinxhyphen{}prediction of forces with the AVMM can be explained by the large problems with multicollinearity that were encountered when applying the parameter estimation method to the wPCC data. The absolute correlation coefficient between the features in the wPCC yaw moment regression are shown in \hyperref[\detokenize{06.10_results_wpcc:fig-ncorr}]{Fig.\@ \ref{\detokenize{06.10_results_wpcc:fig-ncorr}}}. It can be seen that most of the coefficients have very high absolute correlation (indicated in black). Some of the regressed hydrodynamic derivatives in the AVMM also have a substantial values and large uncertainty.
 
 \begin{figure}[H]
 \centering
@@ -1414,7 +1400,7 @@ Prediction
 \sphinxattableend\end{savenotes}
 
 \sphinxAtStartPar
-The mean values and standard error (se) of the hydrodynamic derivatives expressed with prime units for the wPCC obtained with PIT of MAVMM (\autoref{equation:02.01_VMMs:eqxmartinssimple},\autoref{equation:02.01_VMMs:eqymartinssimple}, \autoref{equation:02.01_VMMs:eqnmartinssimple}) applied on all the wPCC data (including the turning circle)  are shown in \hyperref[\detokenize{06.10_results_wpcc:wpcc-derivatives}]{Table \ref{\detokenize{06.10_results_wpcc:wpcc-derivatives}}}.
+The mean values and standard error (se) of the hydrodynamic derivatives expressed with prime units for the wPCC obtained with parameter estimation of MAVMM (\autoref{equation:02.01_VMMs:eqxmartinssimple},\autoref{equation:02.01_VMMs:eqymartinssimple}, \autoref{equation:02.01_VMMs:eqnmartinssimple}) applied on all the wPCC data (including the turning circle)  are shown in \hyperref[\detokenize{06.10_results_wpcc:wpcc-derivatives}]{Table \ref{\detokenize{06.10_results_wpcc:wpcc-derivatives}}}.
 
 
 \begin{savenotes}\sphinxattablestart
@@ -1613,7 +1599,7 @@ se
 \subsection{The KVLCC2 tests}
 \label{\detokenize{06.20_results_kvlcc2:the-kvlcc2-tests}}\label{\detokenize{06.20_results_kvlcc2::doc}}
 \sphinxAtStartPar
-The propeller is part of the VMM for thr KVLCC2 test case. A propeller prediction model needs to be regressed, based on thrust measurements from the model tests.
+The propeller is part of the manoeuvring model for thr KVLCC2 test case. A propeller prediction model needs to be regressed, based on thrust measurements from the model tests.
 
 
 \subsubsection{The KVLCC2 propeller model}
@@ -1696,12 +1682,12 @@ The model tests were divided into the test and validation sets randomly. The ran
 \sphinxattableend\end{savenotes}
 
 
-\subsubsection{KVLCC2 VMM}
-\label{\detokenize{06.20_results_kvlcc2:kvlcc2-vmm}}
+\subsubsection{KVLCC2 manoeuvring model}
+\label{\detokenize{06.20_results_kvlcc2:kvlcc2-manoeuvring-model}}
 \sphinxAtStartPar
-The LVMM was ruled too simple, for KVLCC2 as well, so only the AVMM and MAVMM were considered possible VMMs in the cross\sphinxhyphen{}validation.
-The forces and moments applied on the hull, rudder, and propeller predicted with the AVMM and MAVMM fitted with the proposed PIT on the training set are shown in \hyperref[\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-forces}]{Fig.\@ \ref{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-forces}}}.
-The forces are well predicted with both VMMs. The AVMM is not giving the large over predictions that were seen for wPCC (see Section \(\ref{\detokenize{06.10_results_wpcc::doc}}\)). However, the MAVMM is still slightly better and is therefore selected as the suitable VMM for the KVLCC2.
+The LVMM was ruled too simple, for KVLCC2 as well, so only the AVMM and MAVMM were considered possible manoeuvring models in the cross\sphinxhyphen{}validation.
+The forces and moments applied on the hull, rudder, and propeller predicted with the AVMM and MAVMM fitted with the proposed parameter estimation on the training set are shown in \hyperref[\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-forces}]{Fig.\@ \ref{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-forces}}}.
+The forces are well predicted with both manoeuvring models. The AVMM is not giving the large over predictions that were seen for wPCC (see Section \(\ref{\detokenize{06.10_results_wpcc::doc}}\)). However, the MAVMM is still slightly better and is therefore selected as the suitable manoeuvring model for the KVLCC2.
 
 \begin{figure}[H]
 \centering
@@ -1821,7 +1807,7 @@ TD (IMO) {[}m{]}
 \sphinxattableend\end{savenotes}
 
 \sphinxAtStartPar
-The mean values and standard error (se) of the hydrodynamic derivatives expressed with prime units for the KVLCC2 obtained with PIT of MAVMM (\(\autoref{equation:02.01_VMMs:eqxmartinssimple}\),\(\autoref{equation:02.01_VMMs:eqymartinssimple}\), \(\autoref{equation:02.01_VMMs:eqnmartinssimple}\)) applied on all the HSVA data are shown in \hyperref[\detokenize{06.20_results_kvlcc2:kvlcc2-derivatives}]{Table \ref{\detokenize{06.20_results_kvlcc2:kvlcc2-derivatives}}}.
+The mean values and standard error (se) of the hydrodynamic derivatives expressed with prime units for the KVLCC2 obtained with parameter estimation of MAVMM (\(\autoref{equation:02.01_VMMs:eqxmartinssimple}\),\(\autoref{equation:02.01_VMMs:eqymartinssimple}\), \(\autoref{equation:02.01_VMMs:eqnmartinssimple}\)) applied on all the HSVA data are shown in \hyperref[\detokenize{06.20_results_kvlcc2:kvlcc2-derivatives}]{Table \ref{\detokenize{06.20_results_kvlcc2:kvlcc2-derivatives}}}.
 
 
 \begin{savenotes}\sphinxattablestart
@@ -2039,26 +2025,26 @@ se
 \subsection{Discussion}
 \label{\detokenize{06.50_results_discussion:discussion}}\label{\detokenize{06.50_results_discussion::doc}}
 \sphinxAtStartPar
-Using inverse dynamics in the proposed PIT can find the parameters in a VMM precisely when there is no measurement noise, and the selected VMM is a perfect model. This type of result can be seen when identifying parameters in a VMM on data from simulations with the same VMM. In order to succeed in system identification on actual model test data, measurement noise needs to be handled, and a VMM close as possible to natural ship dynamics needs to be found. The proposed PIT method requires that the model test data is preprocessed to remove measurement noises. The proposed iterative EKF and RTS smoothers as the preprocessor gives higher accuracy and avoids finding the optimal cut\sphinxhyphen{}off frequency for using a low\sphinxhyphen{}pass filter.
+Using inverse dynamics in the proposed parameter estimation can find the parameters in a manoeuvring model precisely when there is no measurement noise, and the selected manoeuvring model is a perfect model. This type of result can be seen when identifying parameters in a manoeuvring model on data from simulations with the same manoeuvring model. In order to succeed in system identification on actual model test data, measurement noise needs to be handled, and a manoeuvring model close as possible to natural ship dynamics needs to be found. The proposed parameter estimation method requires that the model test data is preprocessed to remove measurement noises. The proposed iterative EKF and RTS smoothers as the preprocessor gives higher accuracy and avoids finding the optimal cut\sphinxhyphen{}off frequency for using a low\sphinxhyphen{}pass filter.
 
 \sphinxAtStartPar
 Multicollinearity is a significant problem with AVMM for both the wPCC and KVLCC2 data. Consequently, some of the regressed hydrodynamic derivatives in the AVMM have unphysically large values and substantial uncertainties. The model is still mathematically correct, where the regressed polynomials fit the training data well.
 The regressed polynomial is the sum of large counteracting coefficients. The model works as long as the states are similar to the training data. However, when extrapolating, it is easy to imagine that the balance between these massive derivatives is disturbed, giving significant extrapolation errors very quickly. This behavior was seen when predicting forces and moments with the AVMM on unseen validation data.
-The MAVMM has fewer hydrodynamic derivatives with lower multicollinearity and minor extrapolation errors. Including propeller thrust in the VMM made it possible to obtain high accuracy with fewer hydrodynamic derivatives.
+The MAVMM has fewer hydrodynamic derivatives with lower multicollinearity and minor extrapolation errors. Including propeller thrust in the manoeuvring model made it possible to obtain high accuracy with fewer hydrodynamic derivatives.
 
 
 \section{Conclusions}
 \label{\detokenize{10.01_conclusions:conclusions}}\label{\detokenize{10.01_conclusions:id1}}\label{\detokenize{10.01_conclusions::doc}}
 \sphinxAtStartPar
-This paper presented a new method for system identification of ship manoeuvring dynamics using a new Parameter Identification Technique (PIT) applied to Vessel Manoeuvring Models (VMMs). The proposed method includes:
+This paper presented a new method for system identification of ship manoeuvring dynamics using a new parameter estimation method  applied to manoeuvring models. The proposed method includes:
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
-A methodology to select a suitable VMM based on cross\sphinxhyphen{}validation, where the validation set should have larger yaw rates, drift angles and rudder angles compared to the training set.
+A methodology to select a suitable manoeuvring model based on cross\sphinxhyphen{}validation, where the validation set should have larger yaw rates, drift angles and rudder angles compared to the training set.
 
 \item {} 
 \sphinxAtStartPar
-A new PIT method which includes:
+A new parameter estimation method which includes:
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
@@ -2081,7 +2067,7 @@ The new method can predict Turning circles with less than 5 \% error in advance 
 
 \item {} 
 \sphinxAtStartPar
-For the KVLCC2 case with the VMM trained on zigzag model test data from the towing tank at HSVA, it was possible to reproduce the turning circle model test data from MARIN with reasonable accuracy. This example is one exciting application where the new method can be used to extend the model test from a narrow towing tank to predict turning circles.
+For the KVLCC2 case with the manoeuvring model trained on zigzag model test data from the towing tank at HSVA, it was possible to reproduce the turning circle model test data from MARIN with reasonable accuracy. This example is one exciting application where the new method can be used to extend the model test from a narrow towing tank to predict turning circles.
 
 \item {} 
 \sphinxAtStartPar
@@ -2090,7 +2076,7 @@ The inverse dynamics regression had higher accuracy when the proposed preprocess
 \end{itemize}
 
 \sphinxAtStartPar
-Finally, it is concluded that the proposed method can potentially improve the system identification of ship manoeuvring dynamics. The KVLCC2 test case results with the new method are closer to the model tests compared to a similar study \cite{he_nonparametric_2022}. Adding the prior knowledge from semi\sphinxhyphen{}empirical formulas as the initial guess into the EKF iteration, adding the thrust model and adopting the complexity of the VMM by reducing the number of hydrodynamic derivatives are all contributing to the improved performance.
+Finally, it is concluded that the proposed method can potentially improve the system identification of ship manoeuvring dynamics. The KVLCC2 test case results with the new method are closer to the model tests compared to a similar study \cite{he_nonparametric_2022}. Adding the prior knowledge from semi\sphinxhyphen{}empirical formulas as the initial guess into the EKF iteration, adding the thrust model and adopting the complexity of the manoeuvring model by reducing the number of hydrodynamic derivatives are all contributing to the improved performance.
 
 
 \section{Acknowledgements}
