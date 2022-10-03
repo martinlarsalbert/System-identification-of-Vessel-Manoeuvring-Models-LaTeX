@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.3) (preloaded format=xelatex 2021.8.25)  3 OCT 2022 13:10
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.3) (preloaded format=xelatex 2021.8.25)  3 OCT 2022 13:41
 entering extended mode
 **"./System identification of Vessel Manoeuvring Models.tex"
 (System identification of Vessel Manoeuvring Models.tex
@@ -1246,7 +1246,12 @@ File: 0.pdf Graphic file (type pdf)
  [10]
 File: 1.pdf Graphic file (type pdf)
 <use 1.pdf>
- [11] [12] [13] [14] [15]
+ [11] [12] [13] [14]
+
+LaTeX Warning: Reference `revestido_herrero_two-step_2012' on page 15 undefined
+ on input line 779.
+
+[15]
 File: 2.pdf Graphic file (type pdf)
 <use 2.pdf>
  [16]
@@ -1502,7 +1507,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1832--1832
 []\TU/lmr/m/n/10 -
  []
 
-[33] [34] [35] (System identification of Vessel Manoeuvring Models.bbl [36]
+[33] [34] (System identification of Vessel Manoeuvring Models.bbl [35]
 Underfull \hbox (badness 10000) in paragraph at lines 70--77
 \TU/lmr/m/n/10 URL [][]$[][][][][] [] [] [] [][][][][][][][][][][][][][][][][][
 ][][][] [] [][][][] [] [][][] [] [][][][][][][][][][][][][][][][][] [] [][][][]
@@ -1516,7 +1521,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 107--115
 [][][] [] [][][] [] [][] [] [][][][] [] [] [] [][][][][][][] []
  []
 
-[37] [38]
+[36] [37]
 Overfull \hbox (60.25386pt too wide) in paragraph at lines 221--230
 \TU/lmr/m/n/10 URL [][]$[][][][][] [] [] [] [][][][][][][][] [] [][][] [] [][][
 ] [] [][][][][][][] [] [][] [] [][] [] [][][] [] [][][][][][] [] [][][][][][][]
@@ -1565,23 +1570,26 @@ braces):
 >  {english/babelname}  =>  {american}
 >  {english/localnumeral}  =>  {polyglossia@C@localnumeral}
 >  {english/Localnumeral}  =>  {polyglossia@C@localnumeral}.
- [39] (System identification of Vessel Manoeuvring Models.aux
+ [38] (System identification of Vessel Manoeuvring Models.aux
 LaTeX Info: Redefining \rmfamily on input line 31.
 LaTeX Info: Redefining \sffamily on input line 31.
 LaTeX Info: Redefining \ttfamily on input line 31.
 )
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `"System identification of Vessel Manoeuvring
  Models".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 21939 strings out of 411568
- 379121 string characters out of 2834605
- 1004964 words of memory out of 3000000
- 41697 multiletter control sequences out of 15000+600000
- 407936 words of font info for 82 fonts, out of 8000000 for 9000
+ 21929 strings out of 411568
+ 378963 string characters out of 2834605
+ 964964 words of memory out of 3000000
+ 41692 multiletter control sequences out of 15000+600000
+ 407912 words of font info for 79 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
- 70i,23n,115p,1503b,2226s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,23n,115p,1503b,2216s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on System identification of Vessel Manoeuvring Models.pdf (39 pa
+Output written on System identification of Vessel Manoeuvring Models.pdf (38 pa
 ges).

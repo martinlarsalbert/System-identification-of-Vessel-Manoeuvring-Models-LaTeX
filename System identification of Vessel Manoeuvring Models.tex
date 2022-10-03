@@ -776,7 +776,7 @@ The transition matrix is calculated for each iteration using a Jacobian of the t
 \begin{split}A_d[k] = I + h \left. \frac{\partial f \left(x[k],c[k] \right)}{\partial x[k]} \right|_{x[k]=\hat{x}[k]}\end{split}
 \end{equation}
 \sphinxAtStartPar
-This part and the fact that the nonlinear transition model is used directly as the predictor are the extension part of the EKF compared to the linear KF.
+This part and the fact that the nonlinear transition model is used directly as the predictor are the extension part of the EKF compared to the linear KF. Please note the linear approximation in \autoref{equation:04.01_EK:eqjacobi} around the current state. This approximation can cause stability problems if the real system and the linearized system deviates too much, when large time steps are used on a very nonlinear system. The Unscented Kalman Filter, which was used in \(\ref{revestido_herrero_two-step_2012}\), is an alternative that can be used in these situations.
 
 \sphinxAtStartPar
 The output from the filter contains the estimated states: \(\hat{x}\) and estimated state covariance matrix \(\hat{P}\). \(\hat{x}\) represent the most likely estimates, but the estimates have uncertainty that is expressed in \(\hat{P}\).
@@ -2048,53 +2048,11 @@ se
 \par
 \sphinxattableend\end{savenotes}
 
-\begin{sphinxuseclass}{cell}
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{dataframes\PYGZus{}diff}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Test MAVMM}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}
-\begin{sphinxuseclass}{cell_output}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-                   x0         r  delta         y0         v     thrust  \PYGZbs{}
-time                                                                     
-0.000000     0.000000  0.000000    0.0   0.000000  0.000000  45.034462   
-0.295850    \PYGZhy{}0.001004 \PYGZhy{}0.000032    0.0  \PYGZhy{}0.000082 \PYGZhy{}0.000841  45.163867   
-0.591700     0.000598  0.000380    0.0  \PYGZhy{}0.000327 \PYGZhy{}0.000648  44.912564   
-0.887551    \PYGZhy{}0.000676  0.000590    0.0  \PYGZhy{}0.000351 \PYGZhy{}0.001126  44.394922   
-1.183401     0.000013  0.000552    0.0  \PYGZhy{}0.000608 \PYGZhy{}0.002136  44.550656   
-...               ...       ...    ...        ...       ...        ...   
-305.021576 \PYGZhy{}21.512764 \PYGZhy{}0.017724    0.0  21.842142  0.070276  50.169097   
-305.317426 \PYGZhy{}21.517521 \PYGZhy{}0.017818    0.0  21.932342  0.068774  50.204161   
-305.613277 \PYGZhy{}21.521939 \PYGZhy{}0.017912    0.0  22.020954  0.067257  50.239271   
-305.909127 \PYGZhy{}21.526030 \PYGZhy{}0.018005    0.0  22.107975  0.065726  50.274424   
-306.204977 \PYGZhy{}21.399168 \PYGZhy{}0.018055    0.0  22.152031  0.064961  50.285378   
-
-                   u         U  rev       psi  
-time                                           
-0.000000    0.000000  0.000000  0.0  0.000000  
-0.295850   \PYGZhy{}0.001341 \PYGZhy{}0.001350  0.0  0.000194  
-0.591700    0.002999  0.002992  0.0  0.000392  
-0.887551   \PYGZhy{}0.002012 \PYGZhy{}0.002024  0.0  0.000785  
-1.183401   \PYGZhy{}0.000912 \PYGZhy{}0.000939  0.0  0.001242  
-...              ...       ...  ...       ...  
-305.021576 \PYGZhy{}0.088915 \PYGZhy{}0.084588  0.0  0.230656  
-305.317426 \PYGZhy{}0.089951 \PYGZhy{}0.085656  0.0  0.228062  
-305.613277 \PYGZhy{}0.090990 \PYGZhy{}0.086730  0.0  0.225468  
-305.909127 \PYGZhy{}0.092032 \PYGZhy{}0.087810  0.0  0.222872  
-306.204977 \PYGZhy{}0.092053 \PYGZhy{}0.087854  0.0  0.218538  
-
-[1036 rows x 10 columns]
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}
-\end{sphinxuseclass}
 
 \subsection{Discussion}
 \label{\detokenize{06.50_results_discussion:discussion}}\label{\detokenize{06.50_results_discussion::doc}}
 \sphinxAtStartPar
-Using inverse dynamics in the proposed parameter estimation can find the parameters in a manoeuvring model precisely when there is no measurement noise, and the selected manoeuvring model is a perfect model. This type of result can be seen when identifying parameters in a manoeuvring model on data from simulations with the same manoeuvring model. In order to succeed in system identification on actual model test data, measurement noise needs to be handled, and a manoeuvring model close as possible to natural ship dynamics needs to be found. The proposed parameter estimation method requires that the model test data is preprocessed to remove measurement noises. The proposed iterative EKF and RTS smoothers as the preprocessor gives higher accuracy and avoids finding the optimal cut\sphinxhyphen{}off frequency for using a low\sphinxhyphen{}pass filter.
+Using inverse dynamics in the proposed parameter estimation can find the parameters in a manoeuvring model precisely when there is no measurement noise, and the selected manoeuvring model is a perfect model. This type of result can be seen when identifying parameters in a manoeuvring model on data from simulations with the same manoeuvring model. In order to succeed in system identification on actual model test data, measurement noise needs to be handled, and a manoeuvring model close as possible to natural ship dynamics needs to be found. The proposed parameter estimation method requires that the model test data is preprocessed to remove measurement noises. The proposed iterative EKF and RTS smoothers as the preprocessor gives higher accuracy and avoids finding the optimal cut\sphinxhyphen{}off frequency for using a low\sphinxhyphen{}pass filter. The linearization in the EKF did not cause any stability problems, with the high frequency model test data used (100 Hz). For more sparse time series, with longer time steps, UKF can be considered as an alternative, if the EKF is then having stability problems.
 
 \sphinxAtStartPar
 Multicollinearity is a significant problem with AVMM for both the wPCC and KVLCC2 data. Consequently, some of the regressed hydrodynamic derivatives in the AVMM have unphysically large values and substantial uncertainties. The model is still mathematically correct, where the regressed polynomials fit the training data well.
