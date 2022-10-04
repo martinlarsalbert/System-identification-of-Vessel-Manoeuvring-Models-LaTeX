@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.3) (preloaded format=xelatex 2021.8.25)  4 OCT 2022 09:52
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.3) (preloaded format=xelatex 2021.8.25)  4 OCT 2022 11:04
 entering extended mode
 **"./System identification of Vessel Manoeuvring Models.tex"
 (System identification of Vessel Manoeuvring Models.tex
@@ -1237,27 +1237,22 @@ Overfull \hbox (54.84775pt too wide) detected at line 356
 []
  []
 
-[6] [7]
+[6] [7] [8]
 File: method.png Graphic file (type bmp)
 <method.png>
- [8] [9]
+ [9] [10]
 File: 0.pdf Graphic file (type pdf)
 <use 0.pdf>
- [10]
+ [11]
 File: 1.pdf Graphic file (type pdf)
 <use 1.pdf>
- [11] [12] [13] [14]
-
-LaTeX Warning: Reference `revestido_herrero_two-step_2012' on page 15 undefined
- on input line 801.
-
-[15]
+ [12] [13] [14] [15]
 File: 2.pdf Graphic file (type pdf)
 <use 2.pdf>
  [16]
 File: wpcc_mdl.png Graphic file (type bmp)
 <wpcc_mdl.png>
-
+ [17]
 Underfull \hbox (badness 10000) in paragraph at lines 1013--1013
 []$[]$
  []
@@ -1352,7 +1347,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1013--1013
 []\TU/lmr/m/n/10 -
  []
 
-[17] [18]
+[18]
 Underfull \hbox (badness 10000) in paragraph at lines 1268--1268
 []\TU/lmr/m/n/10 -
  []
@@ -1574,21 +1569,18 @@ LaTeX Info: Redefining \rmfamily on input line 31.
 LaTeX Info: Redefining \sffamily on input line 31.
 LaTeX Info: Redefining \ttfamily on input line 31.
 )
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `"System identification of Vessel Manoeuvring
  Models".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 21931 strings out of 411568
- 379038 string characters out of 2834605
+ 21930 strings out of 411568
+ 379005 string characters out of 2834605
  964964 words of memory out of 3000000
- 41694 multiletter control sequences out of 15000+600000
+ 41693 multiletter control sequences out of 15000+600000
  407912 words of font info for 79 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
- 70i,23n,115p,1503b,2236s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,23n,115p,1503b,2296s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on System identification of Vessel Manoeuvring Models.pdf (39 pa
 ges).

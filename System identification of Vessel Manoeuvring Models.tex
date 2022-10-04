@@ -259,7 +259,7 @@ lake test
 \sphinxattableend\end{savenotes}
 
 \sphinxAtStartPar
-Black\sphinxhyphen{}box modeling was used in \cite{he_nonparametric_2022} using neural network and in \cite{xue_identification_2021} using gaussian process. The nonparametric models are related, where the system structure is known but no parameters are required as seen in \cite{pongduang_nonparametric_2020}. However, most of the system identification methods for ship manoeuvring models use the grey\sphinxhyphen{}box modeling by assuming a predefined mathematical model, which reduces the problem to a parameter estimation.
+Black\sphinxhyphen{}box modeling was used in \cite{he_nonparametric_2022}, using neural network, and in \cite{xue_identification_2021}, using gaussian process. The nonparametric models are related, where the system structure is known but no parameters are required as seen in \cite{pongduang_nonparametric_2020}. However, most of the system identification methods for ship manoeuvring models use the grey\sphinxhyphen{}box modeling by assuming a predefined mathematical model, which reduces the problem to a parameter estimation.
 The Kalman Filter (KF) combined with Maximum Likelihood Estimation was proposed already in 1976 \cite{astrom_identification_1976} to develop a linear manoeuvring model based on manually recorded data in 1969 onboard the Atlantic Song freighter. The Extended Kalman Filter (EKF) can also estimate parameters if the parameters are represented as states of the state space model. This technique was used on a nonlinear Nomoto model \cite{perera_system_2015} and a 3 degree of freedom model (3DOF) \cite{shi_identification_2009}. EKF was used in \cite{araki_estimating_2012} with constrained parameters based on physical reasoning and prior knowledge using constrained least squares regression. Unscented Kalman Filter (UKF), which has been proposed as an improvement to the EKF in handling nonlinear systems, was used in \cite{revestido_herrero_two-step_2012}.
 Support Vector Regression (SVR) has been investigated in \cite{zhu_parameter_2017}, \cite{wang_parameter_2021} and \cite{luo_parameter_2016}. A genetic algorithm was used in \cite{miller_ship_2021} for the system identification of model test performed on a lake.
 
@@ -271,7 +271,7 @@ However, system identification methods must handle imperfections in the data fro
 This paper proposes an innovative approach to address those issues for ship manoeuvring system identification based on actual noise test data. First, a parameter estimation method  is proposed to study the capability of several candidate manoeuvring models. Model test data in all degrees of freedom is recorded as ship trajectories, including position and heading and thrust, where a model for propeller thrust is also proposed and further developed. In this method, the inverse dynamics regression and Extended the Kalman Filter (EKF) with a Rauch Tung Striebel (RTS) smoother \cite{rauch_maximum_1965} are proposed for the necessary data cleaning before feeding into the manoeuvring model. An iterative approach is adopted to determine the most appropriate manoeuvring model. The multicollinearity problem is addressed by identifying a ship manoeuvring system with proper parameters in the manoeuvring model. The proposed approach is verified by identifying a selected manoeuvring model and predicting turning circle manoeuvres for two different test vessels.
 
 \sphinxAtStartPar
-For the completeness of this paper, different manoeuvring models and propeller models are briefly introduced in \hyperref[\detokenize{02.01_VMMs:vmm}]{Section \ref{\detokenize{02.01_VMMs:vmm}}}. Then the proposed parameter estimation method is presented in \hyperref[\detokenize{01.01_method:method}]{Section \ref{\detokenize{01.01_method:method}}}, where each subcomponent is also described. The parameter estimation is applied to two case study ships which are introduced in \hyperref[\detokenize{05.01_case_studies:case-studies}]{Section \ref{\detokenize{05.01_case_studies:case-studies}}} and corresponding results are presented in the \hyperref[\detokenize{06.01_results:results}]{Section \ref{\detokenize{06.01_results:results}}} with discussions, followed by conclusions.
+For the completeness of this paper, different manoeuvring models and propeller models are briefly introduced in \hyperref[\detokenize{02.01_VMMs:vmm}]{Section \ref{\detokenize{02.01_VMMs:vmm}}}. Then the proposed parameter estimation method is presented in \hyperref[\detokenize{01.01_method:method}]{Section \ref{\detokenize{01.01_method:method}}}, where each subcomponent is also described. The robust model development process is described in section \(\ref{\detokenize{04.10_model_development_process:id1}}\). The parameter estimation is applied to two case study ships which are introduced in \hyperref[\detokenize{05.01_case_studies:case-studies}]{Section \ref{\detokenize{05.01_case_studies:case-studies}}} and corresponding results are presented in the \hyperref[\detokenize{06.01_results:results}]{Section \ref{\detokenize{06.01_results:results}}} with discussions, followed by conclusions.
 
 
 \section{Vessel Manoeuvring Models}
@@ -554,14 +554,7 @@ Where \(x_p\) is the propeller longitudinal position and \(w_{p0}\) is the regul
 \section{Method}
 \label{\detokenize{01.01_method:method}}\label{\detokenize{01.01_method:id1}}\label{\detokenize{01.01_method::doc}}
 \sphinxAtStartPar
-An efficient approach to build the manoeuvring model for a ship’s manoeuvres is presented in this paper. In this procedure, an initial manoeuvring model is used to solve the reversed manoeuvring problem, i.e., predicting unknown forces from known ship manoeuvres. Then, the hydrodynamic derivatives in the manoeuvring model can be identified with regression of the force polynomials on forces predicted with inverse dynamics, which is called motion regression in this paper. The Ordinary Least Square (OLS) method is used to regress the hydrodynamic derivatives in the proposed parameter estimation method. The OLS is known to be extremely sensitive to noise and outliers inevitably associated with both experimental and full\sphinxhyphen{}scale test data. Thereby, the focus in the present parameter estimation is on pre\sphinxhyphen{}processing data with filtering rather than the regression method itself. Both the Extended Kalman Filter (EKF) and Rauch Tung Striebel (RTS) smoother are used to perform the data\sphinxhyphen{}processing for building a proper manoeuvring model.
-
-\begin{figure}[H]
-\centering
-\capstart
-
-\noindent\sphinxincludegraphics[width=500\sphinxpxdimen]{{method}.png}
-\caption{Flow chart over the proposed parameter estimation method}\label{\detokenize{01.01_method:overview}}\end{figure}
+An efficient approach to build the manoeuvring model for a ship’s manoeuvres is presented in this paper. In this procedure, an initial manoeuvring model is used to solve the reversed manoeuvring problem, i.e., predicting unknown forces from known ship manoeuvres. Then, the hydrodynamic derivatives in the manoeuvring model can be identified with regression of the force polynomials on forces predicted with inverse dynamics. The Ordinary Least Square (OLS) method is used to regress the hydrodynamic derivatives in the proposed parameter estimation method. The OLS is known to be extremely sensitive to noise and outliers inevitably associated with both experimental and full\sphinxhyphen{}scale test data. Thereby, the focus in the present parameter estimation is on pre\sphinxhyphen{}processing data with filtering rather than the regression method itself. Both the Extended Kalman Filter (EKF) and Rauch Tung Striebel (RTS) smoother are used to perform the data\sphinxhyphen{}processing for building a proper manoeuvring model.
 
 
 \subsection{Overview of the proposed procedure}
@@ -578,6 +571,13 @@ in the EKF, to obtain an even better manoeuvring model. This procedure can be re
 accuracy. Using semi\sphinxhyphen{}empirical formulas for the initially guessed manoeuvring model adds prior knowledge about the ship dynamics to the regression. When used with the recursive EKF, this method is an innovation compared to
 other parameter estimation methods.
 
+\begin{figure}[H]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics[width=500\sphinxpxdimen]{{method}.png}
+\caption{Flow chart over the proposed parameter estimation method}\label{\detokenize{01.01_method:overview}}\end{figure}
+
 \sphinxAtStartPar
 The iterative process is composed of two basic steps:
 \begin{enumerate}
@@ -589,7 +589,7 @@ are estimated with semi\sphinxhyphen{}empirical formulas for a linear manoeuvrin
 used in the EKF and RTS smoother to filter all the model tests. The manoeuvring models are assumed to have
 Markov property, meaning that future states depend only on the current state. Then the filtered data
 with estimated hidden states from all the model tests can be joined into a time\sphinxhyphen{}independent dataset
-passed to the motion regression. The hydrodynamic derivatives are regressed on quasi\sphinxhyphen{}static forces
+passed to the regression. The hydrodynamic derivatives are regressed on quasi\sphinxhyphen{}static forces
 from inverse dynamics giving the identified nonlinear manoeuvring model.
 
 \item {} 
@@ -602,10 +602,6 @@ updated.
 \end{enumerate}
 
 \sphinxAtStartPar
-In the following section, the methods of inverse dynamics, regression and EKF used in the proposed PIT
-method, and their connections, are presented in detail.
-
-\sphinxAtStartPar
 An example with simulation results from the steps in the iterative EKF is shown in \hyperref[\detokenize{01.01_method:iterations}]{Fig.\@ \ref{\detokenize{01.01_method:iterations}}}
 
 \begin{figure}[H]
@@ -614,6 +610,10 @@ An example with simulation results from the steps in the iterative EKF is shown 
 
 \noindent\sphinxincludegraphics{{0}.pdf}
 \caption{Simulation with: initial model, first and second iteration of the parameter estimation}\label{\detokenize{01.01_method:iterations}}\end{figure}
+
+\sphinxAtStartPar
+In the following section, the methods of inverse dynamics, regression and EKF used in the proposed PIT
+method, and their connections, are presented in detail.
 
 
 \subsection{Inverse dynamics and regression}
@@ -650,8 +650,8 @@ Finding the hydrodynamic derivatives can be defined as a linear regression probl
 \begin{split}y = X\gamma + \epsilon\end{split}
 \end{equation}
 \sphinxAtStartPar
-The model for the hydrodynamic forces must first be assumed to be the polynomials in the MAVMM.
-The label vector \(y\) and feature matrix \(X\) in the regression problem in \autoref{equation:03.01_inverse_dynamics:eqregression} can now be inserted. As an example: the labels in the regression of the surge degree of freedom can be calculated using the inverse dynamics force, expressed with primed units:
+The model for the hydrodynamic forces must first be assumed.
+The label vector \(y\) and feature matrix \(X\) in the regression problem in \autoref{equation:03.01_inverse_dynamics:eqregression} can now be inserted. As an example: the labels in the regression of the surge degree of freedom for the MAVMM can be calculated using the inverse dynamics force, expressed with primed units:
 \begin{equation}\label{equation:03.01_inverse_dynamics:diff_eq_X_y}
 \begin{split}\displaystyle y = - X_{\dot{u}} \dot{u}' + \dot{u}' m' - m' r'^{2} x_{G'} - m' r' v'\end{split}
 \end{equation}
@@ -798,7 +798,7 @@ The transition matrix is calculated for each iteration using a Jacobian of the t
 \begin{split}A_d[k] = I + h \left. \frac{\partial f \left(x[k],c[k] \right)}{\partial x[k]} \right|_{x[k]=\hat{x}[k]}\end{split}
 \end{equation}
 \sphinxAtStartPar
-This part and the fact that the nonlinear transition model is used directly as the predictor are the extension part of the EKF compared to the linear KF. Please note the linear approximation in \autoref{equation:04.01_EK:eqjacobi} around the current state. This approximation can cause stability problems if the real system and the linearized system deviates too much, when large time steps are used on a very nonlinear system. The Unscented Kalman Filter, which was used in \(\ref{revestido_herrero_two-step_2012}\), is an alternative that can be used in these situations.
+This part and the fact that the nonlinear transition model is used directly as the predictor are the extension part of the EKF compared to the linear KF. Please note the linear approximation in \autoref{equation:04.01_EK:eqjacobi} around the current state. This approximation can cause stability problems if the real system and the linearized system deviates too much, when large time steps are used on a very nonlinear system. The Unscented Kalman Filter, which was used in \cite{revestido_herrero_two-step_2012}, is an alternative that can be used in these situations.
 
 \sphinxAtStartPar
 The output from the filter contains the estimated states: \(\hat{x}\) and estimated state covariance matrix \(\hat{P}\). \(\hat{x}\) represent the most likely estimates, but the estimates have uncertainty that is expressed in \(\hat{P}\).
@@ -841,7 +841,7 @@ The EKF and RTS have been run on simulated data with Gaussian noise added to see
 \subsection{Model development process}
 \label{\detokenize{04.10_model_development_process:id1}}\label{\detokenize{04.10_model_development_process::doc}}
 \sphinxAtStartPar
-The general aim of developing a manoeuvring model with parameter estimation is to develop a model that can generalize outside the known data: the model should have good generalization. The method presented in this paper is evaluated with the ‘’Hold\sphinxhyphen{}Out’’ method where the data is divided into three sets:
+The general aim of developing a manoeuvring model with parameter estimation is to develop a model that can generalize outside the known data. The method presented in this paper is evaluated with the ‘’Hold\sphinxhyphen{}Out’’ method where the data is divided into three sets:
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
@@ -2095,7 +2095,7 @@ se
 \subsection{Discussion}
 \label{\detokenize{06.50_results_discussion:discussion}}\label{\detokenize{06.50_results_discussion::doc}}
 \sphinxAtStartPar
-Using inverse dynamics in the proposed parameter estimation can find the parameters in a manoeuvring model precisely when there is no measurement noise, and the selected manoeuvring model is a perfect model. This type of result can be seen when identifying parameters in a manoeuvring model on data from simulations with the same manoeuvring model. In order to succeed in system identification on actual model test data, measurement noise needs to be handled, and a manoeuvring model as close as possible to the real system should be used. The proposed parameter estimation method requires that the model test data is preprocessed to remove measurement noises. The proposed iterative EKF and RTS smoothers gives higher accuracy and avoids finding the optimal cut\sphinxhyphen{}off frequency for using a low\sphinxhyphen{}pass filter. The linearization in the EKF did not cause any stability problems, with the high frequency model test data used (100 Hz), which can be a problem for more sparse time series, with longer time steps. In this case, Unscented Kalman Filter (UKF) can be considered as an alternative.
+Using inverse dynamics in the proposed parameter estimation can find the parameters in a manoeuvring model precisely when there is no measurement noise, and the selected manoeuvring model is a perfect model. This type of result can be seen when identifying parameters in a manoeuvring model on data from simulations with the same manoeuvring model. In order to succeed in system identification on actual model test data, measurement noise as well as model uncertainty need to be handled, and a manoeuvring model as close as possible to the real system should be used. The proposed parameter estimation method requires that the model test data is preprocessed to remove measurement noises. The proposed iterative EKF and RTS smoothers gives higher accuracy and avoids finding the optimal cut\sphinxhyphen{}off frequency for using a low\sphinxhyphen{}pass filter. The linearization in the EKF did not cause any stability problems, with the high frequency model test data used (100 Hz), which can be a problem for more sparse time series, with longer time steps. In this case, Unscented Kalman Filter (UKF) can be considered as an alternative.
 
 \sphinxAtStartPar
 Multicollinearity was a significant problem with the AVMM for both the wPCC and KVLCC2 data. Consequently, some of the regressed hydrodynamic derivatives in the AVMM have unphysically large values and substantial uncertainties. The model is still mathematically correct, where the regressed polynomials fit the training data well.
@@ -2105,7 +2105,7 @@ The regressed polynomial is the sum of large counteracting coefficients. The mod
 The MAVMM has fewer hydrodynamic derivatives with lower multicollinearity and minor extrapolation errors. Including propeller thrust in the manoeuvring model made it possible to obtain high accuracy with fewer hydrodynamic derivatives. Another problem with a too complex model is that the standard manoeuvres used in this paper does not follow the aspect of persistence of excitation, so that some of the hydrodynamic derivatives might not be identifiable \cite{revestido_herrero_two-step_2012}. During zigzag tests, the model is for instance exposed to only two rudder angles for a majority of the data. A series of step responses as used in \cite{miller_ship_2021} gives a better excitation, but requires a lot of space, which is possible at lake experiments, but not in a narrow basin.
 
 \sphinxAtStartPar
-The close integration with the EKF makes this method very convenient to use in online applications. The hydrodynamic derivatives are however not updated online. The regression needs to be rerun, which is a rapid procedure with the OLS regression.  The entire time series history or only more recent parts, can be used depending on how much the model should remembered.
+The close integration with the EKF makes this method very convenient to use in online applications. The hydrodynamic derivatives are however not updated online. The regression needs to be rerun, which is a rapid procedure with the OLS regression.  The entire time series history or more recent parts, can be used depending on how much the model should remembered.
 
 
 \section{Conclusions}
