@@ -63,7 +63,7 @@
         
 
 \title{System identification of Vessel Manoeuvring Models}
-\date{Oct 04, 2022}
+\date{Oct 05, 2022}
 \release{}
 
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -128,7 +128,7 @@ Reference
 Genetic algorithm
 &
 \sphinxAtStartPar
-.
+\(\checkmark\)
 &&
 \sphinxAtStartPar
 lake test
@@ -141,7 +141,7 @@ lake test
 Neural network
 &
 \sphinxAtStartPar
-.
+\(\checkmark\)
 &&
 \sphinxAtStartPar
 model test
@@ -154,7 +154,7 @@ model test
 Gaussian process
 &
 \sphinxAtStartPar
-.
+\(\checkmark\)
 &&
 \sphinxAtStartPar
 model test
@@ -167,7 +167,7 @@ model test
 Kalman filter maximum likelihood
 &&
 \sphinxAtStartPar
-.
+\(\checkmark\)
 &
 \sphinxAtStartPar
 full scale
@@ -180,7 +180,7 @@ full scale
 Unscented kalman filter
 &&
 \sphinxAtStartPar
-.
+\(\checkmark\)
 &
 \sphinxAtStartPar
 full scale
@@ -193,7 +193,7 @@ full scale
 Extended kalman filter
 &&
 \sphinxAtStartPar
-.
+\(\checkmark\)
 &
 \sphinxAtStartPar
 full scale
@@ -206,7 +206,7 @@ full scale
 Extended kalman filter
 &&
 \sphinxAtStartPar
-.
+\(\checkmark\)
 &
 \sphinxAtStartPar
 simulated
@@ -219,7 +219,7 @@ simulated
 Constrained Least Squares
 &&
 \sphinxAtStartPar
-.
+\(\checkmark\)
 &
 \sphinxAtStartPar
 model test, CFD
@@ -232,7 +232,7 @@ model test, CFD
 SVR
 &&
 \sphinxAtStartPar
-.
+\(\checkmark\)
 &
 \sphinxAtStartPar
 simulated
@@ -245,7 +245,7 @@ simulated
 SVR
 &&
 \sphinxAtStartPar
-.
+\(\checkmark\)
 &
 \sphinxAtStartPar
 model test
@@ -2152,6 +2152,7 @@ The inverse dynamics regression had higher accuracy when the proposed preprocess
 
 \sphinxAtStartPar
 Finally, it is concluded that the proposed method can potentially improve the system identification of ship manoeuvring dynamics. The KVLCC2 test case results with the new method are closer to the model tests compared to a similar study \cite{he_nonparametric_2022}. Adding the prior knowledge from semi\sphinxhyphen{}empirical formulas as the initial guess into the EKF iteration, adding the thrust model and adopting the complexity of the manoeuvring model by reducing the number of hydrodynamic derivatives are all contributing to the improved performance.
+Even though the method has been validated by two very different ships, further validations with more ships is needed to strengthen the belief in the method.
 
 
 \section{Acknowledgements}
