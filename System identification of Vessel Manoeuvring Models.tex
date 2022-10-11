@@ -63,7 +63,7 @@
         
 
 \title{System identification of Vessel Manoeuvring Models}
-\date{Oct 05, 2022}
+\date{Oct 11, 2022}
 \release{}
 
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -131,7 +131,7 @@ Genetic algorithm
 \(\checkmark\)
 &&
 \sphinxAtStartPar
-lake test
+Lake test
 &
 \sphinxAtStartPar
 \cite{miller_ship_2021}
@@ -144,7 +144,7 @@ Neural network
 \(\checkmark\)
 &&
 \sphinxAtStartPar
-model test
+Model test
 &
 \sphinxAtStartPar
 \cite{he_nonparametric_2022}
@@ -157,7 +157,7 @@ Gaussian process
 \(\checkmark\)
 &&
 \sphinxAtStartPar
-model test
+Model test
 &
 \sphinxAtStartPar
 \cite{xue_identification_2021}
@@ -170,85 +170,85 @@ Kalman filter maximum likelihood
 \(\checkmark\)
 &
 \sphinxAtStartPar
-full scale
+Full scale
 &
 \sphinxAtStartPar
 \cite{astrom_identification_1976}
 \\
 \hline
 \sphinxAtStartPar
-Unscented kalman filter
+Unscented Kalman filter
 &&
 \sphinxAtStartPar
 \(\checkmark\)
 &
 \sphinxAtStartPar
-full scale
+Full scale
 &
 \sphinxAtStartPar
 \cite{revestido_herrero_two-step_2012}
 \\
 \hline
 \sphinxAtStartPar
-Extended kalman filter
+Extended Kalman filter
 &&
 \sphinxAtStartPar
 \(\checkmark\)
 &
 \sphinxAtStartPar
-full scale
+Full scale
 &
 \sphinxAtStartPar
 \cite{perera_system_2015}
 \\
 \hline
 \sphinxAtStartPar
-Extended kalman filter
+Extended Kalman filter
 &&
 \sphinxAtStartPar
 \(\checkmark\)
 &
 \sphinxAtStartPar
-simulated
+Simulated
 &
 \sphinxAtStartPar
 \cite{shi_identification_2009}
 \\
 \hline
 \sphinxAtStartPar
-Constrained Least Squares
+Constrained least squares
 &&
 \sphinxAtStartPar
 \(\checkmark\)
 &
 \sphinxAtStartPar
-model test, CFD
+Model test, CFD
 &
 \sphinxAtStartPar
 \cite{araki_estimating_2012}
 \\
 \hline
 \sphinxAtStartPar
-SVR
+Support vector regression
 &&
 \sphinxAtStartPar
 \(\checkmark\)
 &
 \sphinxAtStartPar
-simulated
+Simulated
 &
 \sphinxAtStartPar
 \cite{zhu_parameter_2017}, \cite{wang_parameter_2021}
 \\
 \hline
 \sphinxAtStartPar
-SVR
+Support vector regression
 &&
 \sphinxAtStartPar
 \(\checkmark\)
 &
 \sphinxAtStartPar
-model test
+Model test
 &
 \sphinxAtStartPar
 \cite{luo_parameter_2016}
@@ -271,7 +271,7 @@ However, system identification methods must handle imperfections in the data fro
 This paper proposes an innovative approach to address those issues for ship manoeuvring system identification based on actual noise test data. First, a parameter estimation method  is proposed to study the capability of several candidate manoeuvring models. Model test data in all degrees of freedom is recorded as ship trajectories, including position and heading and thrust, where a model for propeller thrust is also proposed and further developed. In this method, the inverse dynamics regression and Extended the Kalman Filter (EKF) with a Rauch Tung Striebel (RTS) smoother \cite{rauch_maximum_1965} are proposed for the necessary data cleaning before feeding into the manoeuvring model. An iterative approach is adopted to determine the most appropriate manoeuvring model. The multicollinearity problem is addressed by identifying a ship manoeuvring system with proper parameters in the manoeuvring model. The proposed approach is verified by identifying a selected manoeuvring model and predicting turning circle manoeuvres for two different test vessels.
 
 \sphinxAtStartPar
-For the completeness of this paper, different manoeuvring models and propeller models are briefly introduced in \hyperref[\detokenize{02.01_VMMs:vmm}]{Section \ref{\detokenize{02.01_VMMs:vmm}}}. Then the proposed parameter estimation method is presented in \hyperref[\detokenize{01.01_method:method}]{Section \ref{\detokenize{01.01_method:method}}}, where each subcomponent is also described. The robust model development process is described in section \(\ref{\detokenize{04.10_model_development_process:id1}}\). The parameter estimation is applied to two case study ships which are introduced in \hyperref[\detokenize{05.01_case_studies:case-studies}]{Section \ref{\detokenize{05.01_case_studies:case-studies}}} and corresponding results are presented in the \hyperref[\detokenize{06.01_results:results}]{Section \ref{\detokenize{06.01_results:results}}} with discussions, followed by conclusions.
+For the completeness of this paper, different manoeuvring models and propeller models are briefly introduced in \hyperref[\detokenize{02.01_VMMs:vmm}]{Section \ref{\detokenize{02.01_VMMs:vmm}}}. Then the proposed parameter estimation method is presented in \hyperref[\detokenize{01.01_method:method}]{Section \ref{\detokenize{01.01_method:method}}}, where each subcomponent is also described. The robust model development process is described in section \(\ref{\detokenize{04.10_3:id1}}\). The parameter estimation is applied to two case study ships which are introduced in \hyperref[\detokenize{05.01_case_studies:case-studies}]{Section \ref{\detokenize{05.01_case_studies:case-studies}}} and corresponding results are presented in the \hyperref[\detokenize{06.01_results:results}]{Section \ref{\detokenize{06.01_results:results}}} with discussions, followed by conclusions. All code to reproduce this paper is open source \cite{alexandersson_code_2022}.
 
 
 \section{Vessel Manoeuvring Models}
@@ -839,33 +839,26 @@ The EKF and RTS have been run on simulated data with Gaussian noise added to see
 
 
 \subsection{Model development process}
-\label{\detokenize{04.10_model_development_process:id1}}\label{\detokenize{04.10_model_development_process::doc}}
+\label{\detokenize{04.10_3:id1}}\label{\detokenize{04.10_3::doc}}
 \sphinxAtStartPar
-The general aim of developing a manoeuvring model with parameter estimation is to develop a model that can generalize outside the known data. The method presented in this paper is evaluated with the ‘’Hold\sphinxhyphen{}Out’’ method where the data is divided into three sets:
-\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-training set
+The general aim of developing a manoeuvring model with parameter estimation is to develop a model that can generalize outside the known data. The method presented in this paper is evaluated with the holdout evaluation \cite{sammut_holdout_2017} where the data is divided into three sets: training set, validation set and test set as seen in Fig. \(\ref{\detokenize{04.10_3:id2}}\).
 
-\item {} 
-\sphinxAtStartPar
-validation set
+\begin{figure}[H]
+\centering
+\capstart
 
-\item {} 
-\sphinxAtStartPar
-test set.
-
-\end{itemize}
+\noindent\sphinxincludegraphics[height=150\sphinxpxdimen]{{3}.pdf}
+\caption{Model development process with holdout evaluation.}\label{\detokenize{04.10_3:id2}}\end{figure}
 
 \sphinxAtStartPar
-The best manoeuvring model is selected from a selection of candidate models. The purpose with the training set is to train all the candidate models using the proposed parameter estimation method. The validation set is then used to select which one of the candidate models is the best. The training and validation sets are then joined to train the selected model as the final model, to be used in predicting the test set, which is used to evaluate the accuracy of the model. These three sets are not divided randomly, but rather to assess the model’s extrapolation ability. The data sets are therefore split to have the smallest: yaw rates, drift\sphinxhyphen{} and rudder\sphinxhyphen{}angles in the training set, the medium values in the validation set and the largest values in the test set.
+The purpose with the training set is to train all the candidate models using the proposed parameter estimation method. The validation set is then used to select which one of the candidate models is the best. The training and validation sets are then joined to train the selected model as the final model, to be used in predicting the test set, which is used to evaluate the accuracy of the model. These three sets are not divided randomly, but rather to assess the model’s extrapolation ability. The data sets are therefore split to have the smallest: yaw rates, drift\sphinxhyphen{} and rudder\sphinxhyphen{}angles in the training set, the medium values in the validation set and the largest values in the test set which for instance can be seen in Fig. \(\ref{\detokenize{05.01_case_studies:fig-traintest}}\) in the next section.
 
 
 \section{Presentation of Case Studies}
 \label{\detokenize{05.01_case_studies:presentation-of-case-studies}}\label{\detokenize{05.01_case_studies:case-studies}}\label{\detokenize{05.01_case_studies::doc}}
 \sphinxAtStartPar
 The two case study model test results from the wPCC as shown in \hyperref[\detokenize{05.01_case_studies:wpcc-mdl}]{Fig.\@ \ref{\detokenize{05.01_case_studies:wpcc-mdl}}} and the well\sphinxhyphen{}known KVLCC2 are used to validate the proposed system identification method.
-The models are developed following the process as described in section \(\ref{\detokenize{04.10_model_development_process:id1}}\). Consequently, both test cases aim to predict turning circle maneuvers. The main dimensions of the two case study ship models are listed in \hyperref[\detokenize{05.01_case_studies:main-dimensions-of-test-case-ship-models}]{Table \ref{\detokenize{05.01_case_studies:main-dimensions-of-test-case-ship-models}}}, with explanations in \hyperref[\detokenize{05.01_case_studies:list-of-main-dimensions-symbols}]{Table \ref{\detokenize{05.01_case_studies:list-of-main-dimensions-symbols}}}. The wPCC is a wind\sphinxhyphen{}powered car carrier tested at SSPA \cite{alexandersson_wpcc_2022}. This twin screw ship with large rudders has good course stability and symmetric hydrodynamic manoeuvring forces. The KVLCC2 model test data from the Hamburg ship model basin (HSVA) and Maritime Research Institute Netherlands (MARIN) was made available by SIMMAN2008 conference \cite{stern_experience_2011}. This single screw ship is more course unstable than the wPCC test case, and manoeuvring forces are unsymmetrical due to the single propeller. This instability makes it good as the second test case with parameter estimation on an unsymmetrical model.
+The models are developed following the process as described in section \(\ref{\detokenize{04.10_3:id1}}\). Consequently, both test cases aim to predict turning circle maneuvers. The main dimensions of the two case study ship models are listed in \hyperref[\detokenize{05.01_case_studies:main-dimensions-of-test-case-ship-models}]{Table \ref{\detokenize{05.01_case_studies:main-dimensions-of-test-case-ship-models}}}, with explanations in \hyperref[\detokenize{05.01_case_studies:list-of-main-dimensions-symbols}]{Table \ref{\detokenize{05.01_case_studies:list-of-main-dimensions-symbols}}}. The wPCC is a wind\sphinxhyphen{}powered car carrier tested at SSPA \cite{alexandersson_wpcc_2022}. This twin screw ship with large rudders has good course stability and symmetric hydrodynamic manoeuvring forces. The KVLCC2 model test data from the Hamburg ship model basin (HSVA) and Maritime Research Institute Netherlands (MARIN) was made available by SIMMAN2008 conference \cite{stern_experience_2011}. This single screw ship is more course unstable than the wPCC test case, and manoeuvring forces are unsymmetrical due to the single propeller. This instability makes it good as the second test case with parameter estimation on an unsymmetrical model.
 
 \begin{figure}[H]
 \centering
@@ -1274,14 +1267,14 @@ KVLCC2 (HSVA)
 \label{\detokenize{05.01_case_studies:the-wpcc-test-scenarios}}
 \sphinxAtStartPar
 The wPCC test case focuses on predicting forces and moments from the ship hull and rudders. The propeller force is not part of the prediction model but is taken from the model test measurements.
-The model test data used for modeling is split into training, validation and test data sets, following the model development process as described in section \(\ref{\detokenize{04.10_model_development_process:id1}}\). The training dataset contains self\sphinxhyphen{}propulsion, pull\sphinxhyphen{}out tests, and zigzag10/10 tests to starboard and port. The validation dataset consists of three zigzag20/20 tests and the turning circle test is left for the test set as shown in \hyperref[\detokenize{05.01_case_studies:fig-traintest}]{Fig.\@ \ref{\detokenize{05.01_case_studies:fig-traintest}}}.
+The model test data used for modeling is split into training, validation and test data sets, following the model development process as described in section \(\ref{\detokenize{04.10_3:id1}}\). The training dataset contains self\sphinxhyphen{}propulsion, pull\sphinxhyphen{}out tests, and zigzag10/10 tests to starboard and port. The validation dataset consists of three zigzag20/20 tests and the turning circle test is left for the test set as shown in \hyperref[\detokenize{05.01_case_studies:fig-traintest}]{Fig.\@ \ref{\detokenize{05.01_case_studies:fig-traintest}}}.
 If the manoeuvring model built by the proposed method based on a series of model tests including ZigZag10/10, 20/20 to port and starboard as well as self\sphinxhyphen{}propulsion and pull out test \cite{imo_standards_2002} can predict the turning circle maneuver, then it is a capable model.
 
 \begin{figure}[H]
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{3}.pdf}
+\noindent\sphinxincludegraphics{{4}.pdf}
 \caption{wPCC training, validation and testing datasets.}\label{\detokenize{05.01_case_studies:fig-traintest}}\end{figure}
 
 
@@ -1290,14 +1283,14 @@ If the manoeuvring model built by the proposed method based on a series of model
 \sphinxAtStartPar
 The proposed method is also validated using the KVLCC2 case study ship model.
 The propeller is part of the manoeuvring model for this test case, instead of only the hull and rudders, as in the wPCC test case, so that the entire ship can be simulated without additional input.
-The model development process as described in section \(\ref{\detokenize{04.10_model_development_process:id1}}\) is applied for the KVLCC2 as well.
+The model development process as described in section \(\ref{\detokenize{04.10_3:id1}}\) is applied for the KVLCC2 as well.
 Here the training dataset contains various zigzag tests to starboard and port from model tests carried out at HSVA for the SIMMAN2008 conference \cite{stern_experience_2011}, where the ZigZag35/5 test is kept for the validation set. The test set is taken from turning circle model tests carried out at MARIN for the SIMMAN2008 conference \cite{stern_experience_2011} as seen in \hyperref[\detokenize{05.01_case_studies:fig-kvlcc2-traintest}]{Fig.\@ \ref{\detokenize{05.01_case_studies:fig-kvlcc2-traintest}}}.
 
 \begin{figure}[H]
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{4}.pdf}
+\noindent\sphinxincludegraphics{{5}.pdf}
 \caption{KVLCC2 training, validation and testing datasets.}\label{\detokenize{05.01_case_studies:fig-kvlcc2-traintest}}\end{figure}
 
 
@@ -1320,7 +1313,7 @@ The hydrodynamic derivatives within the manoeuvring model can be identified exac
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{5}.pdf}
+\noindent\sphinxincludegraphics{{6}.pdf}
 \caption{True and regressed hydrodynamic derivatives in MAVMM identified with Inverse dynamics and OLS regression on a simulated turning circle with MAVMM.}\label{\detokenize{06.40_results_inverse_dynamics:fig-bar-parameters}}\end{figure}
 
 
@@ -1339,7 +1332,7 @@ where \(d_n\) is the euclidean distance for each time step between the model tes
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{6}.pdf}
+\noindent\sphinxincludegraphics{{7}.pdf}
 \caption{Average simulation error with MAVMM fitted on wPCC model test data using low\sphinxhyphen{}pass filters with various cutt off frequency or EKF.}\label{\detokenize{06.31_results_noise:fig-lowpass-accuracy}}\end{figure}
 
 \sphinxAtStartPar
@@ -1357,14 +1350,14 @@ The simulations are shown for one of the ZigZag20/20 validation cases in \hyperr
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{7}.pdf}
+\noindent\sphinxincludegraphics{{8}.pdf}
 \caption{Validation of force models for wPCC ZigZag20/20.}\label{\detokenize{06.10_results_wpcc:fig-validation-forces}}\end{figure}
 
 \begin{figure}[H]
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{8}.pdf}
+\noindent\sphinxincludegraphics{{9}.pdf}
 \caption{Validation with simulations for wPCC ZigZag20/20.}\label{\detokenize{06.10_results_wpcc:fig-validation-sim}}\end{figure}
 
 \sphinxAtStartPar
@@ -1374,7 +1367,7 @@ The over\sphinxhyphen{}prediction of forces with the AVMM can be explained by th
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{9}.pdf}
+\noindent\sphinxincludegraphics{{10}.pdf}
 \caption{Absolute correlation between the features in the wPCC yaw moment regression of AVMM}\label{\detokenize{06.10_results_wpcc:fig-ncorr}}\end{figure}
 
 \sphinxAtStartPar
@@ -1386,14 +1379,14 @@ which are acceptable deviations for the wPCC considering the large margin to the
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{10}.pdf}
+\noindent\sphinxincludegraphics{{11}.pdf}
 \caption{Turning circle test case for wPCC, track plots from model test and simulation.}\label{\detokenize{06.10_results_wpcc:fig-track-plot-testing-sim}}\end{figure}
 
 \begin{figure}[H]
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{11}.pdf}
+\noindent\sphinxincludegraphics{{12}.pdf}
 \caption{Turning circle test case for wPCC, time series from model test and simulation.}\label{\detokenize{06.10_results_wpcc:fig-testing-sim}}\end{figure}
 
 
@@ -1670,8 +1663,8 @@ The model tests were divided into the test and validation sets randomly. The ran
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{12}.pdf}
-\caption{Validation of MMG, Simple and Poynomial propeller models for KVLCC2.}\label{\detokenize{06.20_results_kvlcc2:fig-propeller-validation}}\end{figure}
+\noindent\sphinxincludegraphics{{13}.pdf}
+\caption{Validation of MMG, Simple and Polynomial propeller models for KVLCC2.}\label{\detokenize{06.20_results_kvlcc2:fig-propeller-validation}}\end{figure}
 
 \sphinxAtStartPar
 \hyperref[\detokenize{06.20_results_kvlcc2:kvlcc2-propeller-model}]{Table \ref{\detokenize{06.20_results_kvlcc2:kvlcc2-propeller-model}}} shows coefficients of the polynomial propeller model fitted on the training and validation dataset for KVLCC2.
@@ -1749,7 +1742,7 @@ The forces are well predicted with both manoeuvring models. The AVMM is not givi
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{13}.pdf}
+\noindent\sphinxincludegraphics{{14}.pdf}
 \caption{Validation of force models for KVLCC2.}\label{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-forces}}\end{figure}
 
 \sphinxAtStartPar
@@ -1759,14 +1752,14 @@ Simulations of the validation cases with the MAVMM is shown for one of the ZigZa
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{14}.pdf}
+\noindent\sphinxincludegraphics{{15}.pdf}
 \caption{Validation with simulations for KVLCC2.}\label{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-sim}}\end{figure}
 
 \begin{figure}[H]
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{15}.pdf}
+\noindent\sphinxincludegraphics{{16}.pdf}
 \caption{Validation error (prediction\sphinxhyphen{}model test) with simulations for KVLCC2.}\label{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-validation-sim-error}}\end{figure}
 
 \sphinxAtStartPar
@@ -1776,21 +1769,21 @@ Results from the final prediction of the turning circle test are shown in  \hype
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{16}.pdf}
+\noindent\sphinxincludegraphics{{17}.pdf}
 \caption{Comparison between predicted Turning circle test with MAVMM trained on HSVA data and MARIN model test results for KVLCC2.}\label{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-track-plot-testing-sim}}\end{figure}
 
 \begin{figure}[H]
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{17}.pdf}
+\noindent\sphinxincludegraphics{{18}.pdf}
 \caption{Comparison between predicted Turning circle test with MAVMM trained on HSVA data and MARIN model test results for KVLCC2.}\label{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-testing-sim}}\end{figure}
 
 \begin{figure}[H]
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{18}.pdf}
+\noindent\sphinxincludegraphics{{19}.pdf}
 \caption{The prediction error (prediction\sphinxhyphen{}model test) for Turning circle test with MAVMM trained on HSVA data and MARIN model test results for KVLCC2.}\label{\detokenize{06.20_results_kvlcc2:fig-kvlcc2-testing-sim-error}}\end{figure}
 
 \sphinxAtStartPar

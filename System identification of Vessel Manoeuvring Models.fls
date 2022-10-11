@@ -1229,18 +1229,18 @@ INPUT 2.pdf
 INPUT .\2.pdf
 INPUT .\2.pdf
 INPUT 2.pdf
-INPUT .\wpcc_mdl.png
-INPUT .\wpcc_mdl.png
-INPUT wpcc_mdl.png
-INPUT .\wpcc_mdl.png
-INPUT .\wpcc_mdl.png
-INPUT wpcc_mdl.png
 INPUT .\3.pdf
 INPUT .\3.pdf
 INPUT 3.pdf
 INPUT .\3.pdf
 INPUT .\3.pdf
 INPUT 3.pdf
+INPUT .\wpcc_mdl.png
+INPUT .\wpcc_mdl.png
+INPUT wpcc_mdl.png
+INPUT .\wpcc_mdl.png
+INPUT .\wpcc_mdl.png
+INPUT wpcc_mdl.png
 INPUT .\4.pdf
 INPUT .\4.pdf
 INPUT 4.pdf
@@ -1331,6 +1331,12 @@ INPUT 18.pdf
 INPUT .\18.pdf
 INPUT .\18.pdf
 INPUT 18.pdf
+INPUT .\19.pdf
+INPUT .\19.pdf
+INPUT 19.pdf
+INPUT .\19.pdf
+INPUT .\19.pdf
+INPUT 19.pdf
 INPUT .\System identification of Vessel Manoeuvring Models.bbl
 INPUT System identification of Vessel Manoeuvring Models.bbl
 INPUT .\System identification of Vessel Manoeuvring Models.bbl
